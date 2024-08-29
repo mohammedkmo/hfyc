@@ -1,113 +1,134 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React, { useState } from "react";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
+import Image from "next/image";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { ImageFile, Mapping } from "@/types/files";
+import { renameImages } from "@/lib/renameImages";
+import { handleExcelUpload } from "@/lib/handleExcelUpload";
+import Link from "next/link";
+
+// Define types for better type safety
+
+export default function FolderImageProcessor() {
+  const [images, setImages] = useState<ImageFile[]>([]);
+  const [mappings, setMappings] = useState<Mapping>({});
+
+  // Handle folder selection
+  const handleFolderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(event.target.files || []);
+    const imageFiles = files.filter((file) => file.type.startsWith("image/")); // Filter only images
+
+    const processedImages = imageFiles.map((file) => {
+      return new Promise<ImageFile>((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file); // Read the image as a data URL
+
+        reader.onload = () => {
+          resolve({
+            originalName: file.name,
+            data: reader.result as string,
+            file,
+          });
+        };
+      });
+    });
+
+    Promise.all(processedImages).then((results) => setImages(results));
+  };
+
+  // Generate ZIP file for download
+  const handleDownloadZip = async () => {
+    const zip = new JSZip();
+    const renamedImages = renameImages(images, mappings);
+
+    renamedImages.forEach((image) => {
+      if (image.newName) {
+        zip.file(image.newName, image.data.split(",")[1], { base64: true }); // Add renamed image to ZIP
+      }
+    });
+
+    const content = await zip.generateAsync({ type: "blob" });
+    saveAs(content, `renamed_images${Date.now()}.zip`); // Trigger ZIP download
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen w-full bg-white">
+      <div className="container flex items-center justify-center min-h-screen">
+        <div className="flex flex-col">
+          <div className="mb-5">
+            <h1 className="text-2xl font-bold">Photos Renaming Tool</h1>
+            <p className="text-xs text-muted-foreground">
+              @By PCH Badging Team
+            </p>
+            <p className="text-sm text-muted-foreground border p-2 bg-yellow-50 border-yellow-200 text-yellow-800  rounded-lg mt-2">
+              ⚠️ No files or photos will be uploaded to our server or any other
+              servers all the functions are working on the client side only
+            </p>
+          </div>
+          <div className="space-y-6">
+            <div className="w-full max-w-sm items-center space-y-1">
+              <Label htmlFor="picture">Select Images</Label>
+              <Input
+                id="photos"
+                type="file"
+                multiple
+                accept="image/*"
+                onChange={handleFolderChange}
+              />
+              <p className="text-xs text-muted-foreground">
+                You can select multiple images
+              </p>
+            </div>
+
+            <div
+              className={`flex items-center my-5 border rounded-lg ps-4 p-2 ${
+                images.length < 1 && "hidden"
+              }`}
+            >
+              {images.map(
+                (image, index) =>
+                  index < 10 && ( // Display only first 5 images
+                    <Image
+                      key={index}
+                      src={image.data}
+                      alt="Processed"
+                      width={44}
+                      height={44}
+                      className="rounded-lg -ms-2 border border-white shadow-lg"
+                    />
+                  )
+              )}
+            </div>
+            <div className="w-full max-w-sm items-center space-y-1">
+              <Label htmlFor="excel">Excel file</Label>
+              <Input
+                id="excel"
+                type="file"
+                multiple
+                accept=".xlsx,.xls"
+                onChange={(e) => handleExcelUpload(e, setMappings)}
+              />
+              <p className="text-xs text-muted-foreground">
+                Upload an Excel file with HFYC Number, First Name, and Last Name
+                columns. please read the following instructions <Link className="text-black font-bold" href="/instructions">here</Link>
+              </p>
+            </div>
+          </div>
+
+          <Button
+            onClick={handleDownloadZip}
+            className="mt-4"
+            disabled={!images.length || !Object.keys(mappings).length}
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            Download Renamed Images as ZIP
+          </Button>
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
