@@ -1,6 +1,6 @@
 'use client'
 
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +9,15 @@ import { X } from "lucide-react"
 
 export default function Page() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleDownloadExcel = () => {
+        const link = document.createElement('a');
+        link.href = '/register.xlsx';
+        link.download = 'register.xlsx';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
     const toggleModal = () => {
       setIsModalOpen(!isModalOpen);
@@ -29,7 +38,9 @@ export default function Page() {
 
           <Image onClick={toggleModal} className="border rounded-lg mt-4 bg-white shadow-sm" src="/excel-example.png" alt="Excel example" width={500} height={300} />
 
-          <p className="text-sm text-muted-foreground mt-4">Please make sure to write the titles correctly and also ensure that all your photo names start with HFYC-****.</p>
+          <p className="text-sm text-muted-foreground mt-4">You can download the excel register file from the link below</p>
+
+          <Button variant="link" onClick={handleDownloadExcel}>Download the Excel register</Button>
 
           <div>
             <Link className={cn(buttonVariants({variant:"outline"}), "w-full mt-4 shadow-sm")} href="/">Rename your photos now</Link>

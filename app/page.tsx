@@ -93,14 +93,15 @@ export default function FolderImageProcessor() {
               {images.map(
                 (image, index) =>
                   index < 10 && ( // Display only first 5 images
-                    <Image
-                      key={index}
+                    <div className="rounded-lg -ms-2 border bg-white border-white shadow-lg overflow-hidden w-10 h-10" key={index}>
+                      <Image
                       src={image.data}
                       alt="Processed"
-                      width={44}
-                      height={44}
-                      className="rounded-lg -ms-2 border border-white shadow-lg"
+                      width={100}
+                      height={100}
+                      className="object-cover h-full w-full"
                     />
+                    </div>
                   )
               )}
             </div>
