@@ -51,9 +51,9 @@ export default function Component() {
       contractHoldingPetroChinaDepartment: "",
       eaLetterNumber: "",
       numberInEaList: "",
-      photo: undefined,
-      idDocument: undefined,
-      drivingLicense: undefined,
+      photo: File,
+      idDocument: File,
+      drivingLicense: File,
     });
     setActiveTab(`employee-${fields.length}`);
   };
