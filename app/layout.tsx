@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Photos Renaming Tool",
-  description: "A tool to rename photos in bulk",
+  title: "PCH badging",
+  description: "Petrochina PCH badging",
 };
 
 export default function RootLayout({
