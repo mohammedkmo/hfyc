@@ -38,7 +38,14 @@ export default function Component() {
   });
 
   const addEmployee = () => {
-    append();
+    append({
+      id: "",
+      firstName: "",
+      lastName: "",
+      contractor: "",
+      position: "",
+      idDocumentNumber: "",
+    });
     setActiveTab(`employee-${fields.length}`);
   };
 
