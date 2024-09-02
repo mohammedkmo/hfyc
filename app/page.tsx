@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -45,6 +44,15 @@ export default function Component() {
       contractor: "",
       position: "",
       idDocumentNumber: "",
+      nationality: "",
+      subcontractor: "",
+      associatedPetroChinaContractNumber: "",
+      contractHoldingPetroChinaDepartment: "",
+      eaLetterNumber: "",
+      numberInEaList: "",
+      photo: null as unknown as File,
+      idDocument: null as unknown as File,
+      drivingLicense: undefined,
     });
     setActiveTab(`employee-${fields.length}`);
   };
@@ -382,10 +390,12 @@ export default function Component() {
                                       type="file"
                                       onChange={(e) => {
                                         const file = e.target.files?.[0];
-                                        form.setValue(
-                                          `employees.${index}.photo`,
-                                          file
-                                        );
+                                        if (file) {
+                                          form.setValue(
+                                            `employees.${index}.photo`,
+                                            file
+                                          );
+                                        }
                                       }}
                                     />
                                   </FormControl>
@@ -404,10 +414,12 @@ export default function Component() {
                                       type="file"
                                       onChange={(e) => {
                                         const file = e.target.files?.[0];
-                                        form.setValue(
-                                          `employees.${index}.idDocument`,
-                                          file
-                                        );
+                                        if (file) {
+                                          form.setValue(
+                                            `employees.${index}.idDocument`,
+                                            file
+                                          );
+                                        }
                                       }}
                                     />
                                   </FormControl>
@@ -428,7 +440,7 @@ export default function Component() {
                                         const file = e.target.files?.[0];
                                         form.setValue(
                                           `employees.${index}.drivingLicense`,
-                                          file
+                                          file || undefined
                                         );
                                       }}
                                     />
