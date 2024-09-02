@@ -38,7 +38,23 @@ export default function Component() {
   });
 
   const addEmployee = () => {
-    append({});
+    append({
+      id: "",
+      firstName: "",
+      lastName: "",
+      contractor: "",
+      position: "",
+      idDocumentNumber: "",
+      nationality: "",
+      subcontractor: "",
+      associatedPetroChinaContractNumber: "",
+      contractHoldingPetroChinaDepartment: "",
+      eaLetterNumber: "",
+      numberInEaList: "",
+      photo: undefined,
+      idDocument: undefined,
+      drivingLicense: undefined,
+    });
     setActiveTab(`employee-${fields.length}`);
   };
 
@@ -148,7 +164,11 @@ export default function Component() {
             >
               <TabsList className="flex justify-start items-center container overflow-x-scroll h-auto scroll-smooth rounded-xl border border-b-0 rounded-b-none">
                 {fields.map((field: any, index: any) => (
-                  <TabsTrigger className="rounded-xl" key={field.id} value={`employee-${index}`}>
+                  <TabsTrigger
+                    className="rounded-xl"
+                    key={field.id}
+                    value={`employee-${index}`}
+                  >
                     Employee {index + 1}
                   </TabsTrigger>
                 ))}
