@@ -67,3 +67,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--background);
+  scrollbar-gutter: stable;
+}

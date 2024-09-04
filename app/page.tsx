@@ -20,6 +20,14 @@ import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import * as XLSX from "xlsx";
 import { FormValues, formSchema } from "@/schema/employee";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { nationalities } from "@/data/nationalities";
 
 export default function Component() {
   const [activeTab, setActiveTab] = useState("employee-0");
@@ -152,8 +160,14 @@ export default function Component() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-slate-100">
+    <div className="min-h-screen w-full flex items-center justify-center bg-gray-100">
       <div className=" container">
+        <h1 className="text-3xl font-bold text-center mb-4">
+          PCH Badging Office
+        </h1>
+        <p className="text-center mb-4">
+          Please fill in the details of the employees you want to register.
+        </p>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <Tabs
@@ -161,10 +175,16 @@ export default function Component() {
               onValueChange={setActiveTab}
               className="w-full"
             >
-              <TabsList className="flex justify-start items-center container overflow-x-scroll h-auto scroll-smooth rounded-xl border border-b-0 rounded-b-none">
+              <TabsList className="flex justify-start items-center container overflow-x-scroll h-auto scroll-smooth scrollbar rounded-xl border border-b-0 rounded-b-none">
                 {fields.map((field: any, index: any) => (
-                  <TabsTrigger className="rounded-xl" key={field.id} value={`employee-${index}`}>
-                    Employee {index + 1}
+                  <TabsTrigger
+                    className="rounded-xl h-auto"
+                    key={field.id}
+                    value={`employee-${index}`}
+                  >
+                    {field.firstName || field.lastName
+                      ? field.firstName + " " + field.lastName
+                      : `Employee ${index + 1}`}
                   </TabsTrigger>
                 ))}
                 <Button
@@ -214,6 +234,8 @@ export default function Component() {
                                     <FormControl>
                                       <Input
                                         className="rounded-l-none"
+                                        maxLength={4}
+                                        onInput={(e) => { e.target.value = e.target.value.replace(/[^0-9]/g, ''); }}
                                         {...field}
                                       />
                                     </FormControl>
@@ -297,9 +319,25 @@ export default function Component() {
                               render={({ field }: { field: any }) => (
                                 <FormItem>
                                   <FormLabel>Nationality</FormLabel>
-                                  <FormControl>
-                                    <Input {...field} />
-                                  </FormControl>
+
+                                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl>
+                                      <SelectTrigger className="rounded-xl">
+                                        <SelectValue placeholder="Select nationality" />
+                                      </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                      {nationalities.map((nationality) => (
+                                        <SelectItem
+                                          key={nationality.num_code}
+                                          value={nationality.nationality}
+                                        >
+                                          {nationality.nationality}
+                                        </SelectItem>
+                                      ))}
+                                    </SelectContent>
+                                  </Select>
+
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -309,7 +347,9 @@ export default function Component() {
                               name={`employees.${index}.subcontractor`}
                               render={({ field }: { field: any }) => (
                                 <FormItem>
-                                  <FormLabel>Subcontractor</FormLabel>
+                                  <FormLabel>
+                                    Subcontractor --- if applicable
+                                  </FormLabel>
                                   <FormControl>
                                     <Input {...field} />
                                   </FormControl>
@@ -358,7 +398,7 @@ export default function Component() {
                                 <FormItem>
                                   <FormLabel>EA Letter Number</FormLabel>
                                   <FormControl>
-                                    <Input {...field} />
+                                    <Input type="number" {...field} />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
@@ -371,7 +411,7 @@ export default function Component() {
                                 <FormItem>
                                   <FormLabel>Number in EA List</FormLabel>
                                   <FormControl>
-                                    <Input {...field} />
+                                    <Input type="number" {...field} />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
@@ -432,7 +472,9 @@ export default function Component() {
                               name={`employees.${index}.drivingLicense`}
                               render={({ field }: { field: any }) => (
                                 <FormItem>
-                                  <FormLabel>Driving License</FormLabel>
+                                  <FormLabel>
+                                    Driving License --- if applicable
+                                  </FormLabel>
                                   <FormControl>
                                     <Input
                                       type="file"
