@@ -73,3 +73,40 @@
   scrollbar-color: var(--border) var(--background);
   scrollbar-gutter: stable;
 }
+
+.gradient {
+background-image: radial-gradient(#c0c0c0 0.5px, #ffffff 0.5px);
+background-size: 10px 10px;
+}
+
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.file-upload:hover {
+  border-color: #888;
+}
+
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.file-upload-icon {
+  margin-right: 10px;
+  font-size: 24px;
+  color: #888;
+}
+
+.file-upload-input {
+  display: none;
+}

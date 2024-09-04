@@ -10,6 +10,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -28,6 +29,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { nationalities } from "@/data/nationalities";
+import CustomFileUpload from "@/components/ui/customFileUpload";
 
 export default function Component() {
   const [activeTab, setActiveTab] = useState("employee-0");
@@ -160,14 +162,14 @@ export default function Component() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen w-full flex items-center justify-center gradient py-10">
       <div className=" container">
-        <h1 className="text-3xl font-bold text-center mb-4">
-          PCH Badging Office
-        </h1>
-        <p className="text-center mb-4">
-          Please fill in the details of the employees you want to register.
-        </p>
+        <div className="space-y-1 mb-4">
+          <h1 className="text-2xl font-bold text-center">PCH Badging Office</h1>
+          <p className="text-center text-muted-foreground text-sm">
+            Please fill in the details of the employees you want to register.
+          </p>
+        </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <Tabs
@@ -175,10 +177,10 @@ export default function Component() {
               onValueChange={setActiveTab}
               className="w-full"
             >
-              <TabsList className="flex justify-start items-center container overflow-x-scroll h-auto scroll-smooth scrollbar rounded-xl border border-b-0 rounded-b-none">
+              <TabsList className="flex justify-start items-center p-2 border-black container overflow-x-scroll h-auto scroll-smooth scrollbar rounded-xl border border-b-0 rounded-b-none">
                 {fields.map((field: any, index: any) => (
                   <TabsTrigger
-                    className="rounded-xl h-auto"
+                    className="rounded-lg h-auto"
                     key={field.id}
                     value={`employee-${index}`}
                   >
@@ -200,9 +202,9 @@ export default function Component() {
                 <TabsContent
                   key={field.id}
                   value={`employee-${index}`}
-                  className="mt-0 rounded-xl"
+                  className="mt-0 rounded-xl "
                 >
-                  <Card className=" rounded-xl rounded-t-none border-t-0">
+                  <Card className=" rounded-xl rounded-t-none border-t-0 shadow-none border-black">
                     <CardHeader className="flex flex-row items-center justify-between">
                       <CardTitle>Employee {index + 1} Details</CardTitle>
                       {fields.length > 1 && (
@@ -235,11 +237,22 @@ export default function Component() {
                                       <Input
                                         className="rounded-l-none"
                                         maxLength={4}
-                                        onInput={(e) => { e.target.value = e.target.value.replace(/[^0-9]/g, ''); }}
+                                        onInput={(e) => {
+                                          const inputElement =
+                                            e.target as HTMLInputElement;
+                                          inputElement.value =
+                                            inputElement.value.replace(
+                                              /[^0-9]/g,
+                                              ""
+                                            );
+                                        }}
                                         {...field}
                                       />
                                     </FormControl>
                                   </div>
+                                  <FormDescription>
+                                    Enter the HFYC number provided by the PCH
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -253,6 +266,9 @@ export default function Component() {
                                   <FormControl>
                                     <Input {...field} />
                                   </FormControl>
+                                  <FormDescription>
+                                    Enter the first name of the employee
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -266,6 +282,9 @@ export default function Component() {
                                   <FormControl>
                                     <Input {...field} />
                                   </FormControl>
+                                  <FormDescription>
+                                    Enter the last name of the employee
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -281,6 +300,9 @@ export default function Component() {
                                   <FormControl>
                                     <Input {...field} />
                                   </FormControl>
+                                  <FormDescription>
+                                    Enter the name of your company
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -294,6 +316,9 @@ export default function Component() {
                                   <FormControl>
                                     <Input {...field} />
                                   </FormControl>
+                                  <FormDescription>
+                                    Enter the position of the employee
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -307,6 +332,9 @@ export default function Component() {
                                   <FormControl>
                                     <Input {...field} />
                                   </FormControl>
+                                  <FormDescription>
+                                    Enter the ID document number of the employee
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -320,12 +348,16 @@ export default function Component() {
                                 <FormItem>
                                   <FormLabel>Nationality</FormLabel>
 
-                                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                  <Select
+                                    onValueChange={field.onChange}
+                                    defaultValue={field.value}
+                                  >
                                     <FormControl>
                                       <SelectTrigger className="rounded-xl">
                                         <SelectValue placeholder="Select nationality" />
                                       </SelectTrigger>
                                     </FormControl>
+
                                     <SelectContent>
                                       {nationalities.map((nationality) => (
                                         <SelectItem
@@ -337,7 +369,9 @@ export default function Component() {
                                       ))}
                                     </SelectContent>
                                   </Select>
-
+                                  <FormDescription>
+                                    Select employee Nationality
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -348,11 +382,14 @@ export default function Component() {
                               render={({ field }: { field: any }) => (
                                 <FormItem>
                                   <FormLabel>
-                                    Subcontractor --- if applicable
+                                    SubContractor --- if applicable
                                   </FormLabel>
                                   <FormControl>
                                     <Input {...field} />
                                   </FormControl>
+                                  <FormDescription>
+                                    Enter the subContractor name if applicable
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -370,6 +407,10 @@ export default function Component() {
                                   <FormControl>
                                     <Input {...field} />
                                   </FormControl>
+                                  <FormDescription>
+                                    Enter the associated PetroChina contract
+                                    number
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -385,6 +426,10 @@ export default function Component() {
                                   <FormControl>
                                     <Input {...field} />
                                   </FormControl>
+                                  <FormDescription>
+                                    Enter the contract holding PetroChina
+                                    department
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -400,6 +445,9 @@ export default function Component() {
                                   <FormControl>
                                     <Input type="number" {...field} />
                                   </FormControl>
+                                  <FormDescription>
+                                    Enter the EA letter number
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -413,6 +461,9 @@ export default function Component() {
                                   <FormControl>
                                     <Input type="number" {...field} />
                                   </FormControl>
+                                  <FormDescription>
+                                    Enter the number in the EA list
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -426,19 +477,19 @@ export default function Component() {
                                 <FormItem>
                                   <FormLabel>Photo</FormLabel>
                                   <FormControl>
-                                    <Input
-                                      type="file"
-                                      onChange={(e) => {
-                                        const file = e.target.files?.[0];
-                                        if (file) {
-                                          form.setValue(
-                                            `employees.${index}.photo`,
-                                            file
-                                          );
-                                        }
-                                      }}
+                                    <CustomFileUpload
+                                      onChange={(file: any) =>
+                                        form.setValue(
+                                          `employees.${index}.photo`,
+                                          file
+                                        )
+                                      }
+                                      label="Upload Photo"
                                     />
                                   </FormControl>
+                                  <FormDescription>
+                                    Upload a photo of the employee
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -450,19 +501,19 @@ export default function Component() {
                                 <FormItem>
                                   <FormLabel>ID Document</FormLabel>
                                   <FormControl>
-                                    <Input
-                                      type="file"
-                                      onChange={(e) => {
-                                        const file = e.target.files?.[0];
-                                        if (file) {
-                                          form.setValue(
-                                            `employees.${index}.idDocument`,
-                                            file
-                                          );
-                                        }
-                                      }}
+                                    <CustomFileUpload
+                                      onChange={(file: any) =>
+                                        form.setValue(
+                                          `employees.${index}.idDocument`,
+                                          file
+                                        )
+                                      }
+                                      label="Upload ID Document"
                                     />
                                   </FormControl>
+                                  <FormDescription>
+                                    Upload the ID document of the employee
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -476,17 +527,20 @@ export default function Component() {
                                     Driving License --- if applicable
                                   </FormLabel>
                                   <FormControl>
-                                    <Input
-                                      type="file"
-                                      onChange={(e) => {
-                                        const file = e.target.files?.[0];
+                                    <CustomFileUpload
+                                      onChange={(file: any) =>
                                         form.setValue(
                                           `employees.${index}.drivingLicense`,
-                                          file || undefined
-                                        );
-                                      }}
+                                          file
+                                        )
+                                      }
+                                      label="Upload Driving License"
                                     />
                                   </FormControl>
+                                  <FormDescription>
+                                    Upload the driving license of the employee
+                                    if the employee is a driver
+                                  </FormDescription>
                                   <FormMessage />
                                 </FormItem>
                               )}
