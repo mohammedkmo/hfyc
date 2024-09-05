@@ -478,6 +478,7 @@ export default function Component() {
                                   <FormLabel>Photo</FormLabel>
                                   <FormControl>
                                     <CustomFileUpload
+                                      initialFile={field.value}
                                       onChange={(file: any) =>
                                         form.setValue(
                                           `employees.${index}.photo`,
@@ -502,6 +503,7 @@ export default function Component() {
                                   <FormLabel>ID Document</FormLabel>
                                   <FormControl>
                                     <CustomFileUpload
+                                      initialFile={field.value}
                                       onChange={(file: any) =>
                                         form.setValue(
                                           `employees.${index}.idDocument`,
@@ -528,12 +530,13 @@ export default function Component() {
                                   </FormLabel>
                                   <FormControl>
                                     <CustomFileUpload
-                                      onChange={(file: any) =>
+                                      initialFile={field.value}
+                                      onChange={(file: any) => {
                                         form.setValue(
                                           `employees.${index}.drivingLicense`,
-                                          file
-                                        )
-                                      }
+                                          file || undefined
+                                        );
+                                      }}
                                       label="Upload Driving License"
                                     />
                                   </FormControl>
