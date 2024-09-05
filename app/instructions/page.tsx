@@ -25,7 +25,7 @@ export default function Page() {
     
   return (
     <main className="min-h-screen w-full bg-gray-100">
-      <div className="container h-full flex items-center justify-center min-h-screen">
+      <div className="container w-4/12 m-auto h-full flex items-center justify-center min-h-screen">
         <div className="flex flex-col">
           <div className="space-y-2">
           <h1 className="text-2xl font-bold">Excel file instructions</h1>
