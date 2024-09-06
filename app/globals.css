@@ -74,16 +74,16 @@
   scrollbar-gutter: stable;
 }
 
-.gradient {
-background-image: radial-gradient(#9d9d9d 0.5px, #ffffff 0.5px);
-background-size: 10px 10px;
-/* for chrome and safari and firefox */
-background-image: -webkit-radial-gradient(#787878 0.5px, #ffffff 0.5px);
-background-image: -moz-radial-gradient(#787878 0.5px, #ffffff 0.5px);
-background-image: -o-radial-gradient(#787878 0.5px, #ffffff 0.5px);
-background-image: -ms-radial-gradient(#787878 0.5px, #ffffff 0.5px);
+.pettern {
+  background: radial-gradient(circle, #cfcfcf 10%, transparent 11%),
+    radial-gradient(circle at bottom left, #cfcfcf 5%, transparent 6%),
+    radial-gradient(circle at bottom right, #cfcfcf 5%, transparent 6%),
+    radial-gradient(circle at top left, #cfcfcf 5%, transparent 6%),
+    radial-gradient(circle at top right, #cfcfcf 5%, transparent 6%);
+  background-size: 1em 1em;
+  background-color: #ffffff;
+  opacity: 1;
 }
-
 
 .file-upload {
   display: flex;

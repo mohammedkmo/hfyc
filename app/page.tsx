@@ -162,7 +162,7 @@ export default function Component() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center gradient py-10">
+    <div className="min-h-screen w-full flex items-center justify-center pettern py-10">
       <div className=" container">
         <div className="space-y-1 mb-4">
           <h1 className="text-2xl font-bold text-center">PCH Badging Office</h1>
