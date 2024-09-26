@@ -26,6 +26,7 @@ export const employeeSchema = z.object({
       .instanceof(File)
       .refine((file) => file.size <= 10000000, `Max file size is 10MB.`),
     drivingLicense: z.instanceof(File).optional(),
+    moiCard: z.instanceof(File).refine((file) => file.size <= 10000000, `Max file size is 10MB.`).optional(),
   });
 
 

@@ -39,12 +39,12 @@ const CustomFileUpload = ({ onChange, label, initialFile }: any) => {
     <div className="file-upload">
       <label className="file-upload-label text-xs">
         <FileUp className="file-upload-icon" />
-        <span>{fileName.length > 30 ? fileName.slice(0,30) + "......" : fileName || label}</span>
-        <Input type="file" onChange={handleFileChange} className="file-upload-input w-full h-full" />
+        <span>{fileName.length > 30 ? fileName.slice(0,20) + "......" : fileName || label}</span>
+        <Input type="file" onChange={handleFileChange} className="file-upload-input w-full h-full" accept='image/*' />
       </label>
       {imagePreview && (
         <div className="image-preview w-full h-40 rounded-lg overflow-hidden">
-          <Image className="object-cover" src={imagePreview} width={400} height={100} alt="Image Preview" />
+          <Image className="object-cover w-full h-full" src={imagePreview} width={400} height={100} alt="Image Preview" />
         </div>
       )}
     </div>

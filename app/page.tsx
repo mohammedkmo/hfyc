@@ -30,9 +30,11 @@ import {
 } from "@/components/ui/select";
 import { nationalities } from "@/data/nationalities";
 import CustomFileUpload from "@/components/ui/customFileUpload";
+import { formatDate } from "@/lib/helpers";
 
 export default function Component() {
   const [activeTab, setActiveTab] = useState("employee-0");
+  const [tabTitle, setTabTitle] = useState('');
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -81,6 +83,7 @@ export default function Component() {
     const photosFolder = zip.folder("Photos");
     const idDocsFolder = zip.folder("ID Documents");
     const drivingLicensesFolder = zip.folder("Driving Licences");
+    const moiCardsFolder = zip.folder("MOI Cards");
 
     // Prepare Excel data
     const excelData = data.employees.map((employee, index) => {
@@ -89,6 +92,10 @@ export default function Component() {
       const idName = `${badgeNumber}-ID Document.jpg`;
       const drivingLicenseName = employee.drivingLicense
         ? `${badgeNumber}-Driving License.jpg`
+        : null;
+
+      const moiCardName = employee.moiCard
+        ? `${badgeNumber}-MOI Card.jpg`
         : null;
 
       // Add files to ZIP
@@ -102,49 +109,87 @@ export default function Component() {
           );
         }
       }
+      if (employee.moiCard) {
+        if (moiCardName) {
+          moiCardsFolder!.file(moiCardName, employee.moiCard);
+        }
+      }
 
       // Return employee data for Excel
       return {
-        id: badgeNumber,
-        firstName: employee.firstName,
-        lastName: employee.lastName,
-        contractor: employee.contractor,
-        position: employee.position,
-        idDocumentNumber: employee.idDocumentNumber,
-        nationality: employee.nationality,
-        subContractor: employee.subcontractor,
-        associatedPetroChinaContractNumber:
+        "ID": badgeNumber,
+        "First Name": employee.firstName,
+        "Last Name": employee.lastName,
+        "Department": `HALFAYA/Contractor/${employee.contractor}`,
+        "Start Time of Effective Period": formatDate(new Date()),
+        "End Time of Effective Period": formatDate(new Date()),
+        "Enrollment Date": formatDate(new Date()),
+        "Type": "Basic Person",
+        "Company Name": employee.contractor,
+        "Subcontractor Name": employee.subcontractor,
+        "ID Document Number": employee.idDocumentNumber,
+        "Nationality": employee.nationality,
+        "System Credential Number": "",
+        "Associated PCH Contract Number":
           employee.associatedPetroChinaContractNumber,
-        contractHoldingPetroChinaDepartment:
+        "Contract Holding PCH Department":
           employee.contractHoldingPetroChinaDepartment,
-        eaLetterNumber: employee.eaLetterNumber,
-        numberInEaList: employee.numberInEaList,
-        photo: photoName,
-        idDocument: idName,
-        drivingLicense: drivingLicenseName,
+        "Comments": "",
+        "EA Letter Number": employee.eaLetterNumber,
+        "Number in EA List": employee.numberInEaList,
+        "Access Revoked": "NO",
+        "Position-": employee.position,
+        "Sponsor Badge": "NO",
       };
     });
 
-    // Create Excel file
-    const worksheet = XLSX.utils.json_to_sheet(excelData, {
-      header: [
-        "id",
-        "firstName",
-        "lastName",
-        "contractor",
-        "position",
-        "idDocumentNumber",
-        "nationality",
-        "subContractor",
-        "associatedPetroChinaContractNumber",
-        "contractHoldingPetroChinaDepartment",
-        "eaLetterNumber",
-        "numberInEaList",
-        "photo",
-        "idDocument",
-        "drivingLicense",
-      ],
-    });
+    const headerText = [
+      ["Rule"],
+      ["At least one of family name and given name is required."],
+      ["Once configured, the ID cannot be edited. Confirm the ID rule before setting an ID."],
+      ["Do NOT change the layout and column title in this template file. The importing may fail if changed."],
+      ["You can add persons to an existing departments. The department names should be separated by/. For example, import persons to Department A in All Departments. Format: All Departments/Department A."],
+      ["Start Time of Effective Period is used for Access Control Module and Time & Attendance Module. Format: yyyy/mm/dd hh:mm:ss."],
+      ["End Time of Effective Period is used for Access Control Module and Time & Attendance Module. Format: yyyy/mm/dd hh:mm:ss."],
+      ["The platform does not support adding or editing basic information (including ID, first name, last name, phone number, and remarks) about domain persons and domain group persons and the information about domain persons linked to person information."],
+      ["It supports editing the persons' additional information in a batch, the fields of which are already created in the system. Please enter the additional information according to the type. For single selection type, select one from the drop-down list."]
+    ];
+
+    const headers = [
+      "ID",
+      "First Name",
+      "Last Name",
+      "Department",
+      "Start Time of Effective Period",
+      "End Time of Effective Period",
+      "Enrollment Date",
+      "Type",
+      "Company Name",
+      "Subcontractor Name",
+      "ID Document Number",
+      "Nationality",
+      "System Credential Number",
+      "Associated PCH Contract Number",
+      "Contract Holding PCH Department",
+      "Comments",
+      "EA Letter Number",
+      "Number in EA List",
+      "Access Revoked",
+      "Position-",
+      "Sponsor Badge",
+    ];
+
+    const combinedData = [...headerText, headers, ...excelData.map(Object.values)];
+
+    const worksheet = XLSX.utils.aoa_to_sheet(combinedData);
+
+
+    // Calculate column widths based on headers and add a little extra width
+    const colWidths = headers.map(header => ({ wch: header.length + 10 }));
+
+    // Set column widths
+    worksheet['!cols'] = colWidths;
+
 
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Register");
@@ -154,11 +199,11 @@ export default function Component() {
     });
 
     // Add Excel file to ZIP
-    zip.file("employees.xlsx", excelBuffer);
+    zip.file(`${excelData[0]["Company Name"]} - ${excelData.length} employees register.xlsx`, excelBuffer);
 
     // Generate ZIP file and trigger download
     const zipBlob = await zip.generateAsync({ type: "blob" });
-    saveAs(zipBlob, `${excelData.length} employees request.zip`);
+    saveAs(zipBlob, `${excelData[0]["Company Name"]} - ${excelData.length} employees register.zip`);
   };
 
   return (
@@ -469,7 +514,7 @@ export default function Component() {
                               )}
                             />
                           </div>
-                          <div className=" grid grid-cols-3 gap-4">
+                          <div className=" grid grid-cols-4 gap-4">
                             <FormField
                               control={form.control}
                               name={`employees.${index}.photo`}
@@ -543,6 +588,33 @@ export default function Component() {
                                   <FormDescription>
                                     Upload the driving license of the employee
                                     if the employee is a driver
+                                  </FormDescription>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                             <FormField
+                              control={form.control}
+                              name={`employees.${index}.moiCard`}
+                              render={({ field }: { field: any }) => (
+                                <FormItem>
+                                  <FormLabel>
+                                    MOI Card --- if applicable
+                                  </FormLabel>
+                                  <FormControl>
+                                    <CustomFileUpload
+                                      initialFile={field.value}
+                                      onChange={(file: any) => {
+                                        form.setValue(
+                                          `employees.${index}.moiCard`,
+                                          file || undefined
+                                        );
+                                      }}
+                                      label="Upload MOI Card"
+                                    />
+                                  </FormControl>
+                                  <FormDescription>
+                                    Upload the MOI card of the employee if the employee is a driver and working with a security company
                                   </FormDescription>
                                   <FormMessage />
                                 </FormItem>
