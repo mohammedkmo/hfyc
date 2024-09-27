@@ -75,11 +75,11 @@
 }
 
 .pettern {
-  background: radial-gradient(circle, #e9e9e9 10%, transparent 11%),
-    radial-gradient(circle at bottom left, #e9e9e9 5%, transparent 6%),
-    radial-gradient(circle at bottom right, #e9e9e9 5%, transparent 6%),
-    radial-gradient(circle at top left, #e9e9e9 5%, transparent 6%),
-    radial-gradient(circle at top right, #e9e9e9 5%, transparent 6%);
+  background: radial-gradient(circle, #e4e4e4 10%, transparent 11%),
+    radial-gradient(circle at bottom left, #e4e4e4 5%, transparent 6%),
+    radial-gradient(circle at bottom right, #e4e4e4 5%, transparent 6%),
+    radial-gradient(circle at top left, #e4e4e4 5%, transparent 6%),
+    radial-gradient(circle at top right, #e4e4e4 5%, transparent 6%);
   background-size: 1em 1em;
   background-color: #ffffff;
   opacity: 1;
