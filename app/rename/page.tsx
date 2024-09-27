@@ -116,7 +116,7 @@ export default function FolderImageProcessor() {
               />
               <p className="text-xs text-muted-foreground">
                 Upload an Excel file with HFYC Number, First Name, and Last Name
-                columns. please read the following instructions <Link className="text-black font-bold" href="/instructions">here</Link>
+                columns. please read the following instructions <Link className="text-black font-bold" href="/rename/instructions">here</Link>
               </p>
             </div>
           </div>

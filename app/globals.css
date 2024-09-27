@@ -74,7 +74,7 @@
   scrollbar-gutter: stable;
 }
 
-.pettern {
+.pattern {
   background: radial-gradient(circle, #e4e4e4 10%, transparent 11%),
     radial-gradient(circle at bottom left, #e4e4e4 5%, transparent 6%),
     radial-gradient(circle at bottom right, #e4e4e4 5%, transparent 6%),
