@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const vehicleSchema = z.object({
-    id: z.string().min(1, "Badge number is required"),
+    fleetNumber: z.string().min(1, "Badge number is required"),
     make: z.string().min(2, "First name must be at least 2 characters"),
     model: z.string().min(2, "Last name must be at least 2 characters"),
     contractor: z.string().min(2, "Contractor must be at least 2 characters"),

@@ -34,6 +34,9 @@ import { formatDate } from "@/lib/helpers";
 import Image from "next/image";
 import { provinces } from "@/data/provinces";
 
+
+
+
 export default function VehiclesBadgePage() {
     const [activeTab, setActiveTab] = useState("vehicle-0");
 
@@ -51,7 +54,7 @@ export default function VehiclesBadgePage() {
 
     const addVehicle = () => {
         append({
-            id: "",
+            fleetNumber: "",
             make: "",
             model: "",
             contractor: "",
@@ -89,16 +92,15 @@ export default function VehiclesBadgePage() {
 
         // Prepare Excel data
         const excelData = data.vehicles.map((vehicle, index) => {
-            const vehiclePlateNumber = `${vehicle.id}`;
-            const photoName = `${vehiclePlateNumber}.jpg`;
-            const senewiyahName = `${vehiclePlateNumber}-Senewiyah.jpg`;
+            const photoName = `${vehicle.fleetNumber}.jpg`;
+            const senewiyahName = `${vehicle.fleetNumber}-Senewiyah.jpg`;
 
             const wekalaName = vehicle.wekala
-                ? `${vehiclePlateNumber}-Wekala.jpg`
+                ? `${vehicle.fleetNumber}-Wekala.jpg`
                 : null;
 
             const armoredVehicleCertificateName = vehicle.armoredVehicleCertificate
-                ? `${vehiclePlateNumber}-Armored Certificate.jpg`
+                ? `${vehicle.fleetNumber}-Armored Certificate.jpg`
                 : null;
 
             // Add files to ZIP
@@ -120,7 +122,7 @@ export default function VehiclesBadgePage() {
 
             // Return employee data for Excel
             return {
-                "ID": vehiclePlateNumber,
+                "ID": vehicle.fleetNumber,
                 "First Name": vehicle.make,
                 "Last Name": vehicle.model,
                 "Department": `HALFAYA/Contractor/${vehicle.contractor}`,
@@ -236,8 +238,8 @@ export default function VehiclesBadgePage() {
                                         key={field.id}
                                         value={`vehicle-${index}`}
                                     >
-                                        {field.make || field.model
-                                            ? field.make + " " + field.model
+                                        {field.fleetNumber
+                                            ? field.fleetNumber
                                             : `Vehicle ${index + 1}`}
                                     </TabsTrigger>
                                 ))}
@@ -277,10 +279,10 @@ export default function VehiclesBadgePage() {
                                                     <div className=" grid grid-cols-4 gap-4">
                                                         <FormField
                                                             control={form.control}
-                                                            name={`vehicles.${index}.id`}
+                                                            name={`vehicles.${index}.fleetNumber`}
                                                             render={({ field }: { field: any }) => (
                                                                 <FormItem>
-                                                                    <FormLabel>Plate Number</FormLabel>
+                                                                    <FormLabel>Fleet Number</FormLabel>
                                                                     <FormControl>
                                                                         <Input {...field} />
                                                                     </FormControl>
