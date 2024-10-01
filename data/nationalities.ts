@@ -756,13 +756,6 @@ export const nationalities = [
     nationality: "Manx",
   },
   {
-    num_code: "376",
-    alpha_2_code: "IL",
-    alpha_3_code: "ISR",
-    en_short_name: "Israel",
-    nationality: "Israeli",
-  },
-  {
     num_code: "380",
     alpha_2_code: "IT",
     alpha_3_code: "ITA",

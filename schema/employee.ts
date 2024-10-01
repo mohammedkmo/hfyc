@@ -10,7 +10,7 @@ export const employeeSchema = z.object({
     nationality: z.string().min(2, "Nationality must be at least 2 characters"),
     subcontractor: z
       .string()
-      .min(2, "Subcontractor must be at least 2 characters").optional(),
+      .optional(),
     associatedPetroChinaContractNumber: z
       .string()
       .min(1, "Associated PetroChina Contract Number is required"),
