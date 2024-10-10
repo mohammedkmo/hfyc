@@ -4,7 +4,7 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useForm, useFieldArray } from "react-hook-form";
 import {
@@ -17,9 +17,6 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Trash2 } from "lucide-react";
-import JSZip from "jszip";
-import { saveAs } from "file-saver";
-import XLSX from 'xlsx-js-style';
 import { FormValues, formSchema } from "@/schema/employee";
 import {
     Select,
@@ -30,9 +27,17 @@ import {
 } from "@/components/ui/select";
 import { nationalities } from "@/data/nationalities";
 import CustomFileUpload from "@/components/ui/customFileUpload";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
+import XLSX from 'xlsx-js-style';
 import { formatDate } from "@/lib/helpers";
+import { useLocale, useTranslations } from 'next-intl';
 
 export default function PersonalBadgeForm() {
+    const locale = useLocale();
+    const isRTL = locale === 'ar';
+    const formTranslations = useTranslations('personalBadge.form');
+    const formDescriptions = useTranslations('formDescriptions');
 
     const [activeTab, setActiveTab] = useState("employee-0");
     const [tabTitle, setTabTitle] = useState('');
@@ -333,15 +338,16 @@ export default function PersonalBadgeForm() {
 
 
     return (
-        <Card className=" rounded-xl rounded-t-none border-t-0 shadow-none ">
+        <Card className="rounded-xl shadow-none border">
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                     <Tabs
                         value={activeTab}
                         onValueChange={setActiveTab}
                         className="w-full"
+                        dir={isRTL ? 'rtl' : 'ltr'}
                     >
-                        <TabsList className="flex justify-start items-center p-2 container overflow-x-scroll h-auto scroll-smooth scrollbar rounded-xl border border-b-0 rounded-b-none">
+                        <TabsList className="flex justify-start gap-x-2 items-center p-2 container overflow-x-scroll h-auto scroll-smooth scrollbar rounded-xl rounded-b-none flex-row">
                             {fields.map((field: any, index: any) => (
                                 <TabsTrigger
                                     className="rounded-lg h-auto"
@@ -366,15 +372,15 @@ export default function PersonalBadgeForm() {
                             <TabsContent
                                 key={field.id}
                                 value={`employee-${index}`}
-                                className="mt-0 rounded-xl "
+                                className="mt-0 rounded-xl"
                             >
-
-                                <CardHeader className="flex flex-row items-center justify-between">
-                                    <CardTitle>Employee {index + 1} Details</CardTitle>
+                                <CardHeader className="">
+                                    <div className="flex justify-between items-center">
+                                    <CardTitle>{formTranslations('employee')} {index + 1} {formTranslations('details')}</CardTitle>
                                     {fields.length > 1 && (
                                         <Button
                                             type="button"
-                                            variant="destructive"
+                                            variant="outline"
                                             className="rounded-xl"
                                             size="icon"
                                             onClick={() => removeEmployee(index)}
@@ -382,19 +388,23 @@ export default function PersonalBadgeForm() {
                                             <Trash2 className="h-4 w-4" />
                                         </Button>
                                     )}
+                                    </div>
+                                    <CardDescription>
+                                        {formTranslations('allFieldsShouldBeFilledInEnglish')}
+                                    </CardDescription>
                                 </CardHeader>
                                 <CardContent>
                                     <div className="space-y-4">
                                         <div className="grid grid-cols-1 gap-4">
-                                            <div className=" grid grid-cols-3 gap-4">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                                                 <FormField
                                                     control={form.control}
                                                     name={`employees.${index}.id`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>Badge number</FormLabel>
-                                                            <div className="flex">
-                                                                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-xl">
+                                                            <FormLabel>{formTranslations('badgeNumber')}</FormLabel>
+                                                            <div dir="ltr" className="flex" >
+                                                                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-gray-300 rounded-l-lg border-r-0">
                                                                     HFYC-
                                                                 </span>
                                                                 <FormControl>
@@ -415,7 +425,7 @@ export default function PersonalBadgeForm() {
                                                                 </FormControl>
                                                             </div>
                                                             <FormDescription>
-                                                                Enter the HFYC number provided by the PCH
+                                                                {formDescriptions('enterHFYCNumber')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -426,12 +436,12 @@ export default function PersonalBadgeForm() {
                                                     name={`employees.${index}.firstName`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>First Name</FormLabel>
+                                                            <FormLabel>{formTranslations('firstName')}</FormLabel>
                                                             <FormControl>
                                                                 <Input {...field} />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Enter the first name of the employee
+                                                                {formDescriptions('enterFirstName')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -442,30 +452,30 @@ export default function PersonalBadgeForm() {
                                                     name={`employees.${index}.lastName`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>Last Name</FormLabel>
+                                                            <FormLabel>{formTranslations('lastName')}</FormLabel>
                                                             <FormControl>
                                                                 <Input {...field} />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Enter the last name of the employee
+                                                                {formDescriptions('enterLastName')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
                                                     )}
                                                 />
                                             </div>
-                                            <div className=" grid grid-cols-3 gap-4">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                                                 <FormField
                                                     control={form.control}
                                                     name={`employees.${index}.contractor`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>Contractor Name</FormLabel>
+                                                            <FormLabel>{formTranslations('contractorName')}</FormLabel>
                                                             <FormControl>
                                                                 <Input {...field} />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Enter the name of your company
+                                                                {formDescriptions('enterCompanyName')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -476,12 +486,12 @@ export default function PersonalBadgeForm() {
                                                     name={`employees.${index}.position`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>Position</FormLabel>
+                                                            <FormLabel>{formTranslations('position')}</FormLabel>
                                                             <FormControl>
                                                                 <Input {...field} />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Enter the position of the employee
+                                                                {formDescriptions('enterPosition')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -492,49 +502,48 @@ export default function PersonalBadgeForm() {
                                                     name={`employees.${index}.idDocumentNumber`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>ID Document Number</FormLabel>
+                                                            <FormLabel>{formTranslations('idDocumentNumber')}</FormLabel>
                                                             <FormControl>
                                                                 <Input {...field} />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Enter the ID document number of the employee
+                                                                {formDescriptions('enterIdDocumentNumber')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
                                                     )}
                                                 />
                                             </div>
-                                            <div className=" grid grid-cols-2 gap-4">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                 <FormField
                                                     control={form.control}
                                                     name={`employees.${index}.nationality`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>Nationality</FormLabel>
-
+                                                            <FormLabel>{formTranslations('nationality')}</FormLabel>
                                                             <Select
+                                                                dir={isRTL ? 'rtl' : 'ltr'}
                                                                 onValueChange={field.onChange}
                                                                 defaultValue={field.value}
                                                             >
                                                                 <FormControl>
                                                                     <SelectTrigger>
-                                                                        <SelectValue placeholder="Select nationality" />
+                                                                        <SelectValue placeholder={formTranslations('selectNationality')} />
                                                                     </SelectTrigger>
                                                                 </FormControl>
-
                                                                 <SelectContent>
                                                                     {nationalities.map((nationality) => (
                                                                         <SelectItem
                                                                             key={nationality.num_code}
                                                                             value={nationality.nationality}
                                                                         >
-                                                                            {nationality.nationality}
+                                                                            {locale === 'ar' ? nationality.nationality_ar : locale === 'cn' ? nationality.nationality_cn : nationality.nationality}
                                                                         </SelectItem>
                                                                     ))}
                                                                 </SelectContent>
                                                             </Select>
                                                             <FormDescription>
-                                                                Select employee Nationality
+                                                                {formDescriptions('selectEmployeeNationality')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -546,34 +555,33 @@ export default function PersonalBadgeForm() {
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
                                                             <FormLabel>
-                                                                SubContractor --- if applicable
+                                                                {formTranslations('subcontractor')}
                                                             </FormLabel>
                                                             <FormControl>
                                                                 <Input {...field} />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Enter the subContractor name if applicable
+                                                                {formDescriptions('enterSubcontractorName')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
                                                     )}
                                                 />
                                             </div>
-                                            <div className=" grid grid-cols-2 gap-4">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                 <FormField
                                                     control={form.control}
                                                     name={`employees.${index}.associatedPetroChinaContractNumber`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
                                                             <FormLabel>
-                                                                Associated PetroChina Contract Number
+                                                                {formTranslations('associatedPetroChinaContractNumber')}
                                                             </FormLabel>
                                                             <FormControl>
                                                                 <Input {...field} />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Enter the associated PetroChina contract
-                                                                number
+                                                                {formDescriptions('enterAssociatedPetroChinaContractNumber')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -585,32 +593,31 @@ export default function PersonalBadgeForm() {
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
                                                             <FormLabel>
-                                                                Contract Holding PetroChina Department
+                                                                {formTranslations('contractHoldingPetroChinaDepartment')}
                                                             </FormLabel>
                                                             <FormControl>
                                                                 <Input {...field} />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Enter the contract holding PetroChina
-                                                                department
+                                                                {formDescriptions('enterContractHoldingPetroChinaDepartment')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
                                                     )}
                                                 />
                                             </div>
-                                            <div className=" grid grid-cols-2 gap-4">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                 <FormField
                                                     control={form.control}
                                                     name={`employees.${index}.eaLetterNumber`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>EA Letter Number</FormLabel>
+                                                            <FormLabel>{formTranslations('eaLetterNumber')}</FormLabel>
                                                             <FormControl>
                                                                 <Input type="number" {...field} />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Enter the EA letter number
+                                                                {formDescriptions('enterEaLetterNumber')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -621,25 +628,25 @@ export default function PersonalBadgeForm() {
                                                     name={`employees.${index}.numberInEaList`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>Number in EA List</FormLabel>
+                                                            <FormLabel>{formTranslations('numberInEaList')}</FormLabel>
                                                             <FormControl>
                                                                 <Input type="number" {...field} />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Enter the number in the EA list
+                                                                {formDescriptions('enterNumberInEaList')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
                                                     )}
                                                 />
                                             </div>
-                                            <div className=" grid grid-cols-4 gap-4">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                                                 <FormField
                                                     control={form.control}
                                                     name={`employees.${index}.photo`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>Photo</FormLabel>
+                                                            <FormLabel>{formTranslations('photo')}</FormLabel>
                                                             <FormControl>
                                                                 <CustomFileUpload
                                                                     initialFile={field.value}
@@ -649,11 +656,11 @@ export default function PersonalBadgeForm() {
                                                                             file
                                                                         )
                                                                     }
-                                                                    label="Upload Photo"
+                                                                    label={formTranslations('uploadPhoto')}
                                                                 />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Upload a photo of the employee
+                                                                {formDescriptions('uploadEmployeePhoto')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -664,7 +671,7 @@ export default function PersonalBadgeForm() {
                                                     name={`employees.${index}.idDocument`}
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
-                                                            <FormLabel>ID Document</FormLabel>
+                                                            <FormLabel>{formTranslations('idDocument')}</FormLabel>
                                                             <FormControl>
                                                                 <CustomFileUpload
                                                                     initialFile={field.value}
@@ -674,11 +681,11 @@ export default function PersonalBadgeForm() {
                                                                             file
                                                                         )
                                                                     }
-                                                                    label="Upload ID Document"
+                                                                    label={formTranslations('uploadIdDocument')}
                                                                 />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Upload the ID document of the employee
+                                                                {formDescriptions('uploadEmployeeIdDocument')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -690,7 +697,7 @@ export default function PersonalBadgeForm() {
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
                                                             <FormLabel>
-                                                                Driving License --- if applicable
+                                                                {formTranslations('drivingLicense')}
                                                             </FormLabel>
                                                             <FormControl>
                                                                 <CustomFileUpload
@@ -701,12 +708,11 @@ export default function PersonalBadgeForm() {
                                                                             file || undefined
                                                                         );
                                                                     }}
-                                                                    label="Upload Driving License"
+                                                                    label={formTranslations('uploadDrivingLicense')}
                                                                 />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Upload the driving license of the employee
-                                                                if the employee is a driver
+                                                                {formDescriptions('uploadEmployeeDrivingLicense')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -718,7 +724,7 @@ export default function PersonalBadgeForm() {
                                                     render={({ field }: { field: any }) => (
                                                         <FormItem>
                                                             <FormLabel>
-                                                                MOI Card --- if applicable
+                                                                {formTranslations('moiCard')}
                                                             </FormLabel>
                                                             <FormControl>
                                                                 <CustomFileUpload
@@ -729,11 +735,11 @@ export default function PersonalBadgeForm() {
                                                                             file || undefined
                                                                         );
                                                                     }}
-                                                                    label="Upload MOI Card"
+                                                                    label={formTranslations('uploadMoiCard')}
                                                                 />
                                                             </FormControl>
                                                             <FormDescription>
-                                                                Upload the MOI card of the employee if the employee is a driver and working with a security company
+                                                                {formDescriptions('uploadEmployeeMoiCard')}
                                                             </FormDescription>
                                                             <FormMessage />
                                                         </FormItem>
@@ -743,13 +749,12 @@ export default function PersonalBadgeForm() {
                                         </div>
                                     </div>
                                 </CardContent>
-
                             </TabsContent>
                         ))}
                     </Tabs>
 
-                    <CardFooter className=" py-4 border-t">
-                        <Button className="" type="submit">Generate ZIP</Button>
+                    <CardFooter className="py-4 border-t">
+                        <Button className="w-full sm:w-auto" type="submit">{formTranslations('generateZIP')}</Button>
                     </CardFooter>
                 </form>
             </Form>

@@ -1,0 +1,176 @@
+{
+  "common": {
+    "appName": "أدوات باجات PCH",
+    "whatLookingFor": "ما الذي تبحث عنه؟",
+    "applyingForPersonalBadges": "التقدم للحصول على باجات شخصية",
+    "applyingForVehicleBadges": "التقدم للحصول على باجات المركبات",
+    "downloadExcelRegister": "تحميل سجل Excel",
+    "renamePhotosNow": "إعادة تسمية صورك الآن",
+    "byPCHBadgingTeam": "@بواسطة فريق باجات PCH",
+    "noUploadDisclaimer": "⚠️ لن يتم تحميل أي ملفات أو صور إلى خادمنا أو أي خوادم أخرى، جميع الوظائف تعمل على جانب العميل فقط",
+    "email": "البريد الإلكتروني:",
+    "emailAddress": "contractor-badging@petrochina-hfy.com",
+    "renamePhotosTool": "أداة إعادة تسمية الصور",
+    "home": "الرئيسية",
+    "comingSoon": "قريباً",
+    "comingSoonDescription": "الميزة ستصبح متاحة قريباً",
+    "mobileNotSupported": "الهاتف غير مدعوم",
+    "pleaseUseComputer": "يرجى استخدام الكمبيوتر للوصول إلى هذا التطبيق."
+  },
+  "header": {
+    "home": "الرئيسية"
+  },
+  "personalBadge": {
+    "title": "التقدم للحصول على باجات شخصية",
+    "description": "يرجى ملء تفاصيل الموظف وتحميل المستندات المطلوبة. هذه العملية تتم بالكامل على جانب العميل، مما يضمن عدم تخزين أي بيانات على خادمنا. بمجرد الانتهاء، قم بتنزيل ملف ZIP وإرساله، مع التصريح الأمني اللازم، إلى مكتب باجات PCH على عنوان البريد الإلكتروني المقدم. شكرًا لتعاونكم.",
+    "form": {
+      "badgeNumber": "رقم الباج",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "contractor": "المقاول",
+      "contractorName": "اسم المقاول",
+      "position": "المنصب",
+      "idDocumentNumber": "رقم وثيقة الهوية",
+      "nationality": "الجنسية",
+      "subcontractor": "المقاول الفرعي",
+      "associatedPetroChinaContractNumber": "رقم عقد بتروتشاينا المرتبط",
+      "contractHoldingPetroChinaDepartment": "قسم بتروتشاينا الحامل للعقد",
+      "eaLetterNumber": "رقم خطاب EA",
+      "numberInEaList": "الرقم في قائمة EA",
+      "photo": "الصورة",
+      "idDocument": "وثيقة الهوية",
+      "drivingLicense": "رخصة القيادة",
+      "moiCard": "بطاقة وزارة الداخلية",
+      "uploadPhoto": "تحميل الصورة",
+      "uploadIdDocument": "تحميل وثيقة الهوية",
+      "uploadDrivingLicense": "تحميل رخصة القيادة",
+      "uploadMoiCard": "تحميل بطاقة وزارة الداخلية",
+      "selectNationality": "اختر الجنسية",
+      "generateZIP": "إنشاء ZIP",
+      "employee": "الموظف",
+      "details": "التفاصيل",
+      "allFieldsShouldBeFilledInEnglish": "جميع الحقول يجب أن تكون مملوءة باللغة الإنجليزية."
+    }
+  },
+  "vehicleBadge": {
+    "title": "طلب باج المركبة",
+    "form": {
+      "plateNumber": "رقم اللوحة",
+      "vehicleType": "نوع المركبة",
+      "brand": "العلامة التجارية",
+      "model": "الطراز",
+      "color": "اللون",
+      "year": "السنة",
+      "chassisNumber": "رقم الهيكل",
+      "engineNumber": "رقم المحرك",
+      "ownerName": "اسم المالك",
+      "ownerNationality": "جنسية المالك",
+      "province": "المحافظة",
+      "registrationCard": "بطاقة التسجيل",
+      "senewiyah": "السنوية",
+      "wekala": "الوكالة (إن وجدت)",
+      "fleetNumber": "رقم الأسطول",
+      "make": "الصنع",
+      "contractor": "المقاول",
+      "position": "المنصب",
+      "senewiyahNumber": "رقم السنوية",
+      "subcontractor": "المقاول الفرعي",
+      "associatedPetroChinaContractNumber": "رقم عقد بتروتشاينا المرتبط",
+      "contractHoldingPetroChinaDepartment": "قسم بتروتشاينا الحامل للعقد",
+      "eaLetterNumber": "رقم خطاب EA",
+      "numberInEaList": "الرقم في قائمة EA",
+      "photo": "الصورة",
+      "armoredVehicleCertificate": "شهادة المركبة المدرعة"
+    }
+  },
+  "renamePhotos": {
+    "title": "أداة إعادة تسمية الصور",
+    "common": {
+      "byPCHBadgingTeam": "@بواسطة فريق باجات PCH",
+      "noUploadDisclaimer": "⚠️ لن يتم تحميل أي ملفات أو صور إلى خادمنا أو أي خوادم أخرى، جميع الوظائف تعمل على جانب العميل فقط"
+    },
+    "instructions": {
+      "title": "تعليمات ملف Excel",
+      "description": "تتيح لك هذه الأداة إعادة تسمية صور متعددة دفعة واحدة",
+      "excelRequirements": "ستحتاج إلى إعداد ملف Excel يحتوي على الأعمدة التالية: الاسم الأول، اسم العائلة، ورقم HFYC. يرجى الاطلاع على المثال أدناه:",
+      "downloadExcel": "حمل ملف Excel الذي يحتوي على الأعمدة المطلوبة",
+      "renamePhotosNow": "إعادة تسمية الصور الخاصة بك الآن"
+    },
+    "form": {
+      "selectImages": "اختر الصور",
+      "multipleImagesHint": "يمكنك اختيار صور متعددة",
+      "excelFile": "ملف Excel",
+      "excelFileHint": "قم بتحميل ملف Excel يحتوي على أعمدة رقم HFYC والاسم الأول واسم العائلة. يرجى قراءة التعليمات التالية",
+      "here": "هنا"
+    },
+    "buttons": {
+      "generateZIP": "إنشاء ملف ZIP",
+      "downloadRenamedImages": "تنزيل صور معاد تسميتها كملف ZIP"
+    }
+  },
+  "buttons": {
+    "submit": "إرسال",
+    "addEmployee": "إضافة موظف",
+    "addVehicle": "إضافة مركبة",
+    "download": "تنزيل",
+    "generateZIP": "إنشاء ملف ZIP",
+    "downloadRenamedImages": "تنزيل صور معاد تسميتها كملف ZIP"
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "minLength": "يجب أن يكون على الأقل {0} حرفًا",
+    "maxFileSize": "الحد الأقصى لحجم الملف هو 10 ميجابايت"
+  },
+  "formDescriptions": {
+    "selectEmployeeNationality": "اختر جنسية الموظف",
+    "enterSubcontractorName": "أدخل اسم المقاول الفرعي إن وجد",
+    "enterAssociatedPetroChinaContractNumber": "أدخل رقم عقد بتروتشاينا المرتبط",
+    "enterContractHoldingPetroChinaDepartment": "أدخل قسم بتروتشاينا الحامل للعقد",
+    "enterEaLetterNumber": "أدخل رقم خطاب EA",
+    "enterNumberInEaList": "أدخل الرقم في قائمة EA",
+    "uploadEmployeePhoto": "قم بتحميل صورة الموظف",
+    "uploadEmployeeIdDocument": "قم بتحميل وثيقة هوية الموظف",
+    "uploadEmployeeDrivingLicense": "قم بتحميل رخصة القيادة للموظف إذا كان الموظف سائقًا",
+    "uploadEmployeeMoiCard": "قم بتحميل بطاقة وزارة الداخلية للموظف إذا كان الموظف سائقًا ويعمل مع شركة أمنية",
+    "enterHFYCNumber": "أدخل رقم HFYC (4 أرقام)",
+    "uploadSenewiyah": "قم بتحميل السنوية للمركبة",
+    "uploadWekala": "قم بتحميل الوكالة للمركبة إذا لم تكن السنوية باسم المقاول",
+    "uploadArmoredCertificate": "قم بتحميل شهادة المركبة المدرعة إذا كانت المركبة مدرعة",
+    "enterFirstName": "أدخل الاسم الأول",
+    "enterLastName": "أدخل اسم العائلة",
+    "enterBadgeNumber": "أدخل رقم الباج",
+    "enterPlateNumber": "أدخل رقم اللوحة",
+    "selectVehicleType": "اختر نوع المركبة",
+    "enterCompanyName": "أدخل اسم الشركة",
+    "enterPosition": "أدخل المنصب",
+    "enterIdDocumentNumber": "أدخل رقم وثيقة الهوية"
+  },
+  "errors": {
+    "fileUploadFailed": "فشل تحميل الملف",
+    "invalidFileType": "نوع الملف غير صالح",
+    "excelParsingError": "حدث خطأ أثناء تحليل ملف Excel",
+    "zipGenerationError": "حدث خطأ أثناء إنشاء ملف ZIP"
+  },
+  "success": {
+    "formSubmitted": "تم إرسال النموذج بنجاح",
+    "zipGenerated": "تم إنشاء ملف ZIP بنجاح",
+    "photosRenamed": "تمت إعادة تسمية الصور بنجاح"
+  },
+  "confirmations": {
+    "deleteEmployee": "هل أنت متأكد أنك تريد حذف هذا الموظف؟",
+    "deleteVehicle": "هل أنت متأكد أنك تريد حذف هذه المركبة؟",
+    "generateZip": "هل أنت مستعد لإنشاء ملف ZIP؟ سيتم تضمين جميع البيانات والملفات المحملة."
+  },
+  "placeholders": {
+    "selectNationality": "اختر الجنسية",
+    "enterBadgeNumber": "أدخل رقم الباج",
+    "enterPlateNumber": "أدخل رقم اللوحة",
+    "selectVehicleType": "اختر نوع المركبة"
+  },
+  "tooltips": {
+    "badgeNumber": "رقم الباج الفريد للموظف",
+    "eaLetterNumber": "رقم خطاب التصريح الأمني",
+    "fleetNumber": "رقم الأسطول الخاص بالمركبة (إن وجد)",
+    "chassisNumber": "رقم هيكل المركبة الفريد"
+  }
+}

@@ -68,6 +68,7 @@
   }
 }
 
+
 .scrollbar {
   scrollbar-width: thin;
   scrollbar-color: var(--border) var(--background);
@@ -75,13 +76,12 @@
 }
 
 .pattern {
-  background: radial-gradient(circle, #e4e4e4 10%, transparent 11%),
-    radial-gradient(circle at bottom left, #e4e4e4 5%, transparent 6%),
-    radial-gradient(circle at bottom right, #e4e4e4 5%, transparent 6%),
-    radial-gradient(circle at top left, #e4e4e4 5%, transparent 6%),
-    radial-gradient(circle at top right, #e4e4e4 5%, transparent 6%);
+  background: radial-gradient(circle, #c0c0c0 10%, transparent 11%),
+    radial-gradient(circle at bottom left, #c0c0c0 5%, transparent 6%),
+    radial-gradient(circle at bottom right, #c0c0c0 5%, transparent 6%),
+    radial-gradient(circle at top left, #c0c0c0 5%, transparent 6%),
+    radial-gradient(circle at top right, #c0c0c0 5%, transparent 6%);
   background-size: 1em 1em;
-  background-color: #ffffff;
   opacity: 1;
 }
 

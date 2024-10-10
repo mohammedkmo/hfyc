@@ -1,0 +1,176 @@
+{
+  "common": {
+    "appName": "PCH 徽章工具",
+    "whatLookingFor": "您在寻找什么？",
+    "applyingForPersonalBadges": "申请个人徽章",
+    "applyingForVehicleBadges": "申请车辆徽章",
+    "downloadExcelRegister": "下载Excel登记表",
+    "renamePhotosNow": "立即重命名您的照片",
+    "byPCHBadgingTeam": "@PCH徽章团队制作",
+    "noUploadDisclaimer": "⚠️ 所有文件或照片都不会上传到我们的服务器或任何其他服务器，所有功能仅在客户端运行",
+    "email": "电子邮件：",
+    "emailAddress": "contractor-badging@petrochina-hfy.com",
+    "renamePhotosTool": "照片重命名工具",
+    "home": "首页",
+    "comingSoon": "即将推出",
+    "comingSoonDescription": "此功能即将推出",
+    "mobileNotSupported": "移动设备不支持",
+    "pleaseUseComputer": "请使用电脑访问此应用程序。"
+  },
+  "header": {
+    "home": "首页"
+  },
+  "personalBadge": {
+    "title": "申请个人徽章",
+    "description": "请填写员工详细信息并上传所需文件。此过程完全在客户端进行，确保不会在我们的服务器上存储任何数据。完成后，下载ZIP文件并将其与必要的安全许可一起发送到提供的电子邮件地址的PCH徽章办公室。感谢您的配合。",
+    "form": {
+      "badgeNumber": "徽章编号",
+      "firstName": "名",
+      "lastName": "姓",
+      "contractor": "承包商",
+      "contractorName": "承包商名称",
+      "position": "职位",
+      "idDocumentNumber": "身份证件号码",
+      "nationality": "国籍",
+      "subcontractor": "分包商",
+      "associatedPetroChinaContractNumber": "相关中石油合同编号",
+      "contractHoldingPetroChinaDepartment": "持有合同的中石油部门",
+      "eaLetterNumber": "EA信函编号",
+      "numberInEaList": "EA列表中的编号",
+      "photo": "照片",
+      "idDocument": "身份证件",
+      "drivingLicense": "驾驶证",
+      "moiCard": "内政部卡",
+      "uploadPhoto": "上传照片",
+      "uploadIdDocument": "上传身份证件",
+      "uploadDrivingLicense": "上传驾驶证",
+      "uploadMoiCard": "上传内政部卡",
+      "selectNationality": "选择国籍",
+      "generateZIP": "生成ZIP",
+      "employee": "员工",
+      "details": "详情",
+      "allFieldsShouldBeFilledInEnglish": "所有字段应使用英文填写。"
+    }
+  },
+  "vehicleBadge": {
+    "title": "车辆徽章申请",
+    "form": {
+      "plateNumber": "车牌号",
+      "vehicleType": "车辆类型",
+      "brand": "品牌",
+      "model": "型号",
+      "color": "颜色",
+      "year": "年份",
+      "chassisNumber": "底盘号",
+      "engineNumber": "发动机号",
+      "ownerName": "所有者姓名",
+      "ownerNationality": "所有者国籍",
+      "province": "省份",
+      "registrationCard": "登记卡",
+      "senewiyah": "年检证",
+      "wekala": "委托书（如适用）",
+      "fleetNumber": "车队编号",
+      "make": "制造商",
+      "contractor": "承包商",
+      "position": "职位",
+      "senewiyahNumber": "年检证编号",
+      "subcontractor": "分包商",
+      "associatedPetroChinaContractNumber": "相关中石油合同编号",
+      "contractHoldingPetroChinaDepartment": "持有合同的中石油部门",
+      "eaLetterNumber": "EA信函编号",
+      "numberInEaList": "EA列表中的编号",
+      "photo": "照片",
+      "armoredVehicleCertificate": "装甲车辆证书"
+    }
+  },
+  "renamePhotos": {
+    "title": "照片重命名工具",
+    "common": {
+      "byPCHBadgingTeam": "@PCH徽章团队制作",
+      "noUploadDisclaimer": "⚠️ 所有文件或照片都不会上传到我们的服务器或任何其他服务器，所有功能仅在客户端运行"
+    },
+    "instructions": {
+      "title": "Excel文件说明",
+      "description": "此工具允许您一次重命名多张照片",
+      "excelRequirements": "您需要准备一个包含以下列的Excel文件：名字、姓氏和HFYC编号，请参见以下示例：",
+      "downloadExcel": "下载Excel登记文件",
+      "renamePhotosNow": "立即重命名您的照片"
+    },
+    "form": {
+      "selectImages": "选择图片",
+      "multipleImagesHint": "您可以选择多张图片",
+      "excelFile": "Excel文件",
+      "excelFileHint": "上传包含HFYC编号、名字和姓氏列的Excel文件。请阅读以下说明",
+      "here": "这里"
+    },
+    "buttons": {
+      "generateZIP": "生成ZIP",
+      "downloadRenamedImages": "下载重命名的图片文件"
+    }
+  },
+  "buttons": {
+    "submit": "提交",
+    "addEmployee": "添加员工",
+    "addVehicle": "添加车辆",
+    "download": "下载",
+    "generateZIP": "生成ZIP文件",
+    "downloadRenamedImages": "下载重命名的图片文件"
+  },
+  "validation": {
+    "required": "此字段为必填项",
+    "minLength": "必须至少{0}个字符",
+    "maxFileSize": "最大文件大小为10MB"
+  },
+  "formDescriptions": {
+    "selectEmployeeNationality": "选择员工国籍",
+    "enterSubcontractorName": "如适用，请输入分包商名称",
+    "enterAssociatedPetroChinaContractNumber": "输入相关的中石油合同编号",
+    "enterContractHoldingPetroChinaDepartment": "输入持有合同的中石油部门",
+    "enterEaLetterNumber": "输入EA信函编号",
+    "enterNumberInEaList": "输入EA列表中的编号",
+    "uploadEmployeePhoto": "上传员工照片",
+    "uploadEmployeeIdDocument": "上传员工身份证件",
+    "uploadEmployeeDrivingLicense": "如果员工是司机，请上传员工的驾驶证",
+    "uploadEmployeeMoiCard": "如果员工是司机并在安保公司工作，请上传员工的内政部卡",
+    "enterHFYCNumber": "输入HFYC编号（4位数字）",
+    "uploadSenewiyah": "上传车辆的年检证",
+    "uploadWekala": "如果年检证不是以承包商名义登记的，请上传车辆的委托书",
+    "uploadArmoredCertificate": "如果车辆是装甲车，请上传车辆的装甲车辆证书",
+    "enterFirstName": "输入名字",
+    "enterLastName": "输入姓氏",
+    "enterBadgeNumber": "输入徽章编号",
+    "enterPlateNumber": "输入车牌号",
+    "selectVehicleType": "选择车辆类型",
+    "enterCompanyName": "输入公司名称",
+    "enterPosition": "输入职位",
+    "enterIdDocumentNumber": "输入身份证件号码"
+  },
+  "errors": {
+    "fileUploadFailed": "文件上传失败",
+    "invalidFileType": "无效的文件类型",
+    "excelParsingError": "解析Excel文件时发生错误",
+    "zipGenerationError": "生成ZIP文件时发生错误"
+  },
+  "success": {
+    "formSubmitted": "表单提交成功",
+    "zipGenerated": "ZIP文件生成成功",
+    "photosRenamed": "照片重命名成功"
+  },
+  "confirmations": {
+    "deleteEmployee": "您确定要删除这名员工吗？",
+    "deleteVehicle": "您确定要删除这辆车辆吗？",
+    "generateZip": "您准备好生成ZIP文件了吗？所有输入的数据和上传的文件都将被包含。"
+  },
+  "placeholders": {
+    "selectNationality": "选择国籍",
+    "enterBadgeNumber": "输入徽章编号",
+    "enterPlateNumber": "输入车牌号",
+    "selectVehicleType": "选择车辆类型"
+  },
+  "tooltips": {
+    "badgeNumber": "员工的唯一徽章编号",
+    "eaLetterNumber": "安全授权信函编号",
+    "fleetNumber": "车辆的车队编号（如果有）",
+    "chassisNumber": "车辆的唯一底盘号"
+  }
+}

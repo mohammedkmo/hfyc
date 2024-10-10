@@ -11,22 +11,21 @@ import { ImageFile, Mapping } from "@/types/files";
 import { renameImages } from "@/lib/renameImages";
 import { handleExcelUpload } from "@/lib/handleExcelUpload";
 import Link from "next/link";
-
-// Define types for better type safety
+import { useTranslations } from 'next-intl';
 
 export default function FolderImageProcessor() {
   const [images, setImages] = useState<ImageFile[]>([]);
   const [mappings, setMappings] = useState<Mapping>({});
+  const t = useTranslations('renamePhotos');
 
-  // Handle folder selection
   const handleFolderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);
-    const imageFiles = files.filter((file) => file.type.startsWith("image/")); // Filter only images
+    const imageFiles = files.filter((file) => file.type.startsWith("image/"));
 
     const processedImages = imageFiles.map((file) => {
       return new Promise<ImageFile>((resolve) => {
         const reader = new FileReader();
-        reader.readAsDataURL(file); // Read the image as a data URL
+        reader.readAsDataURL(file);
 
         reader.onload = () => {
           resolve({
@@ -41,19 +40,18 @@ export default function FolderImageProcessor() {
     Promise.all(processedImages).then((results) => setImages(results));
   };
 
-  // Generate ZIP file for download
   const handleDownloadZip = async () => {
     const zip = new JSZip();
     const renamedImages = renameImages(images, mappings);
 
     renamedImages.forEach((image) => {
       if (image.newName) {
-        zip.file(image.newName, image.data.split(",")[1], { base64: true }); // Add renamed image to ZIP
+        zip.file(image.newName, image.data.split(",")[1], { base64: true });
       }
     });
 
     const content = await zip.generateAsync({ type: "blob" });
-    saveAs(content, `renamed_images${Date.now()}.zip`); // Trigger ZIP download
+    saveAs(content, `renamed_images${Date.now()}.zip`);
   };
 
   return (
@@ -61,18 +59,17 @@ export default function FolderImageProcessor() {
       <div className="container m-auto w-3/12 flex items-center justify-center min-h-screen">
         <div className="flex flex-col">
           <div className="mb-5">
-            <h1 className="text-2xl font-bold">Photos Renaming Tool</h1>
+            <h1 className="text-2xl font-bold">{t('title')}</h1>
             <p className="text-xs text-muted-foreground">
-              @By PCH Badging Team
+              {t('common.byPCHBadgingTeam')}
             </p>
             <p className="text-sm text-muted-foreground border p-2 bg-yellow-50 border-yellow-200 text-yellow-800  rounded-lg mt-2">
-              ⚠️ No files or photos will be uploaded to our server or any other
-              servers all the functions are working on the client side only
+              {t('common.noUploadDisclaimer')}
             </p>
           </div>
           <div className="space-y-6">
             <div className="w-full max-w-sm items-center space-y-1">
-              <Label htmlFor="picture">Select Images</Label>
+              <Label htmlFor="picture">{t('form.selectImages')}</Label>
               <Input
                 id="photos"
                 type="file"
@@ -81,7 +78,7 @@ export default function FolderImageProcessor() {
                 onChange={handleFolderChange}
               />
               <p className="text-xs text-muted-foreground">
-                You can select multiple images
+                {t('form.multipleImagesHint')}
               </p>
             </div>
 
@@ -92,7 +89,7 @@ export default function FolderImageProcessor() {
             >
               {images.map(
                 (image, index) =>
-                  index < 10 && ( // Display only first 5 images
+                  index < 10 && (
                     <div className="rounded-lg -ms-2 border bg-white border-white shadow-lg overflow-hidden w-11 h-11" key={index}>
                       <Image
                       src={image.data}
@@ -106,7 +103,7 @@ export default function FolderImageProcessor() {
               )}
             </div>
             <div className="w-full max-w-sm items-center space-y-1">
-              <Label htmlFor="excel">Excel file</Label>
+              <Label htmlFor="excel">{t('form.excelFile')}</Label>
               <Input
                 id="excel"
                 type="file"
@@ -115,8 +112,7 @@ export default function FolderImageProcessor() {
                 onChange={(e) => handleExcelUpload(e, setMappings)}
               />
               <p className="text-xs text-muted-foreground">
-                Upload an Excel file with HFYC Number, First Name, and Last Name
-                columns. please read the following instructions <Link className="text-black font-bold" href="/rename/instructions">here</Link>
+                {t('form.excelFileHint')} <Link className="text-black font-bold" href="/rename/instructions">{t('form.here')}</Link>
               </p>
             </div>
           </div>
@@ -126,7 +122,7 @@ export default function FolderImageProcessor() {
             className="mt-4"
             disabled={!images.length || !Object.keys(mappings).length}
           >
-            Download Renamed Images as ZIP
+            {t('buttons.generateZIP')}
           </Button>
         </div>
       </div>

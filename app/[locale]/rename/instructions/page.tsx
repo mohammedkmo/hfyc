@@ -6,9 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { X } from "lucide-react"
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const t = useTranslations('renamePhotos.instructions');
 
     const handleDownloadExcel = () => {
         const link = document.createElement('a');
@@ -28,23 +30,16 @@ export default function Page() {
       <div className="container w-4/12 m-auto h-full flex items-center justify-center min-h-screen">
         <div className="flex flex-col">
           <div className="space-y-2">
-          <h1 className="text-2xl font-bold">Excel file instructions</h1>
-          <p className="text-muted-foreground text-sm">This tool allows you to rename multiple photos at once</p>
+          <h1 className="text-2xl font-bold">{t('title')}</h1>
+          <p className="text-muted-foreground text-sm">{t('description')}</p>
           <div className="text-sm">
-            You will need to prepare an Excel file with the following columns:
-            First Name, Last Name, and HFYC Number please see the example below:
+            {t('excelRequirements')}
           </div>
           </div>
 
           <Image onClick={toggleModal} className="border rounded-lg mt-4 bg-white shadow-sm" src="/excel-example.png" alt="Excel example" width={500} height={300} />
 
-          <p className="text-sm text-muted-foreground mt-4">You can download the excel register file from the link below</p>
-
-          <Button variant="link" onClick={handleDownloadExcel}>Download the Excel register</Button>
-
-          <div>
-            <Link className={cn(buttonVariants({variant:"outline"}), "w-full mt-4 shadow-sm")} href="/">Rename your photos now</Link>
-          </div>
+          <Button variant="link" onClick={handleDownloadExcel}>{t('downloadExcel')}</Button>
         </div>
 
         {isModalOpen && (

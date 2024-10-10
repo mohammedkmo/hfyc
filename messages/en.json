@@ -1,0 +1,176 @@
+{
+  "common": {
+    "appName": "PCH Badging Tools",
+    "whatLookingFor": "What are you looking for?",
+    "applyingForPersonalBadges": "Applying for Personal Badges",
+    "applyingForVehicleBadges": "Applying for Vehicle Badges",
+    "downloadExcelRegister": "Download the Excel register",
+    "renamePhotosNow": "Rename your photos now",
+    "byPCHBadgingTeam": "@By PCH Badging Team",
+    "noUploadDisclaimer": "⚠️ No files or photos will be uploaded to our server or any other servers all the functions are working on the client side only",
+    "email": "Email:",
+    "emailAddress": "contractor-badging@petrochina-hfy.com",
+    "renamePhotosTool": "Rename photos tool",
+    "home": "Home",
+    "comingSoon": "Coming Soon",
+    "comingSoonDescription": "This feature is coming soon",
+    "mobileNotSupported": "Mobile Not Supported",
+    "pleaseUseComputer": "Please use a computer to access this application."
+  },
+  "header": {
+    "home": "Home"
+  },
+  "personalBadge": {
+    "title": "Applying for Personal Badges",
+    "description": "Please fill in the employee details and upload the required documents. This process is entirely client-side, ensuring no data is stored on our server. Once completed, download the ZIP file and send it, along with the necessary security clearance, to the PCH Badging Office at the provided email address. Thank you for your cooperation.",
+    "form": {
+      "badgeNumber": "Badge Number",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "contractor": "Contractor",
+      "contractorName": "Contractor Name",
+      "position": "Position",
+      "idDocumentNumber": "ID Document Number",
+      "nationality": "Nationality",
+      "subcontractor": "Subcontractor",
+      "associatedPetroChinaContractNumber": "Associated PetroChina Contract Number",
+      "contractHoldingPetroChinaDepartment": "Contract Holding PetroChina Department",
+      "eaLetterNumber": "EA Letter Number",
+      "numberInEaList": "Number in EA List",
+      "photo": "Photo",
+      "idDocument": "ID Document",
+      "drivingLicense": "Driving License",
+      "moiCard": "MOI Card",
+      "uploadPhoto": "Upload Photo",
+      "uploadIdDocument": "Upload ID Document",
+      "uploadDrivingLicense": "Upload Driving License",
+      "uploadMoiCard": "Upload MOI Card",
+      "selectNationality": "Select Nationality",
+      "generateZIP": "Generate ZIP",
+      "employee": "Employee",
+      "details": "Details",
+      "allFieldsShouldBeFilledInEnglish": "All fields should be filled in English."
+    }
+  },
+  "vehicleBadge": {
+    "title": "Vehicle Badge Application",
+    "form": {
+      "plateNumber": "Plate Number",
+      "vehicleType": "Vehicle Type",
+      "brand": "Brand",
+      "model": "Model",
+      "color": "Color",
+      "year": "Year",
+      "chassisNumber": "Chassis Number",
+      "engineNumber": "Engine Number",
+      "ownerName": "Owner Name",
+      "ownerNationality": "Owner Nationality",
+      "province": "Province",
+      "registrationCard": "Registration Card",
+      "senewiyah": "Senewiyah",
+      "wekala": "Wekala (if applicable)",
+      "fleetNumber": "Fleet Number",
+      "make": "Make",
+      "contractor": "Contractor",
+      "position": "Position",
+      "senewiyahNumber": "Senewiyah Number",
+      "subcontractor": "Subcontractor",
+      "associatedPetroChinaContractNumber": "Associated PetroChina Contract Number",
+      "contractHoldingPetroChinaDepartment": "Contract Holding PetroChina Department",
+      "eaLetterNumber": "EA Letter Number",
+      "numberInEaList": "Number in EA List",
+      "photo": "Photo",
+      "armoredVehicleCertificate": "Armored Vehicle Certificate"
+    }
+  },
+  "renamePhotos": {
+    "title": "Photos Renaming Tool",
+    "common": {
+      "byPCHBadgingTeam": "@By PCH Badging Team",
+      "noUploadDisclaimer": "⚠️ No files or photos will be uploaded to our server or any other servers all the functions are working on the client side only"
+    },
+    "instructions": {
+      "title": "Excel file instructions",
+      "description": "This tool allows you to rename multiple photos at once",
+      "excelRequirements": "You will need to prepare an Excel file with the following columns: First Name, Last Name, and HFYC Number please see the example below:",
+      "downloadExcel": "Download the Excel register file",
+      "renamePhotosNow": "Rename your photos now"
+    },
+    "form": {
+      "selectImages": "Select Images",
+      "multipleImagesHint": "You can select multiple images",
+      "excelFile": "Excel file",
+      "excelFileHint": "Upload an Excel file with HFYC Number, First Name, and Last Name columns. please read the following instructions",
+      "here": "here"
+    },
+    "buttons": {
+      "generateZIP": "Generate ZIP",
+      "downloadRenamedImages": "Download Renamed Images as ZIP"
+    }
+  },
+  "buttons": {
+    "submit": "Submit",
+    "addEmployee": "Add Employee",
+    "addVehicle": "Add Vehicle",
+    "download": "Download",
+    "generateZIP": "Generate ZIP",
+    "downloadRenamedImages": "Download Renamed Images as ZIP"
+  },
+  "validation": {
+    "required": "This field is required",
+    "minLength": "Must be at least {0} characters",
+    "maxFileSize": "Max file size is 10MB"
+  },
+  "formDescriptions": {
+    "selectEmployeeNationality": "Select employee Nationality",
+    "enterSubcontractorName": "Enter the subContractor name if applicable",
+    "enterAssociatedPetroChinaContractNumber": "Enter the associated PetroChina contract number",
+    "enterContractHoldingPetroChinaDepartment": "Enter the contract holding PetroChina department",
+    "enterEaLetterNumber": "Enter the EA Letter Number",
+    "enterNumberInEaList": "Enter the Number in EA List",
+    "uploadEmployeePhoto": "Upload a photo of the employee",
+    "uploadEmployeeIdDocument": "Upload the ID document of the employee",
+    "uploadEmployeeDrivingLicense": "Upload the driving license of the employee if the employee is a driver",
+    "uploadEmployeeMoiCard": "Upload the MOI card of the employee if the employee is a driver and working with a security company",
+    "enterHFYCNumber": "Enter the HFYC number (4 digits)",
+    "uploadSenewiyah": "Upload the Senewiyah of the vehicle",
+    "uploadWekala": "Upload the Wekala of the vehicle if the Senewiyah is not under the contractor Name",
+    "uploadArmoredCertificate": "Upload the Armored Vehicle Certificate of the vehicle if the vehicle is armored",
+    "enterFirstName": "Enter the first name",
+    "enterLastName": "Enter the last name",
+    "enterBadgeNumber": "Enter the badge number",
+    "enterPlateNumber": "Enter the plate number",
+    "selectVehicleType": "Select the vehicle type",
+    "enterCompanyName": "Enter the company name",
+    "enterPosition": "Enter the position",
+    "enterIdDocumentNumber": "Enter the ID document number"
+  },
+  "errors": {
+    "fileUploadFailed": "File upload failed",
+    "invalidFileType": "Invalid file type",
+    "excelParsingError": "Error parsing Excel file",
+    "zipGenerationError": "Error generating ZIP file"
+  },
+  "success": {
+    "formSubmitted": "Form submitted successfully",
+    "zipGenerated": "ZIP file generated successfully",
+    "photosRenamed": "Photos renamed successfully"
+  },
+  "confirmations": {
+    "deleteEmployee": "Are you sure you want to delete this employee?",
+    "deleteVehicle": "Are you sure you want to delete this vehicle?",
+    "generateZip": "Are you ready to generate the ZIP file? All entered data and uploaded files will be included."
+  },
+  "placeholders": {
+    "selectNationality": "Select nationality",
+    "enterBadgeNumber": "Enter badge number",
+    "enterPlateNumber": "Enter plate number",
+    "selectVehicleType": "Select vehicle type"
+  },
+  "tooltips": {
+    "badgeNumber": "Unique badge number for the employee",
+    "eaLetterNumber": "Security clearance letter number",
+    "fleetNumber": "Fleet number for the vehicle (if applicable)",
+    "chassisNumber": "Unique chassis number of the vehicle"
+  }
+}

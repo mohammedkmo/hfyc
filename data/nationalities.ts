@@ -5,6 +5,8 @@ export const nationalities = [
     alpha_3_code: "AFG",
     en_short_name: "Afghanistan",
     nationality: "Afghan",
+    nationality_ar: "أفغاني",
+    nationality_cn: "阿富汗人",
   },
   {
     num_code: "248",
@@ -12,6 +14,8 @@ export const nationalities = [
     alpha_3_code: "ALA",
     en_short_name: "\u00c5land Islands",
     nationality: "\u00c5land Island",
+    nationality_ar: "جزر أولاند",
+    nationality_cn: "奥兰群岛",
   },
   {
     num_code: "8",
@@ -19,6 +23,8 @@ export const nationalities = [
     alpha_3_code: "ALB",
     en_short_name: "Albania",
     nationality: "Albanian",
+    nationality_ar: "ألباني",
+    nationality_cn: "阿尔巴尼亚人",
   },
   {
     num_code: "12",
@@ -26,6 +32,8 @@ export const nationalities = [
     alpha_3_code: "DZA",
     en_short_name: "Algeria",
     nationality: "Algerian",
+    nationality_ar: "جزائري",
+    nationality_cn: "阿尔及利亚人",
   },
   {
     num_code: "16",
@@ -33,6 +41,8 @@ export const nationalities = [
     alpha_3_code: "ASM",
     en_short_name: "American Samoa",
     nationality: "American Samoan",
+    nationality_ar: "أمريكي ساموي",
+    nationality_cn: "美国萨摩亚人",
   },
   {
     num_code: "20",
@@ -40,6 +50,8 @@ export const nationalities = [
     alpha_3_code: "AND",
     en_short_name: "Andorra",
     nationality: "Andorran",
+    nationality_ar: "أندوري",
+    nationality_cn: "安道尔人",
   },
   {
     num_code: "24",
@@ -47,6 +59,8 @@ export const nationalities = [
     alpha_3_code: "AGO",
     en_short_name: "Angola",
     nationality: "Angolan",
+    nationality_ar: "أنغولي",
+    nationality_cn: "安哥拉人",
   },
   {
     num_code: "660",
@@ -54,6 +68,8 @@ export const nationalities = [
     alpha_3_code: "AIA",
     en_short_name: "Anguilla",
     nationality: "Anguillan",
+    nationality_ar: "أنغويلي",
+    nationality_cn: "安圭拉人",
   },
   {
     num_code: "10",
@@ -61,6 +77,8 @@ export const nationalities = [
     alpha_3_code: "ATA",
     en_short_name: "Antarctica",
     nationality: "Antarctic",
+    nationality_ar: "أنتاركتيكي",
+    nationality_cn: "南极洲人",
   },
   {
     num_code: "28",
@@ -68,6 +86,8 @@ export const nationalities = [
     alpha_3_code: "ATG",
     en_short_name: "Antigua and Barbuda",
     nationality: "Antiguan or Barbudan",
+    nationality_ar: "أنتيغوي أو بربودي",
+    nationality_cn: "安提瓜和巴布达人",
   },
   {
     num_code: "32",
@@ -75,6 +95,8 @@ export const nationalities = [
     alpha_3_code: "ARG",
     en_short_name: "Argentina",
     nationality: "Argentine",
+    nationality_ar: "أرجنتيني",
+    nationality_cn: "阿根廷人",
   },
   {
     num_code: "51",
@@ -82,6 +104,8 @@ export const nationalities = [
     alpha_3_code: "ARM",
     en_short_name: "Armenia",
     nationality: "Armenian",
+    nationality_ar: "أرميني",
+    nationality_cn: "亚美尼亚人",
   },
   {
     num_code: "533",
@@ -89,6 +113,8 @@ export const nationalities = [
     alpha_3_code: "ABW",
     en_short_name: "Aruba",
     nationality: "Aruban",
+    nationality_ar: "أروبي",
+    nationality_cn: "阿鲁巴人",
   },
   {
     num_code: "36",
@@ -96,6 +122,8 @@ export const nationalities = [
     alpha_3_code: "AUS",
     en_short_name: "Australia",
     nationality: "Australian",
+    nationality_ar: "أسترالي",
+    nationality_cn: "澳大利亚人",
   },
   {
     num_code: "40",
@@ -103,6 +131,8 @@ export const nationalities = [
     alpha_3_code: "AUT",
     en_short_name: "Austria",
     nationality: "Austrian",
+    nationality_ar: "نمساوي",
+    nationality_cn: "奥地利人",
   },
   {
     num_code: "31",
@@ -110,6 +140,8 @@ export const nationalities = [
     alpha_3_code: "AZE",
     en_short_name: "Azerbaijan",
     nationality: "Azerbaijani, Azeri",
+    nationality_ar: "أذربيجاني",
+    nationality_cn: "阿塞拜疆人",
   },
   {
     num_code: "44",
@@ -117,6 +149,8 @@ export const nationalities = [
     alpha_3_code: "BHS",
     en_short_name: "Bahamas",
     nationality: "Bahamian",
+    nationality_ar: "باهامي",
+    nationality_cn: "巴哈马人",
   },
   {
     num_code: "48",
@@ -124,6 +158,8 @@ export const nationalities = [
     alpha_3_code: "BHR",
     en_short_name: "Bahrain",
     nationality: "Bahraini",
+    nationality_ar: "بحريني",
+    nationality_cn: "巴林人",
   },
   {
     num_code: "50",
@@ -131,6 +167,8 @@ export const nationalities = [
     alpha_3_code: "BGD",
     en_short_name: "Bangladesh",
     nationality: "Bangladeshi",
+    nationality_ar: "بنغلاديشي",
+    nationality_cn: "孟加拉人",
   },
   {
     num_code: "52",
@@ -138,6 +176,8 @@ export const nationalities = [
     alpha_3_code: "BRB",
     en_short_name: "Barbados",
     nationality: "Barbadian",
+    nationality_ar: "بربادوسي",
+    nationality_cn: "巴巴多人",
   },
   {
     num_code: "112",
@@ -145,6 +185,8 @@ export const nationalities = [
     alpha_3_code: "BLR",
     en_short_name: "Belarus",
     nationality: "Belarusian",
+    nationality_ar: "بيلاروسي",
+    nationality_cn: "白俄罗斯人",
   },
   {
     num_code: "56",
@@ -152,6 +194,8 @@ export const nationalities = [
     alpha_3_code: "BEL",
     en_short_name: "Belgium",
     nationality: "Belgian",
+    nationality_ar: "بلجيكي",
+    nationality_cn: "比利时人",
   },
   {
     num_code: "84",
@@ -159,6 +203,8 @@ export const nationalities = [
     alpha_3_code: "BLZ",
     en_short_name: "Belize",
     nationality: "Belizean",
+    nationality_ar: "بليزي",
+    nationality_cn: "伯利兹人",
   },
   {
     num_code: "204",
@@ -166,6 +212,8 @@ export const nationalities = [
     alpha_3_code: "BEN",
     en_short_name: "Benin",
     nationality: "Beninese, Beninois",
+    nationality_ar: "بنيني",
+    nationality_cn: "贝宁人",
   },
   {
     num_code: "60",
@@ -173,6 +221,8 @@ export const nationalities = [
     alpha_3_code: "BMU",
     en_short_name: "Bermuda",
     nationality: "Bermudian, Bermudan",
+    nationality_ar: "برمودي",
+    nationality_cn: "百慕大人",
   },
   {
     num_code: "64",
@@ -180,6 +230,8 @@ export const nationalities = [
     alpha_3_code: "BTN",
     en_short_name: "Bhutan",
     nationality: "Bhutanese",
+    nationality_ar: "بوتاني",
+    nationality_cn: "不丹人",
   },
   {
     num_code: "68",
@@ -187,6 +239,8 @@ export const nationalities = [
     alpha_3_code: "BOL",
     en_short_name: "Bolivia (Plurinational State of)",
     nationality: "Bolivian",
+    nationality_ar: "بوليفي",
+    nationality_cn: "玻利维亚人",
   },
   {
     num_code: "535",
@@ -194,6 +248,8 @@ export const nationalities = [
     alpha_3_code: "BES",
     en_short_name: "Bonaire, Sint Eustatius and Saba",
     nationality: "Bonaire",
+    nationality_ar: "بونيري",
+    nationality_cn: "博内尔人",
   },
   {
     num_code: "70",
@@ -201,6 +257,8 @@ export const nationalities = [
     alpha_3_code: "BIH",
     en_short_name: "Bosnia and Herzegovina",
     nationality: "Bosnian or Herzegovinian",
+    nationality_ar: "بوسني أو هرسكي",
+    nationality_cn: "波斯尼亚和黑塞哥维那人",
   },
   {
     num_code: "72",
@@ -208,6 +266,8 @@ export const nationalities = [
     alpha_3_code: "BWA",
     en_short_name: "Botswana",
     nationality: "Motswana, Botswanan",
+    nationality_ar: "بوتسواني",
+    nationality_cn: "博茨瓦纳人",
   },
   {
     num_code: "74",
@@ -215,6 +275,8 @@ export const nationalities = [
     alpha_3_code: "BVT",
     en_short_name: "Bouvet Island",
     nationality: "Bouvet Island",
+    nationality_ar: "جزيرة بوفيه",
+    nationality_cn: "布韦岛",
   },
   {
     num_code: "76",
@@ -222,6 +284,8 @@ export const nationalities = [
     alpha_3_code: "BRA",
     en_short_name: "Brazil",
     nationality: "Brazilian",
+    nationality_ar: "برازيلي",
+    nationality_cn: "巴西人",
   },
   {
     num_code: "86",
@@ -229,6 +293,8 @@ export const nationalities = [
     alpha_3_code: "IOT",
     en_short_name: "British Indian Ocean Territory",
     nationality: "BIOT",
+    nationality_ar: "إقليم المحيط الهندي البريطاني",
+    nationality_cn: "英属印度洋领地",
   },
   {
     num_code: "96",
@@ -236,6 +302,8 @@ export const nationalities = [
     alpha_3_code: "BRN",
     en_short_name: "Brunei Darussalam",
     nationality: "Bruneian",
+    nationality_ar: "بروناي",
+    nationality_cn: "文莱人",
   },
   {
     num_code: "100",
@@ -243,6 +311,8 @@ export const nationalities = [
     alpha_3_code: "BGR",
     en_short_name: "Bulgaria",
     nationality: "Bulgarian",
+    nationality_ar: "بلغاري",
+    nationality_cn: "保加利亚人",
   },
   {
     num_code: "854",
@@ -250,6 +320,8 @@ export const nationalities = [
     alpha_3_code: "BFA",
     en_short_name: "Burkina Faso",
     nationality: "Burkinab\u00e9",
+    nationality_ar: "بوركيني",
+    nationality_cn: "布基纳法索人",
   },
   {
     num_code: "108",
@@ -257,6 +329,8 @@ export const nationalities = [
     alpha_3_code: "BDI",
     en_short_name: "Burundi",
     nationality: "Burundian",
+    nationality_ar: "بوروندي",
+    nationality_cn: "布隆迪人",
   },
   {
     num_code: "132",
@@ -264,6 +338,8 @@ export const nationalities = [
     alpha_3_code: "CPV",
     en_short_name: "Cabo Verde",
     nationality: "Cabo Verdean",
+    nationality_ar: "الرأس الأخضر",
+    nationality_cn: "佛得角人",
   },
   {
     num_code: "116",
@@ -271,6 +347,8 @@ export const nationalities = [
     alpha_3_code: "KHM",
     en_short_name: "Cambodia",
     nationality: "Cambodian",
+    nationality_ar: "كمبودي",
+    nationality_cn: "柬埔寨人",
   },
   {
     num_code: "120",
@@ -278,6 +356,8 @@ export const nationalities = [
     alpha_3_code: "CMR",
     en_short_name: "Cameroon",
     nationality: "Cameroonian",
+    nationality_ar: "كاميروني",
+    nationality_cn: "喀麦隆人",
   },
   {
     num_code: "124",
@@ -285,6 +365,8 @@ export const nationalities = [
     alpha_3_code: "CAN",
     en_short_name: "Canada",
     nationality: "Canadian",
+    nationality_ar: "كندي",
+    nationality_cn: "加拿大人",
   },
   {
     num_code: "136",
@@ -292,6 +374,8 @@ export const nationalities = [
     alpha_3_code: "CYM",
     en_short_name: "Cayman Islands",
     nationality: "Caymanian",
+    nationality_ar: "كايماني",
+    nationality_cn: "开曼群岛人",
   },
   {
     num_code: "140",
@@ -299,6 +383,8 @@ export const nationalities = [
     alpha_3_code: "CAF",
     en_short_name: "Central African Republic",
     nationality: "Central African",
+    nationality_ar: "أفريقي وسطي",
+    nationality_cn: "中非人",
   },
   {
     num_code: "148",
@@ -306,6 +392,8 @@ export const nationalities = [
     alpha_3_code: "TCD",
     en_short_name: "Chad",
     nationality: "Chadian",
+    nationality_ar: "تشادي",
+    nationality_cn: "乍得人",
   },
   {
     num_code: "152",
@@ -313,6 +401,8 @@ export const nationalities = [
     alpha_3_code: "CHL",
     en_short_name: "Chile",
     nationality: "Chilean",
+    nationality_ar: "تشيلي",
+    nationality_cn: "智利人",
   },
   {
     num_code: "156",
@@ -320,6 +410,8 @@ export const nationalities = [
     alpha_3_code: "CHN",
     en_short_name: "China",
     nationality: "Chinese",
+    nationality_ar: "صيني",
+    nationality_cn: "中国人",
   },
   {
     num_code: "162",
@@ -327,6 +419,8 @@ export const nationalities = [
     alpha_3_code: "CXR",
     en_short_name: "Christmas Island",
     nationality: "Christmas Island",
+    nationality_ar: "جزيرة كريسماس",
+    nationality_cn: "圣诞岛",
   },
   {
     num_code: "166",
@@ -334,6 +428,8 @@ export const nationalities = [
     alpha_3_code: "CCK",
     en_short_name: "Cocos (Keeling) Islands",
     nationality: "Cocos Island",
+    nationality_ar: "جزر كوكوس",
+    nationality_cn: "科科斯（基林）群岛",
   },
   {
     num_code: "170",
@@ -341,6 +437,8 @@ export const nationalities = [
     alpha_3_code: "COL",
     en_short_name: "Colombia",
     nationality: "Colombian",
+    nationality_ar: "كولومبي",
+    nationality_cn: "哥伦比亚人",
   },
   {
     num_code: "174",
@@ -348,6 +446,8 @@ export const nationalities = [
     alpha_3_code: "COM",
     en_short_name: "Comoros",
     nationality: "Comoran, Comorian",
+    nationality_ar: "قمري",
+    nationality_cn: "科摩罗人",
   },
   {
     num_code: "178",
@@ -355,6 +455,8 @@ export const nationalities = [
     alpha_3_code: "COG",
     en_short_name: "Congo (Republic of the)",
     nationality: "Congolese",
+    nationality_ar: "كونغولي",
+    nationality_cn: "刚果人",
   },
   {
     num_code: "180",
@@ -362,6 +464,8 @@ export const nationalities = [
     alpha_3_code: "COD",
     en_short_name: "Congo (Democratic Republic of the)",
     nationality: "Congolese",
+    nationality_ar: "كونغولي",
+    nationality_cn: "刚果人",
   },
   {
     num_code: "184",
@@ -369,6 +473,8 @@ export const nationalities = [
     alpha_3_code: "COK",
     en_short_name: "Cook Islands",
     nationality: "Cook Island",
+    nationality_ar: "جزر كوك",
+    nationality_cn: "库克群岛",
   },
   {
     num_code: "188",
@@ -376,6 +482,8 @@ export const nationalities = [
     alpha_3_code: "CRI",
     en_short_name: "Costa Rica",
     nationality: "Costa Rican",
+    nationality_ar: "كوستاريكي",
+    nationality_cn: "哥斯达黎加人",
   },
   {
     num_code: "384",
@@ -383,6 +491,8 @@ export const nationalities = [
     alpha_3_code: "CIV",
     en_short_name: "C\u00f4te d'Ivoire",
     nationality: "Ivorian",
+    nationality_ar: "إيفواري",
+    nationality_cn: "科特迪瓦人",
   },
   {
     num_code: "191",
@@ -390,6 +500,8 @@ export const nationalities = [
     alpha_3_code: "HRV",
     en_short_name: "Croatia",
     nationality: "Croatian",
+    nationality_ar: "كرواتي",
+    nationality_cn: "克罗地亚人",
   },
   {
     num_code: "192",
@@ -397,6 +509,8 @@ export const nationalities = [
     alpha_3_code: "CUB",
     en_short_name: "Cuba",
     nationality: "Cuban",
+    nationality_ar: "كوبي",
+    nationality_cn: "古巴人",
   },
   {
     num_code: "531",
@@ -404,6 +518,8 @@ export const nationalities = [
     alpha_3_code: "CUW",
     en_short_name: "Cura\u00e7ao",
     nationality: "Cura\u00e7aoan",
+    nationality_ar: "كوراساوي",
+    nationality_cn: "库拉索人",
   },
   {
     num_code: "196",
@@ -411,6 +527,8 @@ export const nationalities = [
     alpha_3_code: "CYP",
     en_short_name: "Cyprus",
     nationality: "Cypriot",
+    nationality_ar: "قبرصي",
+    nationality_cn: "塞浦路斯人",
   },
   {
     num_code: "203",
@@ -418,6 +536,8 @@ export const nationalities = [
     alpha_3_code: "CZE",
     en_short_name: "Czech Republic",
     nationality: "Czech",
+    nationality_ar: "تشيكي",
+    nationality_cn: "捷克人",
   },
   {
     num_code: "208",
@@ -425,6 +545,8 @@ export const nationalities = [
     alpha_3_code: "DNK",
     en_short_name: "Denmark",
     nationality: "Danish",
+    nationality_ar: "دنماركي",
+    nationality_cn: "丹麦人",
   },
   {
     num_code: "262",
@@ -432,6 +554,8 @@ export const nationalities = [
     alpha_3_code: "DJI",
     en_short_name: "Djibouti",
     nationality: "Djiboutian",
+    nationality_ar: "جيبوتي",
+    nationality_cn: "吉布提人",
   },
   {
     num_code: "212",
@@ -439,6 +563,8 @@ export const nationalities = [
     alpha_3_code: "DMA",
     en_short_name: "Dominica",
     nationality: "Dominican",
+    nationality_ar: "دومينيكي",
+    nationality_cn: "多米尼加人",
   },
   {
     num_code: "214",
@@ -446,6 +572,8 @@ export const nationalities = [
     alpha_3_code: "DOM",
     en_short_name: "Dominican Republic",
     nationality: "Dominican",
+    nationality_ar: "دومينيكاني",
+    nationality_cn: "多米尼加人",
   },
   {
     num_code: "218",
@@ -453,6 +581,8 @@ export const nationalities = [
     alpha_3_code: "ECU",
     en_short_name: "Ecuador",
     nationality: "Ecuadorian",
+    nationality_ar: "إكوادوري",
+    nationality_cn: "厄瓜多尔人",
   },
   {
     num_code: "818",
@@ -460,6 +590,8 @@ export const nationalities = [
     alpha_3_code: "EGY",
     en_short_name: "Egypt",
     nationality: "Egyptian",
+    nationality_ar: "مصري",
+    nationality_cn: "埃及人",
   },
   {
     num_code: "222",
@@ -467,6 +599,8 @@ export const nationalities = [
     alpha_3_code: "SLV",
     en_short_name: "El Salvador",
     nationality: "Salvadoran",
+    nationality_ar: "سلفادوري",
+    nationality_cn: "萨尔瓦多人",
   },
   {
     num_code: "226",
@@ -474,6 +608,8 @@ export const nationalities = [
     alpha_3_code: "GNQ",
     en_short_name: "Equatorial Guinea",
     nationality: "Equatorial Guinean, Equatoguinean",
+    nationality_ar: "غيني استوائي",
+    nationality_cn: "赤道几内亚人",
   },
   {
     num_code: "232",
@@ -481,6 +617,8 @@ export const nationalities = [
     alpha_3_code: "ERI",
     en_short_name: "Eritrea",
     nationality: "Eritrean",
+    nationality_ar: "إريتري",
+    nationality_cn: "厄立特里亚人",
   },
   {
     num_code: "233",
@@ -488,6 +626,8 @@ export const nationalities = [
     alpha_3_code: "EST",
     en_short_name: "Estonia",
     nationality: "Estonian",
+    nationality_ar: "إستوني",
+    nationality_cn: "爱沙尼亚人",
   },
   {
     num_code: "231",
@@ -495,6 +635,8 @@ export const nationalities = [
     alpha_3_code: "ETH",
     en_short_name: "Ethiopia",
     nationality: "Ethiopian",
+    nationality_ar: "إثيوبي",
+    nationality_cn: "埃塞俄比亚人",
   },
   {
     num_code: "238",
@@ -502,6 +644,8 @@ export const nationalities = [
     alpha_3_code: "FLK",
     en_short_name: "Falkland Islands (Malvinas)",
     nationality: "Falkland Island",
+    nationality_ar: "جزر فوكلاند",
+    nationality_cn: "福克兰群岛",
   },
   {
     num_code: "234",
@@ -509,6 +653,8 @@ export const nationalities = [
     alpha_3_code: "FRO",
     en_short_name: "Faroe Islands",
     nationality: "Faroese",
+    nationality_ar: "جزر فارو",
+    nationality_cn: "法罗人",
   },
   {
     num_code: "242",
@@ -516,6 +662,8 @@ export const nationalities = [
     alpha_3_code: "FJI",
     en_short_name: "Fiji",
     nationality: "Fijian",
+    nationality_ar: "فيجي",
+    nationality_cn: "斐济人",
   },
   {
     num_code: "246",
@@ -523,6 +671,8 @@ export const nationalities = [
     alpha_3_code: "FIN",
     en_short_name: "Finland",
     nationality: "Finnish",
+    nationality_ar: "فنلندي",
+    nationality_cn: "芬兰人",
   },
   {
     num_code: "250",
@@ -530,6 +680,8 @@ export const nationalities = [
     alpha_3_code: "FRA",
     en_short_name: "France",
     nationality: "French",
+    nationality_ar: "فرنسي",
+    nationality_cn: "法国人",
   },
   {
     num_code: "254",
@@ -537,6 +689,8 @@ export const nationalities = [
     alpha_3_code: "GUF",
     en_short_name: "French Guiana",
     nationality: "French Guianese",
+    nationality_ar: "غويانا الفرنسية",
+    nationality_cn: "法属圭亚那人",
   },
   {
     num_code: "258",
@@ -544,6 +698,8 @@ export const nationalities = [
     alpha_3_code: "PYF",
     en_short_name: "French Polynesia",
     nationality: "French Polynesian",
+    nationality_ar: "بولينيزي فرنسي",
+    nationality_cn: "法属波利尼西亚人",
   },
   {
     num_code: "260",
@@ -551,6 +707,8 @@ export const nationalities = [
     alpha_3_code: "ATF",
     en_short_name: "French Southern Territories",
     nationality: "French Southern Territories",
+    nationality_ar: "أراض فرنسية جنوبية وأنتارتيكية",
+    nationality_cn: "法属南部和南极领地",
   },
   {
     num_code: "266",
@@ -558,6 +716,8 @@ export const nationalities = [
     alpha_3_code: "GAB",
     en_short_name: "Gabon",
     nationality: "Gabonese",
+    nationality_ar: "غابوني",
+    nationality_cn: "加蓬人",
   },
   {
     num_code: "270",
@@ -565,6 +725,8 @@ export const nationalities = [
     alpha_3_code: "GMB",
     en_short_name: "Gambia",
     nationality: "Gambian",
+    nationality_ar: "غامبي",
+    nationality_cn: "冈比亚人",
   },
   {
     num_code: "268",
@@ -572,6 +734,8 @@ export const nationalities = [
     alpha_3_code: "GEO",
     en_short_name: "Georgia",
     nationality: "Georgian",
+    nationality_ar: "جورجي",
+    nationality_cn: "格鲁吉亚人",
   },
   {
     num_code: "276",
@@ -579,6 +743,8 @@ export const nationalities = [
     alpha_3_code: "DEU",
     en_short_name: "Germany",
     nationality: "German",
+    nationality_ar: "ألماني",
+    nationality_cn: "德国人",
   },
   {
     num_code: "288",
@@ -586,6 +752,8 @@ export const nationalities = [
     alpha_3_code: "GHA",
     en_short_name: "Ghana",
     nationality: "Ghanaian",
+    nationality_ar: "غاني",
+    nationality_cn: "加纳人",
   },
   {
     num_code: "292",
@@ -593,6 +761,8 @@ export const nationalities = [
     alpha_3_code: "GIB",
     en_short_name: "Gibraltar",
     nationality: "Gibraltar",
+    nationality_ar: "جبل طارق",
+    nationality_cn: "直布罗陀",
   },
   {
     num_code: "300",
@@ -600,6 +770,8 @@ export const nationalities = [
     alpha_3_code: "GRC",
     en_short_name: "Greece",
     nationality: "Greek, Hellenic",
+    nationality_ar: "يوناني",
+    nationality_cn: "希腊人",
   },
   {
     num_code: "304",
@@ -607,6 +779,8 @@ export const nationalities = [
     alpha_3_code: "GRL",
     en_short_name: "Greenland",
     nationality: "Greenlandic",
+    nationality_ar: "جرينلاندي",
+    nationality_cn: "格陵兰人",
   },
   {
     num_code: "308",
@@ -614,6 +788,8 @@ export const nationalities = [
     alpha_3_code: "GRD",
     en_short_name: "Grenada",
     nationality: "Grenadian",
+    nationality_ar: "غرينادي",
+    nationality_cn: "格林纳达人",
   },
   {
     num_code: "312",
@@ -621,6 +797,8 @@ export const nationalities = [
     alpha_3_code: "GLP",
     en_short_name: "Guadeloupe",
     nationality: "Guadeloupe",
+    nationality_ar: "جوادلوبي",
+    nationality_cn: "瓜德罗普人",
   },
   {
     num_code: "316",
@@ -628,6 +806,8 @@ export const nationalities = [
     alpha_3_code: "GUM",
     en_short_name: "Guam",
     nationality: "Guamanian, Guambat",
+    nationality_ar: "غوامي",
+    nationality_cn: "关岛人",
   },
   {
     num_code: "320",
@@ -635,6 +815,8 @@ export const nationalities = [
     alpha_3_code: "GTM",
     en_short_name: "Guatemala",
     nationality: "Guatemalan",
+    nationality_ar: "غواتيمالي",
+    nationality_cn: "危地马拉人",
   },
   {
     num_code: "831",
@@ -642,6 +824,8 @@ export const nationalities = [
     alpha_3_code: "GGY",
     en_short_name: "Guernsey",
     nationality: "Channel Island",
+    nationality_ar: "غيرنزي",
+    nationality_cn: "根西岛",
   },
   {
     num_code: "324",
@@ -649,6 +833,8 @@ export const nationalities = [
     alpha_3_code: "GIN",
     en_short_name: "Guinea",
     nationality: "Guinean",
+    nationality_ar: "غيني",
+    nationality_cn: "几内亚人",
   },
   {
     num_code: "624",
@@ -656,6 +842,8 @@ export const nationalities = [
     alpha_3_code: "GNB",
     en_short_name: "Guinea-Bissau",
     nationality: "Bissau-Guinean",
+    nationality_ar: "غيني بيساوي",
+    nationality_cn: "几内亚比绍人",
   },
   {
     num_code: "328",
@@ -663,6 +851,8 @@ export const nationalities = [
     alpha_3_code: "GUY",
     en_short_name: "Guyana",
     nationality: "Guyanese",
+    nationality_ar: "غياني",
+    nationality_cn: "圭亚那人",
   },
   {
     num_code: "332",
@@ -670,6 +860,8 @@ export const nationalities = [
     alpha_3_code: "HTI",
     en_short_name: "Haiti",
     nationality: "Haitian",
+    nationality_ar: "هايتي",
+    nationality_cn: "海地人",
   },
   {
     num_code: "334",
@@ -677,6 +869,8 @@ export const nationalities = [
     alpha_3_code: "HMD",
     en_short_name: "Heard Island and McDonald Islands",
     nationality: "Heard Island or McDonald Islands",
+    nationality_ar: "جزيرة هيرد وجزر ماكدونالد",
+    nationality_cn: "赫德岛和麦克唐纳群岛",
   },
   {
     num_code: "336",
@@ -684,6 +878,8 @@ export const nationalities = [
     alpha_3_code: "VAT",
     en_short_name: "Vatican City State",
     nationality: "Vatican",
+    nationality_ar: "فاتيكاني",
+    nationality_cn: "梵蒂冈人",
   },
   {
     num_code: "340",
@@ -691,6 +887,8 @@ export const nationalities = [
     alpha_3_code: "HND",
     en_short_name: "Honduras",
     nationality: "Honduran",
+    nationality_ar: "هندوراسي",
+    nationality_cn: "洪都拉斯人",
   },
   {
     num_code: "344",
@@ -698,6 +896,8 @@ export const nationalities = [
     alpha_3_code: "HKG",
     en_short_name: "Hong Kong",
     nationality: "Hong Kong, Hong Kongese",
+    nationality_ar: "هونغ كونغي",
+    nationality_cn: "香港人",
   },
   {
     num_code: "348",
@@ -705,6 +905,8 @@ export const nationalities = [
     alpha_3_code: "HUN",
     en_short_name: "Hungary",
     nationality: "Hungarian, Magyar",
+    nationality_ar: "مجري",
+    nationality_cn: "匈牙利人",
   },
   {
     num_code: "352",
@@ -712,6 +914,8 @@ export const nationalities = [
     alpha_3_code: "ISL",
     en_short_name: "Iceland",
     nationality: "Icelandic",
+    nationality_ar: "آيسلندي",
+    nationality_cn: "冰岛人",
   },
   {
     num_code: "356",
@@ -719,6 +923,8 @@ export const nationalities = [
     alpha_3_code: "IND",
     en_short_name: "India",
     nationality: "Indian",
+    nationality_ar: "هندي",
+    nationality_cn: "印度人",
   },
   {
     num_code: "360",
@@ -726,6 +932,8 @@ export const nationalities = [
     alpha_3_code: "IDN",
     en_short_name: "Indonesia",
     nationality: "Indonesian",
+    nationality_ar: "إندونيسي",
+    nationality_cn: "印度尼西亚人",
   },
   {
     num_code: "364",
@@ -733,6 +941,8 @@ export const nationalities = [
     alpha_3_code: "IRN",
     en_short_name: "Iran",
     nationality: "Iranian, Persian",
+    nationality_ar: "إيراني",
+    nationality_cn: "伊朗人",
   },
   {
     num_code: "368",
@@ -740,6 +950,8 @@ export const nationalities = [
     alpha_3_code: "IRQ",
     en_short_name: "Iraq",
     nationality: "Iraqi",
+    nationality_ar: "عراقي",
+    nationality_cn: "伊拉克人",
   },
   {
     num_code: "372",
@@ -747,6 +959,8 @@ export const nationalities = [
     alpha_3_code: "IRL",
     en_short_name: "Ireland",
     nationality: "Irish",
+    nationality_ar: "أيرلندي",
+    nationality_cn: "爱尔兰人",
   },
   {
     num_code: "833",
@@ -754,6 +968,8 @@ export const nationalities = [
     alpha_3_code: "IMN",
     en_short_name: "Isle of Man",
     nationality: "Manx",
+    nationality_ar: "جزيرة مان",
+    nationality_cn: "马恩岛",
   },
   {
     num_code: "380",
@@ -761,6 +977,8 @@ export const nationalities = [
     alpha_3_code: "ITA",
     en_short_name: "Italy",
     nationality: "Italian",
+    nationality_ar: "إيطالي",
+    nationality_cn: "意大利人",
   },
   {
     num_code: "388",
@@ -768,6 +986,8 @@ export const nationalities = [
     alpha_3_code: "JAM",
     en_short_name: "Jamaica",
     nationality: "Jamaican",
+    nationality_ar: "جامايكي",
+    nationality_cn: "牙买加人",
   },
   {
     num_code: "392",
@@ -775,6 +995,8 @@ export const nationalities = [
     alpha_3_code: "JPN",
     en_short_name: "Japan",
     nationality: "Japanese",
+    nationality_ar: "ياباني",
+    nationality_cn: "日本人",
   },
   {
     num_code: "832",
@@ -782,6 +1004,8 @@ export const nationalities = [
     alpha_3_code: "JEY",
     en_short_name: "Jersey",
     nationality: "Channel Island",
+    nationality_ar: "جيرسي",
+    nationality_cn: "泽西岛",
   },
   {
     num_code: "400",
@@ -789,6 +1013,8 @@ export const nationalities = [
     alpha_3_code: "JOR",
     en_short_name: "Jordan",
     nationality: "Jordanian",
+    nationality_ar: "أردني",
+    nationality_cn: "约旦人",
   },
   {
     num_code: "398",
@@ -796,6 +1022,8 @@ export const nationalities = [
     alpha_3_code: "KAZ",
     en_short_name: "Kazakhstan",
     nationality: "Kazakhstani, Kazakh",
+    nationality_ar: "كازاخستاني",
+    nationality_cn: "哈萨克斯坦人",
   },
   {
     num_code: "404",
@@ -803,6 +1031,8 @@ export const nationalities = [
     alpha_3_code: "KEN",
     en_short_name: "Kenya",
     nationality: "Kenyan",
+    nationality_ar: "كيني",
+    nationality_cn: "肯尼亚人",
   },
   {
     num_code: "296",
@@ -810,6 +1040,8 @@ export const nationalities = [
     alpha_3_code: "KIR",
     en_short_name: "Kiribati",
     nationality: "I-Kiribati",
+    nationality_ar: "كيريباتي",
+    nationality_cn: "基里巴斯人",
   },
   {
     num_code: "408",
@@ -817,6 +1049,8 @@ export const nationalities = [
     alpha_3_code: "PRK",
     en_short_name: "Korea (Democratic People's Republic of)",
     nationality: "North Korean",
+    nationality_ar: "كوري شمالي",
+    nationality_cn: "朝鲜人",
   },
   {
     num_code: "410",
@@ -824,6 +1058,8 @@ export const nationalities = [
     alpha_3_code: "KOR",
     en_short_name: "Korea (Republic of)",
     nationality: "South Korean",
+    nationality_ar: "كوري جنوبي",
+    nationality_cn: "韩国人",
   },
   {
     num_code: "414",
@@ -831,6 +1067,8 @@ export const nationalities = [
     alpha_3_code: "KWT",
     en_short_name: "Kuwait",
     nationality: "Kuwaiti",
+    nationality_ar: "كويتي",
+    nationality_cn: "科威特人",
   },
   {
     num_code: "417",
@@ -838,6 +1076,8 @@ export const nationalities = [
     alpha_3_code: "KGZ",
     en_short_name: "Kyrgyzstan",
     nationality: "Kyrgyzstani, Kyrgyz, Kirgiz, Kirghiz",
+    nationality_ar: "قيرغيزستاني",
+    nationality_cn: "吉尔吉斯斯坦人",
   },
   {
     num_code: "418",
@@ -845,6 +1085,8 @@ export const nationalities = [
     alpha_3_code: "LAO",
     en_short_name: "Lao People's Democratic Republic",
     nationality: "Lao, Laotian",
+    nationality_ar: "لاوسي",
+    nationality_cn: "老挝人",
   },
   {
     num_code: "428",
@@ -852,6 +1094,8 @@ export const nationalities = [
     alpha_3_code: "LVA",
     en_short_name: "Latvia",
     nationality: "Latvian",
+    nationality_ar: "لاتفي",
+    nationality_cn: "拉脱维亚人",
   },
   {
     num_code: "422",
@@ -859,6 +1103,8 @@ export const nationalities = [
     alpha_3_code: "LBN",
     en_short_name: "Lebanon",
     nationality: "Lebanese",
+    nationality_ar: "لبناني",
+    nationality_cn: "黎巴嫩人",
   },
   {
     num_code: "426",
@@ -866,6 +1112,8 @@ export const nationalities = [
     alpha_3_code: "LSO",
     en_short_name: "Lesotho",
     nationality: "Basotho",
+    nationality_ar: "ليسوتي",
+    nationality_cn: "莱索托人",
   },
   {
     num_code: "430",
@@ -873,6 +1121,8 @@ export const nationalities = [
     alpha_3_code: "LBR",
     en_short_name: "Liberia",
     nationality: "Liberian",
+    nationality_ar: "ليبيري",
+    nationality_cn: "利比里亚人",
   },
   {
     num_code: "434",
@@ -880,6 +1130,8 @@ export const nationalities = [
     alpha_3_code: "LBY",
     en_short_name: "Libya",
     nationality: "Libyan",
+    nationality_ar: "ليبي",
+    nationality_cn: "利比亚人",
   },
   {
     num_code: "438",
@@ -887,6 +1139,8 @@ export const nationalities = [
     alpha_3_code: "LIE",
     en_short_name: "Liechtenstein",
     nationality: "Liechtenstein",
+    nationality_ar: "ليختنشتايني",
+    nationality_cn: "列支敦士登人",
   },
   {
     num_code: "440",
@@ -894,6 +1148,8 @@ export const nationalities = [
     alpha_3_code: "LTU",
     en_short_name: "Lithuania",
     nationality: "Lithuanian",
+    nationality_ar: "ليتواني",
+    nationality_cn: "立陶宛人",
   },
   {
     num_code: "442",
@@ -901,6 +1157,8 @@ export const nationalities = [
     alpha_3_code: "LUX",
     en_short_name: "Luxembourg",
     nationality: "Luxembourg, Luxembourgish",
+    nationality_ar: "لوكسمبورغي",
+    nationality_cn: "卢森堡人",
   },
   {
     num_code: "446",
@@ -908,6 +1166,8 @@ export const nationalities = [
     alpha_3_code: "MAC",
     en_short_name: "Macao",
     nationality: "Macanese, Chinese",
+    nationality_ar: "ماكاوي",
+    nationality_cn: "澳门人",
   },
   {
     num_code: "807",
@@ -915,6 +1175,8 @@ export const nationalities = [
     alpha_3_code: "MKD",
     en_short_name: "Macedonia (the former Yugoslav Republic of)",
     nationality: "Macedonian",
+    nationality_ar: "مقدوني",
+    nationality_cn: "马其顿人",
   },
   {
     num_code: "450",
@@ -922,6 +1184,8 @@ export const nationalities = [
     alpha_3_code: "MDG",
     en_short_name: "Madagascar",
     nationality: "Malagasy",
+    nationality_ar: "مدغشقري",
+    nationality_cn: "马达加斯加人",
   },
   {
     num_code: "454",
@@ -929,6 +1193,8 @@ export const nationalities = [
     alpha_3_code: "MWI",
     en_short_name: "Malawi",
     nationality: "Malawian",
+    nationality_ar: "مالاوي",
+    nationality_cn: "马拉维人",
   },
   {
     num_code: "458",
@@ -936,6 +1202,8 @@ export const nationalities = [
     alpha_3_code: "MYS",
     en_short_name: "Malaysia",
     nationality: "Malaysian",
+    nationality_ar: "ماليزي",
+    nationality_cn: "马来西亚人",
   },
   {
     num_code: "462",
@@ -943,6 +1211,8 @@ export const nationalities = [
     alpha_3_code: "MDV",
     en_short_name: "Maldives",
     nationality: "Maldivian",
+    nationality_ar: "مالديفي",
+    nationality_cn: "马尔代夫人",
   },
   {
     num_code: "466",
@@ -950,6 +1220,8 @@ export const nationalities = [
     alpha_3_code: "MLI",
     en_short_name: "Mali",
     nationality: "Malian, Malinese",
+    nationality_ar: "مالي",
+    nationality_cn: "马里人",
   },
   {
     num_code: "470",
@@ -957,6 +1229,8 @@ export const nationalities = [
     alpha_3_code: "MLT",
     en_short_name: "Malta",
     nationality: "Maltese",
+    nationality_ar: "مالطي",
+    nationality_cn: "马耳他人",
   },
   {
     num_code: "584",
@@ -964,6 +1238,8 @@ export const nationalities = [
     alpha_3_code: "MHL",
     en_short_name: "Marshall Islands",
     nationality: "Marshallese",
+    nationality_ar: "مارشالي",
+    nationality_cn: "马绍尔群岛人",
   },
   {
     num_code: "474",
@@ -971,6 +1247,8 @@ export const nationalities = [
     alpha_3_code: "MTQ",
     en_short_name: "Martinique",
     nationality: "Martiniquais, Martinican",
+    nationality_ar: "مارتينيكي",
+    nationality_cn: "马提尼克人",
   },
   {
     num_code: "478",
@@ -978,6 +1256,8 @@ export const nationalities = [
     alpha_3_code: "MRT",
     en_short_name: "Mauritania",
     nationality: "Mauritanian",
+    nationality_ar: "موريتاني",
+    nationality_cn: "毛里塔尼亚人",
   },
   {
     num_code: "480",
@@ -985,6 +1265,8 @@ export const nationalities = [
     alpha_3_code: "MUS",
     en_short_name: "Mauritius",
     nationality: "Mauritian",
+    nationality_ar: "موريشيوسي",
+    nationality_cn: "毛里求斯人",
   },
   {
     num_code: "175",
@@ -992,6 +1274,8 @@ export const nationalities = [
     alpha_3_code: "MYT",
     en_short_name: "Mayotte",
     nationality: "Mahoran",
+    nationality_ar: "مايوتي",
+    nationality_cn: "马约特人",
   },
   {
     num_code: "484",
@@ -999,6 +1283,8 @@ export const nationalities = [
     alpha_3_code: "MEX",
     en_short_name: "Mexico",
     nationality: "Mexican",
+    nationality_ar: "مكسيكي",
+    nationality_cn: "墨西哥人",
   },
   {
     num_code: "583",
@@ -1006,6 +1292,8 @@ export const nationalities = [
     alpha_3_code: "FSM",
     en_short_name: "Micronesia (Federated States of)",
     nationality: "Micronesian",
+    nationality_ar: "ميكرونيزي",
+    nationality_cn: "密克罗尼西亚人",
   },
   {
     num_code: "498",
@@ -1013,13 +1301,17 @@ export const nationalities = [
     alpha_3_code: "MDA",
     en_short_name: "Moldova (Republic of)",
     nationality: "Moldovan",
+    nationality_ar: "مولدوفي",
+    nationality_cn: "摩尔多瓦人",
   },
   {
     num_code: "492",
     alpha_2_code: "MC",
     alpha_3_code: "MCO",
     en_short_name: "Monaco",
-    nationality: "Mon\u00e9gasque, Monacan",
+    nationality: "Monégasque, Monacan",
+    nationality_ar: "موناكي",
+    nationality_cn: "摩纳哥人",
   },
   {
     num_code: "496",
@@ -1027,6 +1319,8 @@ export const nationalities = [
     alpha_3_code: "MNG",
     en_short_name: "Mongolia",
     nationality: "Mongolian",
+    nationality_ar: "منغولي",
+    nationality_cn: "蒙古人",
   },
   {
     num_code: "499",
@@ -1034,6 +1328,8 @@ export const nationalities = [
     alpha_3_code: "MNE",
     en_short_name: "Montenegro",
     nationality: "Montenegrin",
+    nationality_ar: "مونتينيغري",
+    nationality_cn: "黑山人",
   },
   {
     num_code: "500",
@@ -1041,6 +1337,8 @@ export const nationalities = [
     alpha_3_code: "MSR",
     en_short_name: "Montserrat",
     nationality: "Montserratian",
+    nationality_ar: "مونتسيراتي",
+    nationality_cn: "蒙特塞拉特人",
   },
   {
     num_code: "504",
@@ -1048,6 +1346,8 @@ export const nationalities = [
     alpha_3_code: "MAR",
     en_short_name: "Morocco",
     nationality: "Moroccan",
+    nationality_ar: "مغربي",
+    nationality_cn: "摩洛哥人",
   },
   {
     num_code: "508",
@@ -1055,6 +1355,8 @@ export const nationalities = [
     alpha_3_code: "MOZ",
     en_short_name: "Mozambique",
     nationality: "Mozambican",
+    nationality_ar: "موزمبيقي",
+    nationality_cn: "莫桑比克人",
   },
   {
     num_code: "104",
@@ -1062,6 +1364,8 @@ export const nationalities = [
     alpha_3_code: "MMR",
     en_short_name: "Myanmar",
     nationality: "Burmese",
+    nationality_ar: "ميانماري",
+    nationality_cn: "缅甸人",
   },
   {
     num_code: "516",
@@ -1069,6 +1373,8 @@ export const nationalities = [
     alpha_3_code: "NAM",
     en_short_name: "Namibia",
     nationality: "Namibian",
+    nationality_ar: "ناميبي",
+    nationality_cn: "纳米比亚人",
   },
   {
     num_code: "520",
@@ -1076,6 +1382,8 @@ export const nationalities = [
     alpha_3_code: "NRU",
     en_short_name: "Nauru",
     nationality: "Nauruan",
+    nationality_ar: "ناوري",
+    nationality_cn: "瑙鲁人",
   },
   {
     num_code: "524",
@@ -1083,6 +1391,8 @@ export const nationalities = [
     alpha_3_code: "NPL",
     en_short_name: "Nepal",
     nationality: "Nepali, Nepalese",
+    nationality_ar: "نيبالي",
+    nationality_cn: "尼泊尔人",
   },
   {
     num_code: "528",
@@ -1090,6 +1400,8 @@ export const nationalities = [
     alpha_3_code: "NLD",
     en_short_name: "Netherlands",
     nationality: "Dutch, Netherlandic",
+    nationality_ar: "هولندي",
+    nationality_cn: "荷兰人",
   },
   {
     num_code: "540",
@@ -1097,6 +1409,8 @@ export const nationalities = [
     alpha_3_code: "NCL",
     en_short_name: "New Caledonia",
     nationality: "New Caledonian",
+    nationality_ar: "كاليدوني جديد",
+    nationality_cn: "新喀里多尼亚人",
   },
   {
     num_code: "554",
@@ -1104,6 +1418,8 @@ export const nationalities = [
     alpha_3_code: "NZL",
     en_short_name: "New Zealand",
     nationality: "New Zealand, NZ",
+    nationality_ar: "نيوزيلندي",
+    nationality_cn: "新西兰人",
   },
   {
     num_code: "558",
@@ -1111,6 +1427,8 @@ export const nationalities = [
     alpha_3_code: "NIC",
     en_short_name: "Nicaragua",
     nationality: "Nicaraguan",
+    nationality_ar: "نيكاراغوي",
+    nationality_cn: "尼加拉瓜人",
   },
   {
     num_code: "562",
@@ -1118,6 +1436,8 @@ export const nationalities = [
     alpha_3_code: "NER",
     en_short_name: "Niger",
     nationality: "Nigerien",
+    nationality_ar: "نيجري",
+    nationality_cn: "尼日尔人",
   },
   {
     num_code: "566",
@@ -1125,6 +1445,8 @@ export const nationalities = [
     alpha_3_code: "NGA",
     en_short_name: "Nigeria",
     nationality: "Nigerian",
+    nationality_ar: "نيجيري",
+    nationality_cn: "尼日利亚人",
   },
   {
     num_code: "570",
@@ -1132,6 +1454,8 @@ export const nationalities = [
     alpha_3_code: "NIU",
     en_short_name: "Niue",
     nationality: "Niuean",
+    nationality_ar: "نيوي",
+    nationality_cn: "纽埃人",
   },
   {
     num_code: "574",
@@ -1139,6 +1463,8 @@ export const nationalities = [
     alpha_3_code: "NFK",
     en_short_name: "Norfolk Island",
     nationality: "Norfolk Island",
+    nationality_ar: "نورفوكي",
+    nationality_cn: "诺福克岛人",
   },
   {
     num_code: "580",
@@ -1146,6 +1472,8 @@ export const nationalities = [
     alpha_3_code: "MNP",
     en_short_name: "Northern Mariana Islands",
     nationality: "Northern Marianan",
+    nationality_ar: "ماريني شمالي",
+    nationality_cn: "北马里亚纳群岛人",
   },
   {
     num_code: "578",
@@ -1153,6 +1481,8 @@ export const nationalities = [
     alpha_3_code: "NOR",
     en_short_name: "Norway",
     nationality: "Norwegian",
+    nationality_ar: "نرويجي",
+    nationality_cn: "挪威人",
   },
   {
     num_code: "512",
@@ -1160,6 +1490,8 @@ export const nationalities = [
     alpha_3_code: "OMN",
     en_short_name: "Oman",
     nationality: "Omani",
+    nationality_ar: "عماني",
+    nationality_cn: "阿曼人",
   },
   {
     num_code: "586",
@@ -1167,6 +1499,8 @@ export const nationalities = [
     alpha_3_code: "PAK",
     en_short_name: "Pakistan",
     nationality: "Pakistani",
+    nationality_ar: "باكستاني",
+    nationality_cn: "巴基斯坦人",
   },
   {
     num_code: "585",
@@ -1174,6 +1508,8 @@ export const nationalities = [
     alpha_3_code: "PLW",
     en_short_name: "Palau",
     nationality: "Palauan",
+    nationality_ar: "بالاوي",
+    nationality_cn: "帕劳人",
   },
   {
     num_code: "275",
@@ -1181,6 +1517,8 @@ export const nationalities = [
     alpha_3_code: "PSE",
     en_short_name: "Palestine, State of",
     nationality: "Palestinian",
+    nationality_ar: "فلسطيني",
+    nationality_cn: "巴勒斯坦人",
   },
   {
     num_code: "591",
@@ -1188,6 +1526,8 @@ export const nationalities = [
     alpha_3_code: "PAN",
     en_short_name: "Panama",
     nationality: "Panamanian",
+    nationality_ar: "بنمي",
+    nationality_cn: "巴拿马人",
   },
   {
     num_code: "598",
@@ -1195,6 +1535,8 @@ export const nationalities = [
     alpha_3_code: "PNG",
     en_short_name: "Papua New Guinea",
     nationality: "Papua New Guinean, Papuan",
+    nationality_ar: "بابوا غيني جديد",
+    nationality_cn: "巴布亚新几内亚人",
   },
   {
     num_code: "600",
@@ -1202,6 +1544,8 @@ export const nationalities = [
     alpha_3_code: "PRY",
     en_short_name: "Paraguay",
     nationality: "Paraguayan",
+    nationality_ar: "باراغواي",
+    nationality_cn: "巴拉圭人",
   },
   {
     num_code: "604",
@@ -1209,6 +1553,8 @@ export const nationalities = [
     alpha_3_code: "PER",
     en_short_name: "Peru",
     nationality: "Peruvian",
+    nationality_ar: "بيروفي",
+    nationality_cn: "秘鲁人",
   },
   {
     num_code: "608",
@@ -1216,6 +1562,8 @@ export const nationalities = [
     alpha_3_code: "PHL",
     en_short_name: "Philippines",
     nationality: "Philippine, Filipino",
+    nationality_ar: "فلبيني",
+    nationality_cn: "菲律宾人",
   },
   {
     num_code: "612",
@@ -1223,6 +1571,8 @@ export const nationalities = [
     alpha_3_code: "PCN",
     en_short_name: "Pitcairn",
     nationality: "Pitcairn Island",
+    nationality_ar: "بيتكيرني",
+    nationality_cn: "皮特凯恩岛人",
   },
   {
     num_code: "616",
@@ -1230,6 +1580,8 @@ export const nationalities = [
     alpha_3_code: "POL",
     en_short_name: "Poland",
     nationality: "Polish",
+    nationality_ar: "بولندي",
+    nationality_cn: "波兰人",
   },
   {
     num_code: "620",
@@ -1237,6 +1589,8 @@ export const nationalities = [
     alpha_3_code: "PRT",
     en_short_name: "Portugal",
     nationality: "Portuguese",
+    nationality_ar: "برتغالي",
+    nationality_cn: "葡萄牙人",
   },
   {
     num_code: "630",
@@ -1244,6 +1598,8 @@ export const nationalities = [
     alpha_3_code: "PRI",
     en_short_name: "Puerto Rico",
     nationality: "Puerto Rican",
+    nationality_ar: "بورتوريكي",
+    nationality_cn: "波多黎各人",
   },
   {
     num_code: "634",
@@ -1251,13 +1607,17 @@ export const nationalities = [
     alpha_3_code: "QAT",
     en_short_name: "Qatar",
     nationality: "Qatari",
+    nationality_ar: "قطري",
+    nationality_cn: "卡塔尔人",
   },
   {
     num_code: "638",
     alpha_2_code: "RE",
     alpha_3_code: "REU",
-    en_short_name: "R\u00e9union",
-    nationality: "R\u00e9unionese, R\u00e9unionnais",
+    en_short_name: "Réunion",
+    nationality: "Réunionese, Réunionnais",
+    nationality_ar: "ريونيوني",
+    nationality_cn: "留尼汪人",
   },
   {
     num_code: "642",
@@ -1265,6 +1625,8 @@ export const nationalities = [
     alpha_3_code: "ROU",
     en_short_name: "Romania",
     nationality: "Romanian",
+    nationality_ar: "روماني",
+    nationality_cn: "罗马尼亚人",
   },
   {
     num_code: "643",
@@ -1272,6 +1634,8 @@ export const nationalities = [
     alpha_3_code: "RUS",
     en_short_name: "Russian Federation",
     nationality: "Russian",
+    nationality_ar: "روسي",
+    nationality_cn: "俄罗斯人",
   },
   {
     num_code: "646",
@@ -1279,13 +1643,17 @@ export const nationalities = [
     alpha_3_code: "RWA",
     en_short_name: "Rwanda",
     nationality: "Rwandan",
+    nationality_ar: "رواندي",
+    nationality_cn: "卢旺达人",
   },
   {
     num_code: "652",
     alpha_2_code: "BL",
     alpha_3_code: "BLM",
-    en_short_name: "Saint Barth\u00e9lemy",
-    nationality: "Barth\u00e9lemois",
+    en_short_name: "Saint Barthélemy",
+    nationality: "Barthélemois",
+    nationality_ar: "بارتيليمي",
+    nationality_cn: "圣巴泰勒米人",
   },
   {
     num_code: "654",
@@ -1293,6 +1661,8 @@ export const nationalities = [
     alpha_3_code: "SHN",
     en_short_name: "Saint Helena, Ascension and Tristan da Cunha",
     nationality: "Saint Helenian",
+    nationality_ar: "هيلاني",
+    nationality_cn: "圣赫勒拿人",
   },
   {
     num_code: "659",
@@ -1300,6 +1670,8 @@ export const nationalities = [
     alpha_3_code: "KNA",
     en_short_name: "Saint Kitts and Nevis",
     nationality: "Kittitian or Nevisian",
+    nationality_ar: "كيتسي-نيفيسي",
+    nationality_cn: "圣基茨和尼维斯人",
   },
   {
     num_code: "662",
@@ -1307,6 +1679,8 @@ export const nationalities = [
     alpha_3_code: "LCA",
     en_short_name: "Saint Lucia",
     nationality: "Saint Lucian",
+    nationality_ar: "سانت لوسي",
+    nationality_cn: "圣卢西亚人",
   },
   {
     num_code: "663",
@@ -1314,6 +1688,8 @@ export const nationalities = [
     alpha_3_code: "MAF",
     en_short_name: "Saint Martin (French part)",
     nationality: "Saint-Martinoise",
+    nationality_ar: "ساينت مارتني",
+    nationality_cn: "法属圣马丁人",
   },
   {
     num_code: "666",
@@ -1321,6 +1697,8 @@ export const nationalities = [
     alpha_3_code: "SPM",
     en_short_name: "Saint Pierre and Miquelon",
     nationality: "Saint-Pierrais or Miquelonnais",
+    nationality_ar: "سان بيير وميكلوني",
+    nationality_cn: "圣皮埃尔和密克隆群岛人",
   },
   {
     num_code: "670",
@@ -1328,6 +1706,8 @@ export const nationalities = [
     alpha_3_code: "VCT",
     en_short_name: "Saint Vincent and the Grenadines",
     nationality: "Saint Vincentian, Vincentian",
+    nationality_ar: "سانت فنسنتي",
+    nationality_cn: "圣文森特和格林纳丁斯人",
   },
   {
     num_code: "882",
@@ -1335,6 +1715,8 @@ export const nationalities = [
     alpha_3_code: "WSM",
     en_short_name: "Samoa",
     nationality: "Samoan",
+    nationality_ar: "ساموي",
+    nationality_cn: "萨摩亚人",
   },
   {
     num_code: "674",
@@ -1342,13 +1724,17 @@ export const nationalities = [
     alpha_3_code: "SMR",
     en_short_name: "San Marino",
     nationality: "Sammarinese",
+    nationality_ar: "ساماريني",
+    nationality_cn: "圣马力诺人",
   },
   {
     num_code: "678",
     alpha_2_code: "ST",
     alpha_3_code: "STP",
     en_short_name: "Sao Tome and Principe",
-    nationality: "S\u00e3o Tom\u00e9an",
+    nationality: "São Toméan",
+    nationality_ar: "ساو تومي وبرينسيبي",
+    nationality_cn: "圣多美和普林西比人",
   },
   {
     num_code: "682",
@@ -1356,6 +1742,8 @@ export const nationalities = [
     alpha_3_code: "SAU",
     en_short_name: "Saudi Arabia",
     nationality: "Saudi, Saudi Arabian",
+    nationality_ar: "سعودي",
+    nationality_cn: "沙特阿拉伯人",
   },
   {
     num_code: "686",
@@ -1363,6 +1751,8 @@ export const nationalities = [
     alpha_3_code: "SEN",
     en_short_name: "Senegal",
     nationality: "Senegalese",
+    nationality_ar: "سنغالي",
+    nationality_cn: "塞内加尔人",
   },
   {
     num_code: "688",
@@ -1370,6 +1760,8 @@ export const nationalities = [
     alpha_3_code: "SRB",
     en_short_name: "Serbia",
     nationality: "Serbian",
+    nationality_ar: "صربي",
+    nationality_cn: "塞尔维亚人",
   },
   {
     num_code: "690",
@@ -1377,6 +1769,8 @@ export const nationalities = [
     alpha_3_code: "SYC",
     en_short_name: "Seychelles",
     nationality: "Seychellois",
+    nationality_ar: "سيشيلي",
+    nationality_cn: "塞舌尔人",
   },
   {
     num_code: "694",
@@ -1384,6 +1778,8 @@ export const nationalities = [
     alpha_3_code: "SLE",
     en_short_name: "Sierra Leone",
     nationality: "Sierra Leonean",
+    nationality_ar: "سيراليوني",
+    nationality_cn: "塞拉利昂人",
   },
   {
     num_code: "702",
@@ -1391,6 +1787,8 @@ export const nationalities = [
     alpha_3_code: "SGP",
     en_short_name: "Singapore",
     nationality: "Singaporean",
+    nationality_ar: "سنغافوري",
+    nationality_cn: "新加坡人",
   },
   {
     num_code: "534",
@@ -1398,6 +1796,8 @@ export const nationalities = [
     alpha_3_code: "SXM",
     en_short_name: "Sint Maarten (Dutch part)",
     nationality: "Sint Maarten",
+    nationality_ar: "سينت مارتني",
+    nationality_cn: "荷属圣马丁",
   },
   {
     num_code: "703",
@@ -1405,6 +1805,8 @@ export const nationalities = [
     alpha_3_code: "SVK",
     en_short_name: "Slovakia",
     nationality: "Slovak",
+    nationality_ar: "سلوفاكي",
+    nationality_cn: "斯洛伐克人",
   },
   {
     num_code: "705",
@@ -1412,6 +1814,8 @@ export const nationalities = [
     alpha_3_code: "SVN",
     en_short_name: "Slovenia",
     nationality: "Slovenian, Slovene",
+    nationality_ar: "سلوفيني",
+    nationality_cn: "斯洛文尼亚人",
   },
   {
     num_code: "90",
@@ -1419,6 +1823,8 @@ export const nationalities = [
     alpha_3_code: "SLB",
     en_short_name: "Solomon Islands",
     nationality: "Solomon Island",
+    nationality_ar: "جزر سليمان",
+    nationality_cn: "所罗门群岛人",
   },
   {
     num_code: "706",
@@ -1426,6 +1832,8 @@ export const nationalities = [
     alpha_3_code: "SOM",
     en_short_name: "Somalia",
     nationality: "Somali, Somalian",
+    nationality_ar: "صومالي",
+    nationality_cn: "索马里人",
   },
   {
     num_code: "710",
@@ -1433,6 +1841,8 @@ export const nationalities = [
     alpha_3_code: "ZAF",
     en_short_name: "South Africa",
     nationality: "South African",
+    nationality_ar: "جنوب أفريقي",
+    nationality_cn: "南非人",
   },
   {
     num_code: "239",
@@ -1440,6 +1850,8 @@ export const nationalities = [
     alpha_3_code: "SGS",
     en_short_name: "South Georgia and the South Sandwich Islands",
     nationality: "South Georgia or South Sandwich Islands",
+    nationality_ar: "جورجيا الجنوبية وجزر ساندويتش الجنوبية",
+    nationality_cn: "南乔治亚岛和南桑威奇群岛",
   },
   {
     num_code: "728",
@@ -1447,6 +1859,8 @@ export const nationalities = [
     alpha_3_code: "SSD",
     en_short_name: "South Sudan",
     nationality: "South Sudanese",
+    nationality_ar: "جنوب سوداني",
+    nationality_cn: "南苏丹人",
   },
   {
     num_code: "724",
@@ -1454,6 +1868,8 @@ export const nationalities = [
     alpha_3_code: "ESP",
     en_short_name: "Spain",
     nationality: "Spanish",
+    nationality_ar: "إسباني",
+    nationality_cn: "西班牙人",
   },
   {
     num_code: "144",
@@ -1461,6 +1877,8 @@ export const nationalities = [
     alpha_3_code: "LKA",
     en_short_name: "Sri Lanka",
     nationality: "Sri Lankan",
+    nationality_ar: "سريلانكي",
+    nationality_cn: "斯里兰卡人",
   },
   {
     num_code: "729",
@@ -1468,6 +1886,8 @@ export const nationalities = [
     alpha_3_code: "SDN",
     en_short_name: "Sudan",
     nationality: "Sudanese",
+    nationality_ar: "سوداني",
+    nationality_cn: "苏丹人",
   },
   {
     num_code: "740",
@@ -1475,6 +1895,8 @@ export const nationalities = [
     alpha_3_code: "SUR",
     en_short_name: "Suriname",
     nationality: "Surinamese",
+    nationality_ar: "سورينامي",
+    nationality_cn: "苏里南人",
   },
   {
     num_code: "744",
@@ -1482,6 +1904,8 @@ export const nationalities = [
     alpha_3_code: "SJM",
     en_short_name: "Svalbard and Jan Mayen",
     nationality: "Svalbard",
+    nationality_ar: "سفالبارد ويان ماين",
+    nationality_cn: "斯瓦尔巴和扬马延",
   },
   {
     num_code: "748",
@@ -1489,6 +1913,8 @@ export const nationalities = [
     alpha_3_code: "SWZ",
     en_short_name: "Swaziland",
     nationality: "Swazi",
+    nationality_ar: "سوازيلندي",
+    nationality_cn: "斯威士兰人",
   },
   {
     num_code: "752",
@@ -1496,6 +1922,8 @@ export const nationalities = [
     alpha_3_code: "SWE",
     en_short_name: "Sweden",
     nationality: "Swedish",
+    nationality_ar: "سويدي",
+    nationality_cn: "瑞典人",
   },
   {
     num_code: "756",
@@ -1503,6 +1931,8 @@ export const nationalities = [
     alpha_3_code: "CHE",
     en_short_name: "Switzerland",
     nationality: "Swiss",
+    nationality_ar: "سويسري",
+    nationality_cn: "瑞士人",
   },
   {
     num_code: "760",
@@ -1510,6 +1940,8 @@ export const nationalities = [
     alpha_3_code: "SYR",
     en_short_name: "Syrian Arab Republic",
     nationality: "Syrian",
+    nationality_ar: "سوري",
+    nationality_cn: "叙利亚人",
   },
   {
     num_code: "158",
@@ -1517,6 +1949,8 @@ export const nationalities = [
     alpha_3_code: "TWN",
     en_short_name: "Taiwan, Province of China",
     nationality: "Chinese, Taiwanese",
+    nationality_ar: "تايواني",
+    nationality_cn: "中国台湾人",
   },
   {
     num_code: "762",
@@ -1524,6 +1958,8 @@ export const nationalities = [
     alpha_3_code: "TJK",
     en_short_name: "Tajikistan",
     nationality: "Tajikistani",
+    nationality_ar: "طاجيكستاني",
+    nationality_cn: "塔吉克斯坦人",
   },
   {
     num_code: "834",
@@ -1531,6 +1967,8 @@ export const nationalities = [
     alpha_3_code: "TZA",
     en_short_name: "Tanzania, United Republic of",
     nationality: "Tanzanian",
+    nationality_ar: "تنزاني",
+    nationality_cn: "坦桑尼亚人",
   },
   {
     num_code: "764",
@@ -1538,6 +1976,8 @@ export const nationalities = [
     alpha_3_code: "THA",
     en_short_name: "Thailand",
     nationality: "Thai",
+    nationality_ar: "تايلاندي",
+    nationality_cn: "泰国人",
   },
   {
     num_code: "626",
@@ -1545,6 +1985,8 @@ export const nationalities = [
     alpha_3_code: "TLS",
     en_short_name: "Timor-Leste",
     nationality: "Timorese",
+    nationality_ar: "تيموري",
+    nationality_cn: "东帝汶人",
   },
   {
     num_code: "768",
@@ -1552,6 +1994,8 @@ export const nationalities = [
     alpha_3_code: "TGO",
     en_short_name: "Togo",
     nationality: "Togolese",
+    nationality_ar: "توغولي",
+    nationality_cn: "多哥人",
   },
   {
     num_code: "772",
@@ -1559,6 +2003,8 @@ export const nationalities = [
     alpha_3_code: "TKL",
     en_short_name: "Tokelau",
     nationality: "Tokelauan",
+    nationality_ar: "توكيلاوي",
+    nationality_cn: "托克劳人",
   },
   {
     num_code: "776",
@@ -1566,6 +2012,8 @@ export const nationalities = [
     alpha_3_code: "TON",
     en_short_name: "Tonga",
     nationality: "Tongan",
+    nationality_ar: "تونغي",
+    nationality_cn: "汤加人",
   },
   {
     num_code: "780",
@@ -1573,6 +2021,8 @@ export const nationalities = [
     alpha_3_code: "TTO",
     en_short_name: "Trinidad and Tobago",
     nationality: "Trinidadian or Tobagonian",
+    nationality_ar: "ترينيدادي",
+    nationality_cn: "特立尼达和多巴哥人",
   },
   {
     num_code: "788",
@@ -1580,6 +2030,8 @@ export const nationalities = [
     alpha_3_code: "TUN",
     en_short_name: "Tunisia",
     nationality: "Tunisian",
+    nationality_ar: "تونسي",
+    nationality_cn: "突尼斯人",
   },
   {
     num_code: "792",
@@ -1587,6 +2039,8 @@ export const nationalities = [
     alpha_3_code: "TUR",
     en_short_name: "Turkey",
     nationality: "Turkish",
+    nationality_ar: "تركي",
+    nationality_cn: "土耳其人",
   },
   {
     num_code: "795",
@@ -1594,6 +2048,8 @@ export const nationalities = [
     alpha_3_code: "TKM",
     en_short_name: "Turkmenistan",
     nationality: "Turkmen",
+    nationality_ar: "تركماني",
+    nationality_cn: "土库曼斯坦人",
   },
   {
     num_code: "796",
@@ -1601,6 +2057,8 @@ export const nationalities = [
     alpha_3_code: "TCA",
     en_short_name: "Turks and Caicos Islands",
     nationality: "Turks and Caicos Island",
+    nationality_ar: "جزر توركس وكايكوس",
+    nationality_cn: "特克斯和凯科斯群岛人",
   },
   {
     num_code: "798",
@@ -1608,6 +2066,8 @@ export const nationalities = [
     alpha_3_code: "TUV",
     en_short_name: "Tuvalu",
     nationality: "Tuvaluan",
+    nationality_ar: "توفالي",
+    nationality_cn: "图瓦卢人",
   },
   {
     num_code: "800",
@@ -1615,6 +2075,8 @@ export const nationalities = [
     alpha_3_code: "UGA",
     en_short_name: "Uganda",
     nationality: "Ugandan",
+    nationality_ar: "أوغندي",
+    nationality_cn: "乌干达人",
   },
   {
     num_code: "804",
@@ -1622,6 +2084,8 @@ export const nationalities = [
     alpha_3_code: "UKR",
     en_short_name: "Ukraine",
     nationality: "Ukrainian",
+    nationality_ar: "أوكراني",
+    nationality_cn: "乌克兰人",
   },
   {
     num_code: "784",
@@ -1629,6 +2093,8 @@ export const nationalities = [
     alpha_3_code: "ARE",
     en_short_name: "United Arab Emirates",
     nationality: "Emirati, Emirian, Emiri",
+    nationality_ar: "إماراتي",
+    nationality_cn: "阿联酋人",
   },
   {
     num_code: "826",
@@ -1636,6 +2102,8 @@ export const nationalities = [
     alpha_3_code: "GBR",
     en_short_name: "United Kingdom of Great Britain and Northern Ireland",
     nationality: "British, UK",
+    nationality_ar: "بريطاني",
+    nationality_cn: "英国人",
   },
   {
     num_code: "581",
@@ -1643,6 +2111,8 @@ export const nationalities = [
     alpha_3_code: "UMI",
     en_short_name: "United States Minor Outlying Islands",
     nationality: "American",
+    nationality_ar: "أمريكي",
+    nationality_cn: "美国本土外小岛屿",
   },
   {
     num_code: "840",
@@ -1650,6 +2120,8 @@ export const nationalities = [
     alpha_3_code: "USA",
     en_short_name: "United States of America",
     nationality: "American",
+    nationality_ar: "أمريكي",
+    nationality_cn: "美国人",
   },
   {
     num_code: "858",
@@ -1657,6 +2129,8 @@ export const nationalities = [
     alpha_3_code: "URY",
     en_short_name: "Uruguay",
     nationality: "Uruguayan",
+    nationality_ar: "أوروغواي",
+    nationality_cn: "乌拉圭人",
   },
   {
     num_code: "860",
@@ -1664,6 +2138,8 @@ export const nationalities = [
     alpha_3_code: "UZB",
     en_short_name: "Uzbekistan",
     nationality: "Uzbekistani, Uzbek",
+    nationality_ar: "أوزبكستاني",
+    nationality_cn: "乌兹别克斯坦人",
   },
   {
     num_code: "548",
@@ -1671,6 +2147,8 @@ export const nationalities = [
     alpha_3_code: "VUT",
     en_short_name: "Vanuatu",
     nationality: "Ni-Vanuatu, Vanuatuan",
+    nationality_ar: "فانواتي",
+    nationality_cn: "瓦努阿图人",
   },
   {
     num_code: "862",
@@ -1678,6 +2156,8 @@ export const nationalities = [
     alpha_3_code: "VEN",
     en_short_name: "Venezuela (Bolivarian Republic of)",
     nationality: "Venezuelan",
+    nationality_ar: "فنزويلي",
+    nationality_cn: "委内瑞拉人",
   },
   {
     num_code: "704",
@@ -1685,6 +2165,8 @@ export const nationalities = [
     alpha_3_code: "VNM",
     en_short_name: "Vietnam",
     nationality: "Vietnamese",
+    nationality_ar: "فيتنامي",
+    nationality_cn: "越南人",
   },
   {
     num_code: "92",
@@ -1692,6 +2174,8 @@ export const nationalities = [
     alpha_3_code: "VGB",
     en_short_name: "Virgin Islands (British)",
     nationality: "British Virgin Island",
+    nationality_ar: "جزر العذراء البريطانية",
+    nationality_cn: "英属维尔京群岛人",
   },
   {
     num_code: "850",
@@ -1699,6 +2183,8 @@ export const nationalities = [
     alpha_3_code: "VIR",
     en_short_name: "Virgin Islands (U.S.)",
     nationality: "U.S. Virgin Island",
+    nationality_ar: "جزر العذراء الأمريكية",
+    nationality_cn: "美属维尔京群岛人",
   },
   {
     num_code: "876",
@@ -1706,6 +2192,8 @@ export const nationalities = [
     alpha_3_code: "WLF",
     en_short_name: "Wallis and Futuna",
     nationality: "Wallis and Futuna, Wallisian or Futunan",
+    nationality_ar: "والس وفوتونا",
+    nationality_cn: "瓦利斯和富图纳人",
   },
   {
     num_code: "732",
@@ -1713,6 +2201,8 @@ export const nationalities = [
     alpha_3_code: "ESH",
     en_short_name: "Western Sahara",
     nationality: "Sahrawi, Sahrawian, Sahraouian",
+    nationality_ar: "صحراوي",
+    nationality_cn: "西撒哈拉人",
   },
   {
     num_code: "887",
@@ -1720,6 +2210,8 @@ export const nationalities = [
     alpha_3_code: "YEM",
     en_short_name: "Yemen",
     nationality: "Yemeni",
+    nationality_ar: "يمني",
+    nationality_cn: "也门人",
   },
   {
     num_code: "894",
@@ -1727,6 +2219,8 @@ export const nationalities = [
     alpha_3_code: "ZMB",
     en_short_name: "Zambia",
     nationality: "Zambian",
+    nationality_ar: "زامبي",
+    nationality_cn: "赞比亚人",
   },
   {
     num_code: "716",
@@ -1734,5 +2228,7 @@ export const nationalities = [
     alpha_3_code: "ZWE",
     en_short_name: "Zimbabwe",
     nationality: "Zimbabwean",
+    nationality_ar: "زيمبابوي",
+    nationality_cn: "津巴布韦人",
   },
 ];
