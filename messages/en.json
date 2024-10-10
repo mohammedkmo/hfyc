@@ -51,6 +51,18 @@
       "details": "Details",
       "allFieldsShouldBeFilledInEnglish": "All fields should be filled in English.",
       "addEmployee": "Add Employee",
+      "importZIP": "Import ZIP",
+      "importZIPDescription": "If you want to modify a previous application, please upload the ZIP file you downloaded from the previous application.",
+      "dragDropZipFile": "Drag and drop your ZIP file here, or click to select",
+      "supportedFormatsZip": "Supported formats: .zip",
+      "importSuccess": "Success",
+      "dataImportedSuccessfully": "Data imported successfully",
+      "failedToProcessZipFile": "Failed to process the ZIP file",
+      "createZIPSuccess": "Success",
+      "createZIPSuccessDescription": "ZIP file created successfully",
+      "createZIPFailed": "Failed",
+      "createZIPFailedDescription": "Failed to create the ZIP file",
+
       "validation": {
         "badgeNumberRequired": "Badge number is required",
         "firstNameMinLength": "First name must be at least 2 characters",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,7 +16,7 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
-import { Trash2 } from "lucide-react";
+import { FileArchive, Trash2, Upload } from "lucide-react";
 import { FormValues, formSchema } from "@/schema/employee";
 import {
     Select,
@@ -33,6 +33,8 @@ import XLSX from 'xlsx-js-style';
 import { formatDate } from "@/lib/helpers";
 import { useLocale, useTranslations } from 'next-intl';
 import { cn } from "@/lib/utils";
+import { toast } from "@/hooks/use-toast";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
 
 export default function PersonalBadgeForm() {
     const locale = useLocale();
@@ -54,6 +56,8 @@ export default function PersonalBadgeForm() {
         name: "employees",
         control: form.control,
     });
+
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     const addEmployee = () => {
         append({
@@ -85,6 +89,7 @@ export default function PersonalBadgeForm() {
     };
 
     const onSubmit = async (data: FormValues) => {
+       try {
         const zip = new JSZip();
 
         // Create folders
@@ -335,430 +340,567 @@ export default function PersonalBadgeForm() {
         // Generate ZIP file and trigger download
         const zipBlob = await zip.generateAsync({ type: "blob" });
         saveAs(zipBlob, `${excelData[0]["Company Name"]} - ${excelData.length} employees register.zip`);
+
+        toast({ 
+            title: formTranslations('createZIPSuccess'), 
+            description: formTranslations('createZIPSuccessDescription') 
+        });
+       } catch (error) {
+        toast({ 
+            title: formTranslations('createZIPFailed'), 
+            description: formTranslations('createZIPFailedDescription'), 
+            variant: "destructive" 
+        });
+       }
     };
 
+    const handleImportClick = () => {
+        fileInputRef.current?.click();
+    };
+
+    const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (file && file.name.endsWith('.zip')) {
+            try {
+                const zip = new JSZip();
+                const contents = await zip.loadAsync(file);
+
+                // Find the Excel file
+                const excelFile = Object.values(contents.files).find(f => f.name.endsWith('.xlsx'));
+                if (!excelFile) {
+                    toast({ title: "Error", description: "No Excel file found in the ZIP", variant: "destructive" });
+                    return;
+                }
+
+                // Read Excel data
+                const excelData = await excelFile.async('arraybuffer');
+                const workbook = XLSX.read(excelData, { type: 'array' });
+                const firstSheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[firstSheetName];
+                const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+                // Skip header rows
+                const dataRows = jsonData.slice(10);
+
+                // Map Excel data to form fields and process images
+                const employees = await Promise.all(dataRows.map(async (row: any, index: number) => {
+                    const badgeNumber = row[0];
+                    const photoFile = contents.files[`Photos/${row[1]}+${row[2]}_${badgeNumber}.jpg`];
+                    const idDocFile = contents.files[`ID Documents/${badgeNumber}-ID Document.jpg`];
+                    const drivingLicenseFile = contents.files[`Driving Licences/${badgeNumber}-Driving License.jpg`];
+                    const moiCardFile = contents.files[`MOI Cards/${badgeNumber}-MOI Card.jpg`];
+
+                    return {
+                        id: badgeNumber?.replace('HFYC', ''),
+                        firstName: row[1],
+                        lastName: row[2],
+                        contractor: row[8],
+                        position: row[19],
+                        idDocumentNumber: row[10],
+                        nationality: row[11],
+                        subcontractor: row[9],
+                        associatedPetroChinaContractNumber: row[13],
+                        contractHoldingPetroChinaDepartment: row[14],
+                        eaLetterNumber: row[16],
+                        numberInEaList: row[17],
+                        photo: photoFile ? new File([await photoFile.async('blob')], photoFile.name, { type: 'image/jpeg' }) : null,
+                        idDocument: idDocFile ? new File([await idDocFile.async('blob')], idDocFile.name, { type: 'image/jpeg' }) : null,
+                        drivingLicense: drivingLicenseFile ? new File([await drivingLicenseFile.async('blob')], drivingLicenseFile.name, { type: 'image/jpeg' }) : undefined,
+                        moiCard: moiCardFile ? new File([await moiCardFile.async('blob')], moiCardFile.name, { type: 'image/jpeg' }) : undefined,
+                    };
+                }));
+                // Update form with imported data
+                form.reset({
+                    employees: employees.map(employee => ({
+                        ...employee,
+                        photo: employee.photo || undefined,
+                        idDocument: employee.idDocument || undefined
+                    }))
+                });
+                toast({ 
+                    title: formTranslations('importSuccess'), 
+                    description: formTranslations('dataImportedSuccessfully') 
+                });
+            } catch (error) {
+                console.error("Error processing ZIP file:", error);
+                toast({ 
+                    title: formTranslations('error'), 
+                    description: formTranslations('failedToProcessZipFile'), 
+                    variant: "destructive" 
+                });
+            }
+        } else if (file && (file.name.endsWith('.xlsx') || file.name.endsWith('.xls'))) {
+            // Existing Excel file handling code
+            // ... (keep your current Excel import logic here)
+        } else {
+            toast({ title: "Error", description: "Please upload a ZIP file", variant: "destructive" });
+        }
+    };
 
     return (
-        <Card className="rounded-xl shadow-none border">
-            <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <Tabs
-                        value={activeTab}
-                        onValueChange={setActiveTab}
-                        className="w-full"
-                        dir={isRTL ? 'rtl' : 'ltr'}
-                    >
-                        <TabsList className="flex justify-start gap-x-2 bg-blue-50 items-center p-2 container overflow-x-scroll h-auto scroll-smooth scrollbar rounded-xl rounded-b-none flex-row">
+
+        <div>
+            <Card className="rounded-xl shadow-none border">
+                <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)}>
+                        <Tabs
+                            value={activeTab}
+                            onValueChange={setActiveTab}
+                            className="w-full"
+                            dir={isRTL ? 'rtl' : 'ltr'}
+                        >
+                            <TabsList className="flex justify-start gap-x-2 bg-blue-50 items-center p-2 container overflow-x-scroll h-auto scroll-smooth scrollbar flex-row">
+                                {fields.map((field: any, index: any) => (
+                                    <TabsTrigger
+                                        className={cn(buttonVariants({ variant: "outline" }), "rounded-xl bg-blue-50")}
+                                        key={field.id}
+                                        value={`employee-${index}`}
+                                    >
+                                        {field.firstName || field.lastName
+                                            ? field.firstName + " " + field.lastName
+                                            : `${formTranslations('employee')} ${index + 1}`}
+                                    </TabsTrigger>
+                                ))}
+                                <Button
+                                    type="button"
+                                    onClick={addEmployee}
+                                    variant="outline"
+                                    className="ml-2 rounded-xl"
+                                >
+                                    + {formTranslations('addEmployee')}
+                                </Button>
+                            </TabsList>
                             {fields.map((field: any, index: any) => (
-                                <TabsTrigger
-                                    className={cn(buttonVariants({ variant: "outline" }), "rounded-xl bg-blue-50")}
+                                <TabsContent
                                     key={field.id}
                                     value={`employee-${index}`}
+                                    className="mt-0 rounded-xl"
                                 >
-                                    {field.firstName || field.lastName
-                                        ? field.firstName + " " + field.lastName
-                                        : `${formTranslations('employee')} ${index + 1}`}
-                                </TabsTrigger>
-                            ))}
-                            <Button
-                                type="button"
-                                onClick={addEmployee}
-                                variant="outline"
-                                className="ml-2 rounded-xl"
-                            >
-                                + {formTranslations('addEmployee')}
-                            </Button>
-                        </TabsList>
-                        {fields.map((field: any, index: any) => (
-                            <TabsContent
-                                key={field.id}
-                                value={`employee-${index}`}
-                                className="mt-0 rounded-xl"
-                            >
-                                <CardHeader className="">
-                                    <div className="flex justify-between items-center">
-                                        <CardTitle>{formTranslations('employee')} {index + 1} {formTranslations('details')}</CardTitle>
-                                        {fields.length > 1 && (
-                                            <Button
-                                                type="button"
-                                                variant="outline"
-                                                className="rounded-xl"
-                                                size="icon"
-                                                onClick={() => removeEmployee(index)}
-                                            >
-                                                <Trash2 className="h-4 w-4" />
-                                            </Button>
-                                        )}
-                                    </div>
-                                    <CardDescription>
-                                        {formTranslations('allFieldsShouldBeFilledInEnglish')}
-                                    </CardDescription>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="space-y-4">
-                                        <div className="grid grid-cols-1 gap-4">
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.id`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('badgeNumber')}</FormLabel>
-                                                            <div dir="ltr" className="flex" >
-                                                                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-gray-300 rounded-l-lg border-r-0">
-                                                                    HFYC-
-                                                                </span>
+                                    <CardHeader className="">
+                                        <div className="flex justify-between items-center">
+                                            <CardTitle>{formTranslations('employee')} {index + 1} {formTranslations('details')}</CardTitle>
+                                            {fields.length > 1 && (
+                                                <Button
+                                                    type="button"
+                                                    variant="outline"
+                                                    className="rounded-xl"
+                                                    size="icon"
+                                                    onClick={() => removeEmployee(index)}
+                                                >
+                                                    <Trash2 className="h-4 w-4" />
+                                                </Button>
+                                            )}
+                                        </div>
+                                        <CardDescription>
+                                            {formTranslations('allFieldsShouldBeFilledInEnglish')}
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <div className="space-y-4">
+                                            <div className="grid grid-cols-1 gap-4">
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.id`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('badgeNumber')}</FormLabel>
+                                                                <div dir="ltr" className="flex" >
+                                                                    <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-gray-300 rounded-l-lg border-r-0">
+                                                                        HFYC-
+                                                                    </span>
+                                                                    <FormControl>
+                                                                        <Input
+                                                                            className="rounded-l-none"
+                                                                            maxLength={4}
+                                                                            onInput={(e) => {
+                                                                                const inputElement =
+                                                                                    e.target as HTMLInputElement;
+                                                                                inputElement.value =
+                                                                                    inputElement.value.replace(
+                                                                                        /[^0-9]/g,
+                                                                                        ""
+                                                                                    );
+                                                                            }}
+                                                                            {...field}
+                                                                        />
+                                                                    </FormControl>
+                                                                </div>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterHFYCNumber')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.firstName`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('firstName')}</FormLabel>
                                                                 <FormControl>
-                                                                    <Input
-                                                                        className="rounded-l-none"
-                                                                        maxLength={4}
-                                                                        onInput={(e) => {
-                                                                            const inputElement =
-                                                                                e.target as HTMLInputElement;
-                                                                            inputElement.value =
-                                                                                inputElement.value.replace(
-                                                                                    /[^0-9]/g,
-                                                                                    ""
-                                                                                );
-                                                                        }}
-                                                                        {...field}
+                                                                    <Input {...field} />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterFirstName')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.lastName`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('lastName')}</FormLabel>
+                                                                <FormControl>
+                                                                    <Input {...field} />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterLastName')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                </div>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.contractor`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('contractorName')}</FormLabel>
+                                                                <FormControl>
+                                                                    <Input {...field} />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterCompanyName')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.position`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('position')}</FormLabel>
+                                                                <FormControl>
+                                                                    <Input {...field} />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterPosition')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.idDocumentNumber`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('idDocumentNumber')}</FormLabel>
+                                                                <FormControl>
+                                                                    <Input {...field} />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterIdDocumentNumber')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                </div>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.nationality`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('nationality')}</FormLabel>
+                                                                <Select
+                                                                    dir={isRTL ? 'rtl' : 'ltr'}
+                                                                    onValueChange={field.onChange}
+                                                                    defaultValue={field.value}
+                                                                >
+                                                                    <FormControl>
+                                                                        <SelectTrigger>
+                                                                            <SelectValue placeholder={formTranslations('selectNationality')} />
+                                                                        </SelectTrigger>
+                                                                    </FormControl>
+                                                                    <SelectContent>
+                                                                        {nationalities.map((nationality) => (
+                                                                            <SelectItem
+                                                                                key={nationality.num_code}
+                                                                                value={nationality.nationality}
+                                                                            >
+                                                                                {locale === 'ar' ? nationality.nationality_ar : locale === 'cn' ? nationality.nationality_cn : nationality.nationality}
+                                                                            </SelectItem>
+                                                                        ))}
+                                                                    </SelectContent>
+                                                                </Select>
+                                                                <FormDescription>
+                                                                    {formDescriptions('selectEmployeeNationality')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.subcontractor`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>
+                                                                    {formTranslations('subcontractor')}
+                                                                </FormLabel>
+                                                                <FormControl>
+                                                                    <Input {...field} />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterSubcontractorName')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                </div>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.associatedPetroChinaContractNumber`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>
+                                                                    {formTranslations('associatedPetroChinaContractNumber')}
+                                                                </FormLabel>
+                                                                <FormControl>
+                                                                    <Input {...field} />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterAssociatedPetroChinaContractNumber')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.contractHoldingPetroChinaDepartment`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>
+                                                                    {formTranslations('contractHoldingPetroChinaDepartment')}
+                                                                </FormLabel>
+                                                                <FormControl>
+                                                                    <Input {...field} />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterContractHoldingPetroChinaDepartment')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                </div>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.eaLetterNumber`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('eaLetterNumber')}</FormLabel>
+                                                                <FormControl>
+                                                                    <Input type="number" {...field} />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterEaLetterNumber')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.numberInEaList`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('numberInEaList')}</FormLabel>
+                                                                <FormControl>
+                                                                    <Input type="number" {...field} />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('enterNumberInEaList')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                </div>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.photo`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('photo')}</FormLabel>
+                                                                <FormControl>
+                                                                    <CustomFileUpload
+                                                                        initialFile={field.value}
+                                                                        onChange={(file: any) =>
+                                                                            form.setValue(
+                                                                                `employees.${index}.photo`,
+                                                                                file
+                                                                            )
+                                                                        }
+                                                                        label={formTranslations('uploadPhoto')}
                                                                     />
                                                                 </FormControl>
-                                                            </div>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterHFYCNumber')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.firstName`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('firstName')}</FormLabel>
-                                                            <FormControl>
-                                                                <Input {...field} />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterFirstName')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.lastName`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('lastName')}</FormLabel>
-                                                            <FormControl>
-                                                                <Input {...field} />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterLastName')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                            </div>
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.contractor`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('contractorName')}</FormLabel>
-                                                            <FormControl>
-                                                                <Input {...field} />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterCompanyName')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.position`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('position')}</FormLabel>
-                                                            <FormControl>
-                                                                <Input {...field} />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterPosition')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.idDocumentNumber`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('idDocumentNumber')}</FormLabel>
-                                                            <FormControl>
-                                                                <Input {...field} />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterIdDocumentNumber')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                            </div>
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.nationality`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('nationality')}</FormLabel>
-                                                            <Select
-                                                                dir={isRTL ? 'rtl' : 'ltr'}
-                                                                onValueChange={field.onChange}
-                                                                defaultValue={field.value}
-                                                            >
+                                                                <FormDescription>
+                                                                    {formDescriptions('uploadEmployeePhoto')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.idDocument`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>{formTranslations('idDocument')}</FormLabel>
                                                                 <FormControl>
-                                                                    <SelectTrigger>
-                                                                        <SelectValue placeholder={formTranslations('selectNationality')} />
-                                                                    </SelectTrigger>
+                                                                    <CustomFileUpload
+                                                                        initialFile={field.value}
+                                                                        onChange={(file: any) =>
+                                                                            form.setValue(
+                                                                                `employees.${index}.idDocument`,
+                                                                                file
+                                                                            )
+                                                                        }
+                                                                        label={formTranslations('uploadIdDocument')}
+                                                                    />
                                                                 </FormControl>
-                                                                <SelectContent>
-                                                                    {nationalities.map((nationality) => (
-                                                                        <SelectItem
-                                                                            key={nationality.num_code}
-                                                                            value={nationality.nationality}
-                                                                        >
-                                                                            {locale === 'ar' ? nationality.nationality_ar : locale === 'cn' ? nationality.nationality_cn : nationality.nationality}
-                                                                        </SelectItem>
-                                                                    ))}
-                                                                </SelectContent>
-                                                            </Select>
-                                                            <FormDescription>
-                                                                {formDescriptions('selectEmployeeNationality')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.subcontractor`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>
-                                                                {formTranslations('subcontractor')}
-                                                            </FormLabel>
-                                                            <FormControl>
-                                                                <Input {...field} />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterSubcontractorName')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                            </div>
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.associatedPetroChinaContractNumber`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>
-                                                                {formTranslations('associatedPetroChinaContractNumber')}
-                                                            </FormLabel>
-                                                            <FormControl>
-                                                                <Input {...field} />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterAssociatedPetroChinaContractNumber')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.contractHoldingPetroChinaDepartment`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>
-                                                                {formTranslations('contractHoldingPetroChinaDepartment')}
-                                                            </FormLabel>
-                                                            <FormControl>
-                                                                <Input {...field} />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterContractHoldingPetroChinaDepartment')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                            </div>
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.eaLetterNumber`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('eaLetterNumber')}</FormLabel>
-                                                            <FormControl>
-                                                                <Input type="number" {...field} />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterEaLetterNumber')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.numberInEaList`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('numberInEaList')}</FormLabel>
-                                                            <FormControl>
-                                                                <Input type="number" {...field} />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('enterNumberInEaList')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                            </div>
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.photo`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('photo')}</FormLabel>
-                                                            <FormControl>
-                                                                <CustomFileUpload
-                                                                    initialFile={field.value}
-                                                                    onChange={(file: any) =>
-                                                                        form.setValue(
-                                                                            `employees.${index}.photo`,
-                                                                            file
-                                                                        )
-                                                                    }
-                                                                    label={formTranslations('uploadPhoto')}
-                                                                />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('uploadEmployeePhoto')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.idDocument`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>{formTranslations('idDocument')}</FormLabel>
-                                                            <FormControl>
-                                                                <CustomFileUpload
-                                                                    initialFile={field.value}
-                                                                    onChange={(file: any) =>
-                                                                        form.setValue(
-                                                                            `employees.${index}.idDocument`,
-                                                                            file
-                                                                        )
-                                                                    }
-                                                                    label={formTranslations('uploadIdDocument')}
-                                                                />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('uploadEmployeeIdDocument')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.drivingLicense`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>
-                                                                {formTranslations('drivingLicense')}
-                                                            </FormLabel>
-                                                            <FormControl>
-                                                                <CustomFileUpload
-                                                                    initialFile={field.value}
-                                                                    onChange={(file: any) => {
-                                                                        form.setValue(
-                                                                            `employees.${index}.drivingLicense`,
-                                                                            file || undefined
-                                                                        );
-                                                                    }}
-                                                                    label={formTranslations('uploadDrivingLicense')}
-                                                                />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('uploadEmployeeDrivingLicense')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
-                                                <FormField
-                                                    control={form.control}
-                                                    name={`employees.${index}.moiCard`}
-                                                    render={({ field }: { field: any }) => (
-                                                        <FormItem>
-                                                            <FormLabel>
-                                                                {formTranslations('moiCard')}
-                                                            </FormLabel>
-                                                            <FormControl>
-                                                                <CustomFileUpload
-                                                                    initialFile={field.value}
-                                                                    onChange={(file: any) => {
-                                                                        form.setValue(
-                                                                            `employees.${index}.moiCard`,
-                                                                            file || undefined
-                                                                        );
-                                                                    }}
-                                                                    label={formTranslations('uploadMoiCard')}
-                                                                />
-                                                            </FormControl>
-                                                            <FormDescription>
-                                                                {formDescriptions('uploadEmployeeMoiCard')}
-                                                            </FormDescription>
-                                                            <FormMessage />
-                                                        </FormItem>
-                                                    )}
-                                                />
+                                                                <FormDescription>
+                                                                    {formDescriptions('uploadEmployeeIdDocument')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.drivingLicense`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>
+                                                                    {formTranslations('drivingLicense')}
+                                                                </FormLabel>
+                                                                <FormControl>
+                                                                    <CustomFileUpload
+                                                                        initialFile={field.value}
+                                                                        onChange={(file: any) => {
+                                                                            form.setValue(
+                                                                                `employees.${index}.drivingLicense`,
+                                                                                file || undefined
+                                                                            );
+                                                                        }}
+                                                                        label={formTranslations('uploadDrivingLicense')}
+                                                                    />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('uploadEmployeeDrivingLicense')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                    <FormField
+                                                        control={form.control}
+                                                        name={`employees.${index}.moiCard`}
+                                                        render={({ field }: { field: any }) => (
+                                                            <FormItem>
+                                                                <FormLabel>
+                                                                    {formTranslations('moiCard')}
+                                                                </FormLabel>
+                                                                <FormControl>
+                                                                    <CustomFileUpload
+                                                                        initialFile={field.value}
+                                                                        onChange={(file: any) => {
+                                                                            form.setValue(
+                                                                                `employees.${index}.moiCard`,
+                                                                                file || undefined
+                                                                            );
+                                                                        }}
+                                                                        label={formTranslations('uploadMoiCard')}
+                                                                    />
+                                                                </FormControl>
+                                                                <FormDescription>
+                                                                    {formDescriptions('uploadEmployeeMoiCard')}
+                                                                </FormDescription>
+                                                                <FormMessage />
+                                                            </FormItem>
+                                                        )}
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </CardContent>
-                            </TabsContent>
-                        ))}
-                    </Tabs>
+                                    </CardContent>
+                                </TabsContent>
+                            ))}
+                        </Tabs>
+                        <CardFooter className="py-4 border-t flex justify-between">
+                            <Button className="w-full sm:w-auto" type="submit">
+                                {formTranslations('generateZIP')}
+                            </Button>
+                        </CardFooter>
+                    </form>
+                </Form>
+            </Card>
 
-                    <CardFooter className="py-4 border-t">
-                        <Button className="w-full sm:w-auto" type="submit">{formTranslations('generateZIP')}</Button>
-                    </CardFooter>
-                </form>
-            </Form>
-        </Card>
+            <Collapsible className="mt-4 ">
+                <CollapsibleTrigger asChild>
+                    <div className="w-full p-4 flex items-center justify-between cursor-pointer border border-dashed border-gray-300 rounded-xl hover:bg-gray-50 transition-colors duration-200">
+                        <p className="text-sm text-gray-600">{formTranslations('importZIPDescription')}</p>
+                        <Button variant="outline" size="sm" className="group flex items-center justify-center gap-1">
+                            <Upload className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform duration-200" />
+                            {formTranslations('importZIP')}
+                        </Button>
+                    </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="">
+                    <div className="space-y-4 bg-blue-50 p-4 rounded-xl border my-4">
+                        <div
+                            className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-blue-500"
+                            onDragOver={(e) => e.preventDefault()}
+                            onDrop={(e) => {
+                                e.preventDefault();
+                                const files = e.dataTransfer.files;
+                                if (files.length) {
+                                    handleFileUpload(e as unknown as React.ChangeEvent<HTMLInputElement>);
+                                }
+                            }}
+                            onClick={handleImportClick}
+                        >
+                            <input
+                                type="file"
+                                ref={fileInputRef}
+                                onChange={handleFileUpload}
+                                style={{ display: 'none' }}
+                                accept=".zip"
+                            />
+                            <FileArchive className="mx-auto h-8 w-8 text-gray-400" />
+                            <p className="mt-2 text-sm text-gray-600">{formTranslations('dragDropZipFile')}</p>
+                            <p className="mt-1 text-xs text-gray-500">{formTranslations('supportedFormatsZip')}</p>
+                        </div>
+                    </div>
+                </CollapsibleContent>
+            </Collapsible>
+        </div>
     )
 }
