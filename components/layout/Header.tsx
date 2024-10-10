@@ -45,7 +45,7 @@ export default function Header() {
                 <div className="flex items-center space-x-4">
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="link" className="flex items-center gap-x-2">
+                            <Button variant="link" className="flex items-center gap-x-1">
                                 {languages.find(lang => lang.code === locale)?.name || 'Language'}
                                 <LanguagesIcon className="ml-2 h-4 w-4" />
                             </Button>

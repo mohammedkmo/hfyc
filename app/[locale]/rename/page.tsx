@@ -55,9 +55,9 @@ export default function FolderImageProcessor() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-white">
-      <div className="container m-auto w-3/12 flex items-center justify-center min-h-screen">
-        <div className="flex flex-col">
+    <main className="bg-gradient-to-t from-white via-white to-red-200 py-10 min-h-screen">
+      <div className="container mx-auto flex flex-col gap-4 items-center justify-center bg-white rounded-2xl p-6 min-h-[85vh]">
+        <div className="flex flex-col w-4/12">
           <div className="mb-5">
             <h1 className="text-2xl font-bold">{t('title')}</h1>
             <p className="text-xs text-muted-foreground">
@@ -83,21 +83,20 @@ export default function FolderImageProcessor() {
             </div>
 
             <div
-              className={`flex items-center my-5 border rounded-lg ps-4 p-2 ${
-                images.length < 1 && "hidden"
-              }`}
+              className={`flex items-center my-5 border rounded-lg ps-4 p-2 ${images.length < 1 && "hidden"
+                }`}
             >
               {images.map(
                 (image, index) =>
                   index < 10 && (
                     <div className="rounded-lg -ms-2 border bg-white border-white shadow-lg overflow-hidden w-11 h-11" key={index}>
                       <Image
-                      src={image.data}
-                      alt="Processed"
-                      width={100}
-                      height={100}
-                      className="object-cover"
-                    />
+                        src={image.data}
+                        alt="Processed"
+                        width={100}
+                        height={100}
+                        className="object-cover"
+                      />
                     </div>
                   )
               )}
@@ -126,6 +125,6 @@ export default function FolderImageProcessor() {
           </Button>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

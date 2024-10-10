@@ -26,9 +26,9 @@ export default function Page() {
     };
     
   return (
-    <main className="min-h-screen w-full bg-gray-100">
-      <div className="container w-4/12 m-auto h-full flex items-center justify-center min-h-screen">
-        <div className="flex flex-col">
+    <main className="bg-gradient-to-t from-white via-white to-red-200 py-10 min-h-screen">
+      <div className="container mx-auto flex flex-col gap-4 items-center justify-center bg-white rounded-2xl p-6 min-h-[85vh]">
+        <div className="flex flex-col items-center gap-2">
           <div className="space-y-2">
           <h1 className="text-2xl font-bold">{t('title')}</h1>
           <p className="text-muted-foreground text-sm">{t('description')}</p>

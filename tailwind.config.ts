@@ -17,6 +17,10 @@ const config = {
   		}
   	},
   	extend: {
+		fontFamily: {
+		   inter: ['var(--font-inter)', 'var(--font-arabic)', 'sans-serif', 'system-ui'],
+		   ibmPlexSansArabic: ['var(--font-arabic)'],
+		},
   		colors: {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',

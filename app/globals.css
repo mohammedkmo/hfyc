@@ -68,7 +68,6 @@
   }
 }
 
-
 .scrollbar {
   scrollbar-width: thin;
   scrollbar-color: var(--border) var(--background);
