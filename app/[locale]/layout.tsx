@@ -7,6 +7,7 @@ import { getMessages } from 'next-intl/server';
 import { getLangDir } from 'rtl-detect';
 import { Toaster } from "@/components/ui/toaster"
 import DeviceProvider from "@/components/DeviceProvider";
+import { Analytics } from '@vercel/analytics/react';
 
 const rubik = Rubik({
   subsets: ["latin", "arabic"],
@@ -40,6 +41,7 @@ export default async function RootLayout({
           </DeviceProvider>
         </NextIntlClientProvider>
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
