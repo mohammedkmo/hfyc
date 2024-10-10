@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -32,6 +32,7 @@ import { saveAs } from "file-saver";
 import XLSX from 'xlsx-js-style';
 import { formatDate } from "@/lib/helpers";
 import { useLocale, useTranslations } from 'next-intl';
+import { cn } from "@/lib/utils";
 
 export default function PersonalBadgeForm() {
     const locale = useLocale();
@@ -43,7 +44,7 @@ export default function PersonalBadgeForm() {
     const [tabTitle, setTabTitle] = useState('');
 
     const form = useForm<FormValues>({
-        resolver: zodResolver(formSchema),
+        resolver: zodResolver(formSchema(formTranslations)),
         defaultValues: {
             employees: [{}],
         },
@@ -347,16 +348,16 @@ export default function PersonalBadgeForm() {
                         className="w-full"
                         dir={isRTL ? 'rtl' : 'ltr'}
                     >
-                        <TabsList className="flex justify-start gap-x-2 items-center p-2 container overflow-x-scroll h-auto scroll-smooth scrollbar rounded-xl rounded-b-none flex-row">
+                        <TabsList className="flex justify-start gap-x-2 bg-blue-50 items-center p-2 container overflow-x-scroll h-auto scroll-smooth scrollbar rounded-xl rounded-b-none flex-row">
                             {fields.map((field: any, index: any) => (
                                 <TabsTrigger
-                                    className="rounded-lg h-auto"
+                                    className={cn(buttonVariants({ variant: "outline" }), "rounded-xl bg-blue-50")}
                                     key={field.id}
                                     value={`employee-${index}`}
                                 >
                                     {field.firstName || field.lastName
                                         ? field.firstName + " " + field.lastName
-                                        : `Employee ${index + 1}`}
+                                        : `${formTranslations('employee')} ${index + 1}`}
                                 </TabsTrigger>
                             ))}
                             <Button
@@ -365,7 +366,7 @@ export default function PersonalBadgeForm() {
                                 variant="outline"
                                 className="ml-2 rounded-xl"
                             >
-                                + Add Employee
+                                + {formTranslations('addEmployee')}
                             </Button>
                         </TabsList>
                         {fields.map((field: any, index: any) => (
@@ -376,18 +377,18 @@ export default function PersonalBadgeForm() {
                             >
                                 <CardHeader className="">
                                     <div className="flex justify-between items-center">
-                                    <CardTitle>{formTranslations('employee')} {index + 1} {formTranslations('details')}</CardTitle>
-                                    {fields.length > 1 && (
-                                        <Button
-                                            type="button"
-                                            variant="outline"
-                                            className="rounded-xl"
-                                            size="icon"
-                                            onClick={() => removeEmployee(index)}
-                                        >
-                                            <Trash2 className="h-4 w-4" />
-                                        </Button>
-                                    )}
+                                        <CardTitle>{formTranslations('employee')} {index + 1} {formTranslations('details')}</CardTitle>
+                                        {fields.length > 1 && (
+                                            <Button
+                                                type="button"
+                                                variant="outline"
+                                                className="rounded-xl"
+                                                size="icon"
+                                                onClick={() => removeEmployee(index)}
+                                            >
+                                                <Trash2 className="h-4 w-4" />
+                                            </Button>
+                                        )}
                                     </div>
                                     <CardDescription>
                                         {formTranslations('allFieldsShouldBeFilledInEnglish')}

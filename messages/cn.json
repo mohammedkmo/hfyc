@@ -49,7 +49,22 @@
       "generateZIP": "生成ZIP",
       "employee": "员工",
       "details": "详情",
-      "allFieldsShouldBeFilledInEnglish": "所有字段应使用英文填写。"
+      "allFieldsShouldBeFilledInEnglish": "所有字段应使用英文填写。",
+      "addEmployee": "添加员工",
+      "validation": {
+        "badgeNumberRequired": "徽章编号为必填项",
+        "firstNameMinLength": "名字必须至少2个字符",
+        "lastNameMinLength": "姓氏必须至少2个字符",
+        "contractorMinLength": "承包商必须至少2个字符",
+        "positionMinLength": "职位必须至少2个字符",
+        "idDocumentNumberRequired": "身份证件号码为必填项",
+        "nationalityMinLength": "国籍必须至少2个字符",
+        "associatedPetroChinaContractNumberRequired": "相关中石油合同编号为必填项",
+        "contractHoldingPetroChinaDepartmentRequired": "持有合同的中石油部门为必填项",
+        "eaLetterNumberRequired": "EA信函编号为必填项",
+        "numberInEaListRequired": "EA列表中的编号为必填项",
+        "maxFileSize": "最大文件大小为10MB"
+      }
     }
   },
   "vehicleBadge": {

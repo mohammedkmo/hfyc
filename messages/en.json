@@ -49,7 +49,22 @@
       "generateZIP": "Generate ZIP",
       "employee": "Employee",
       "details": "Details",
-      "allFieldsShouldBeFilledInEnglish": "All fields should be filled in English."
+      "allFieldsShouldBeFilledInEnglish": "All fields should be filled in English.",
+      "addEmployee": "Add Employee",
+      "validation": {
+        "badgeNumberRequired": "Badge number is required",
+        "firstNameMinLength": "First name must be at least 2 characters",
+        "lastNameMinLength": "Last name must be at least 2 characters",
+        "contractorMinLength": "Contractor must be at least 2 characters",
+        "positionMinLength": "Position must be at least 2 characters",
+        "idDocumentNumberRequired": "ID Document Number is required",
+        "nationalityMinLength": "Nationality must be at least 2 characters",
+        "associatedPetroChinaContractNumberRequired": "Associated PetroChina Contract Number is required",
+        "contractHoldingPetroChinaDepartmentRequired": "Contract Holding PetroChina Department is required",
+        "eaLetterNumberRequired": "EA Letter Number is required",
+        "numberInEaListRequired": "Number in EA List is required",
+        "maxFileSize": "Max file size is 10MB"
+      }
     }
   },
   "vehicleBadge": {

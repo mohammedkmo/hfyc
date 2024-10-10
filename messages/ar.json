@@ -49,7 +49,22 @@
       "generateZIP": "إنشاء ZIP",
       "employee": "الموظف",
       "details": "التفاصيل",
-      "allFieldsShouldBeFilledInEnglish": "جميع الحقول يجب أن تكون مملوءة باللغة الإنجليزية."
+      "allFieldsShouldBeFilledInEnglish": "جميع الحقول يجب أن تكون مملوءة باللغة الإنجليزية.",
+      "addEmployee": "إضافة موظف",
+      "validation": {
+        "badgeNumberRequired": "رقم الباج مطلوب",
+        "firstNameMinLength": "الاسم الأول يجب أن يكون أقل من 2 أحرف",
+        "lastNameMinLength": "اسم العائلة يجب أن يكون أقل من 2 أحرف",
+        "contractorMinLength": "المقاول يجب أن يكون أقل من 2 أحرف",
+        "positionMinLength": "المنصب يجب أن يكون أقل من 2 أحرف",
+        "idDocumentNumberRequired": "رقم وثيقة الهوية مطلوب",
+        "nationalityMinLength": "الجنسية يجب أن يكون أقل من 2 أحرف",
+        "associatedPetroChinaContractNumberRequired": "رقم عقد بتروتشاينا المرتبط مطلوب",
+        "contractHoldingPetroChinaDepartmentRequired": "قسم بتروتشاينا الحامل للعقد مطلوب",
+        "eaLetterNumberRequired": "رقم خطاب EA مطلوب",
+        "numberInEaListRequired": "الرقم في قائمة EA مطلوب",
+        "maxFileSize": "الحد الأقصى لحجم الملف هو 10 ميجابايت"
+      }
     }
   },
   "vehicleBadge": {

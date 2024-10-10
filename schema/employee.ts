@@ -1,39 +1,39 @@
 import { z } from "zod";
 
-export const employeeSchema = z.object({
-    id: z.string().min(1, "Badge number is required"),
-    firstName: z.string().min(2, "First name must be at least 2 characters"),
-    lastName: z.string().min(2, "Last name must be at least 2 characters"),
-    contractor: z.string().min(2, "Contractor must be at least 2 characters"),
-    position: z.string().min(2, "Position must be at least 2 characters"),
-    idDocumentNumber: z.string().min(1, "ID Document Number is required"),
-    nationality: z.string().min(2, "Nationality must be at least 2 characters"),
+export const employeeSchema = (t: any) => z.object({
+    id: z.string().min(1, t('validation.badgeNumberRequired')),
+    firstName: z.string().min(2, t('validation.firstNameMinLength')),
+    lastName: z.string().min(2, t('validation.lastNameMinLength')),
+    contractor: z.string().min(2, t('validation.contractorMinLength')),
+    position: z.string().min(2, t('validation.positionMinLength')),
+    idDocumentNumber: z.string().min(1, t('validation.idDocumentNumberRequired')),
+    nationality: z.string().min(2, t('validation.nationalityMinLength')),
     subcontractor: z
       .string()
       .optional(),
     associatedPetroChinaContractNumber: z
       .string()
-      .min(1, "Associated PetroChina Contract Number is required"),
+      .min(1, t('validation.associatedPetroChinaContractNumberRequired')),
     contractHoldingPetroChinaDepartment: z
       .string()
-      .min(1, "Contract Holding PetroChina Department is required"),
-    eaLetterNumber: z.string().min(1, "EA Letter Number is required"),
-    numberInEaList: z.string().min(1, "Number in EA List is required"),
+      .min(1, t('validation.contractHoldingPetroChinaDepartmentRequired')),
+    eaLetterNumber: z.string().min(1, t('validation.eaLetterNumberRequired')),
+    numberInEaList: z.string().min(1, t('validation.numberInEaListRequired')),
     photo: z
       .instanceof(File)
-      .refine((file) => file.size <= 10000000, `Max file size is 10MB.`),
+      .refine((file) => file.size <= 10000000, t('validation.maxFileSize')),
     idDocument: z
       .instanceof(File)
-      .refine((file) => file.size <= 10000000, `Max file size is 10MB.`),
+      .refine((file) => file.size <= 10000000, t('validation.maxFileSize')),
     drivingLicense: z.instanceof(File).optional(),
-    moiCard: z.instanceof(File).refine((file) => file.size <= 10000000, `Max file size is 10MB.`).optional(),
+    moiCard: z.instanceof(File).refine((file) => file.size <= 10000000, t('validation.maxFileSize')).optional(),
   });
 
 
-  export const formSchema = z.object({
+  export const formSchema = (t: any) => z.object({
     employees: z
-      .array(employeeSchema)
-      .min(1, "At least one employee is required"),
+      .array(employeeSchema(t))
+      .min(1, t('validation.atLeastOneEmployeeRequired')),
   });
   
-  export type FormValues = z.infer<typeof formSchema>;
+  export type FormValues = z.infer<ReturnType<typeof formSchema>>;
