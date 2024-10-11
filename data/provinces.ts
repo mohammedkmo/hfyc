@@ -2,76 +2,115 @@ export const provinces = [
     {
         id: 1,
         name: "Baghdad",
+        name_ar: "بغداد",
+        name_cn: "巴格达",
     },
     {
         id: 2,
         name: "Al-Anbar",
+        name_ar: "الأنبار",
+        name_cn: "安巴尔",
     },
     {
         id: 3,
         name: "Basrah",
+        name_ar: "البصرة",
+        name_cn: "巴士拉",
     },
     {
         id: 4,
         name: "Al-Muthanna",
+        name_ar: "المثنى",
+        name_cn: "穆萨纳",
     },
     {
         id: 5,
         name: "Al-Qadisiyah",
+        name_ar: "القادسية",
+        name_cn: "卡迪西亚",
     },
     {
         id: 6,
         name: "Sulaymaniyah",
+        name_ar: "السليمانية",
+        name_cn: "苏莱曼尼亚",
     },
     {
         id: 7,
         name: "Najaf",
+        name_ar: "النجف",
+        name_cn: "纳杰夫",
     },
     {
         id: 8,
         name: "Karbala",
+        name_ar: "كربلاء",
+        name_cn: "卡尔巴拉",
     },
     {
         id: 9,
         name: "Salah Al-Din",
+        name_ar: "صلاح الدين",
+        name_cn: "萨拉赫丁",
     },
     {
         id: 10,
         name: "Diyala",
+        name_ar: "ديالى",
+        name_cn: "迪亚拉",
     },
     {
         id: 11,
         name: "Erbil",
+        name_ar: "أربيل",
+        name_cn: "埃尔比勒",
     },
     {
         id: 12,
         name: "Kirkuk",
+        name_ar: "كركوك",
+        name_cn: "基尔库克",
     },
     {
         id: 13,
         name: "Maysan",
-    },{
+        name_ar: "ميسان",
+        name_cn: "迈桑",
+    },
+    {
         id: 14,
         name: "Wasit",
+        name_ar: "واسط",
+        name_cn: "瓦西特",
     },
     {
         id: 15,
         name: "Diyala",
+        name_ar: "ديالى",
+        name_cn: "迪亚拉",
     },
     {
         id: 16,
         name: "Babil",
+        name_ar: "بابل",
+        name_cn: "巴比伦",
     },
     {
         id: 17,
         name: "Duhok",
+        name_ar: "دهوك",
+        name_cn: "杜胡克",
     },
     {
         id: 18,
-        name: "Nineveh"
+        name: "Nineveh",
+        name_ar: "نينوى",
+        name_cn: "尼尼微",
     },
     {
         id: 19,
         name: "Halabja",
+        name_ar: "حلبجة",
+        name_cn: "哈拉卜加",
     }
 ];
