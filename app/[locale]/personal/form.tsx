@@ -345,6 +345,17 @@ export default function PersonalBadgeForm() {
             title: formTranslations('createZIPSuccess'), 
             description: formTranslations('createZIPSuccessDescription') 
         });
+
+        const notificationMessage = `New request submitted by ${data.employees[0].contractor} for ${data.employees.length} employee(s).`;
+        await fetch('/api/log', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message: notificationMessage }),
+        });
+
+
        } catch (error) {
         toast({ 
             title: formTranslations('createZIPFailed'), 
