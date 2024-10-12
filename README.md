@@ -22,8 +22,8 @@ PCH Badging Tools is a Next.js application designed to streamline the process of
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/pch-badging-tools.git
-   cd pch-badging-tools
+   git clone https://github.com/mohammedkmo/hfyc.git
+   cd hfyc
    ```
 
 2. Install dependencies:
@@ -41,6 +41,9 @@ PCH Badging Tools is a Next.js application designed to streamline the process of
    TELEGRAM_BOT_TOKEN=your_bot_token_here
    TELEGRAM_CHAT_ID=your_chat_id_here
    ```
+   the main reason for this is to send messages to a telegram chat from the application to let the badging office know that a new application has been submitted.
+
+   this tools collects no data from the user, all data is stored in the user's browser.
 
 ### Running the Application
 
