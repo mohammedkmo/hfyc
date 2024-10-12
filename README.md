@@ -1,6 +1,6 @@
 # PCH Badging Tools
 
-![PCH Badging Tools Interface](gh.jpg)
+![PCH Badging Tools Interface](https://github.com/mohammedkmo/hfyc/blob/main/public/gh.jpg)
 
 PCH Badging Tools is a Next.js application designed to streamline the process of applying for personal and vehicle badges, as well as providing tools for renaming photos according to specific formats.
 
