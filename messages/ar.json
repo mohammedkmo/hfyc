@@ -57,7 +57,10 @@
       "supportedFormatsZip": "الصيغ المدعومة: .zip",
       "importSuccess": "تم التحميل بنجاح",
       "dataImportedSuccessfully": "تم التحميل بنجاح",
+      "error": "خطأ",
+      "noValidDataFound": "لم يتم العثور على بيانات صالحة",
       "failedToProcessZipFile": "فشل تحميل الملف",
+      "pleaseUploadZipFile": "يرجى تحميل ملف ZIP",
       "createZIPSuccess": "نجح انشاء الملف",
       "createZIPSuccessDescription": "تم انشاء ملف ZIP بنجاح",
       "createZIPFailed": "فشل انشاء الملف",
@@ -78,35 +81,71 @@
       }
     }
   },
-  "vehicleBadge": {
+  "vehiclesBadge": {
     "title": "طلب باج المركبة",
+    "description": "يرجى ملء تفاصيل المركبة وتحميل المستندات المطلوبة. هذه العملية تتم بالكامل على جانب العميل، مما يضمن عدم تخزين أي بيانات على خادمنا. بمجرد الانتهاء، قم بتنزيل ملف ZIP وإرساله، مع التصريح الأمني اللازم، إلى مكتب باجات PCH على عنوان البريد الإلكتروني المقدم. شكرًا لتعاونكم.",
     "form": {
-      "plateNumber": "رقم اللوحة",
-      "vehicleType": "نوع المركبة",
-      "brand": "العلامة التجارية",
-      "model": "الطراز",
-      "color": "اللون",
-      "year": "السنة",
-      "chassisNumber": "رقم الهيكل",
-      "engineNumber": "رقم المحرك",
-      "ownerName": "اسم المالك",
-      "ownerNationality": "جنسية المالك",
-      "province": "المحافظة",
-      "registrationCard": "بطاقة التسجيل",
-      "senewiyah": "السنوية",
-      "wekala": "الوكالة (إن وجدت)",
-      "fleetNumber": "رقم الأسطول",
+      "plateNumber": "رقم المركبة",
       "make": "الصنع",
+      "model": "الطراز",
       "contractor": "المقاول",
-      "position": "المنصب",
+      "province": "المحافظة",
       "senewiyahNumber": "رقم السنوية",
+      "relatedPersons": "الأشخاص المرتبطين",
       "subcontractor": "المقاول الفرعي",
       "associatedPetroChinaContractNumber": "رقم عقد بتروتشاينا المرتبط",
       "contractHoldingPetroChinaDepartment": "قسم بتروتشاينا الحامل للعقد",
       "eaLetterNumber": "رقم خطاب EA",
       "numberInEaList": "الرقم في قائمة EA",
       "photo": "الصورة",
-      "armoredVehicleCertificate": "شهادة المركبة المدرعة"
+      "senewiyah": "السنوية",
+      "wakala": "الوكالة",
+      "armoredVehicleCertificate": "شهادة المركبة المدرعة",
+      "vehicle": "المركبة",
+      "details": "التفاصيل",
+      "allFieldsShouldBeFilledInEnglish": "جميع الحقول يجب أن تكون مملوءة باللغة الإنجليزية",
+      "addVehicle": "إضافة مركبة",
+      "selectProvince": "اختر المحافظة",
+      "uploadPhoto": "تحميل الصورة",
+      "uploadSenewiyah": "تحميل السنوية",
+      "uploadWakala": "تحميل الوكالة",
+      "uploadArmoredVehicleCertificate": "تحميل شهادة المركبة المدرعة",
+      "importZIP": "استيراد ZIP",
+      "importZIPDescription": "اذا كنت تود تعديل طلب سابق يرجى رفع ملف ZIP الذي تم تنزيله من الطلب السابق",
+      "dragDropZipFile": "قم باسقاط ملف ZIP الخاص بك هنا أو انقر للرفع",
+      "supportedFormatsZip": "الصيغ المدعومة: .zip",
+      "importSuccess": "تم التحميل بنجاح",
+      "dataImportedSuccessfully": "تم التحميل بنجاح",
+      "error": "خطأ",
+      "noValidDataFound": "لم يتم العثور على بيانات صالحة",
+      "failedToProcessZipFile": "فشل تحميل الملف",
+      "pleaseUploadZipFile": "يرجى تحميل ملف ZIP",
+      "createZIPSuccess": "نجح انشاء الملف",
+      "createZIPSuccessDescription": "تم انشاء ملف ZIP بنجاح",
+      "createZIPFailed": "فشل انشاء الملف",
+      "createZIPFailedDescription": "فشل انشاء ملف ZIP",
+      "generateZIP": "إنشاء ZIP",
+      "noHFYCNumberAddedYet": "لم يتم إضافة رقم HFYC بعد",
+      "enterHFYCNumber" : "اكتب رقم HFYC واضغط Enter (مثال: HFYC0001)",
+      "softskinArmored": "نوع المركبة",
+      "wakalaNumber": "رقم الوكالة",
+      "armored": "مركبة مدرعة",
+      "validation": {
+        "plateNumberRequired": "رقم المركبة مطلوب",
+        "makeRequired": "الصنع مطلوب",
+        "modelRequired": "الطراز مطلوب",
+        "contractorRequired": "المقاول مطلوب",
+        "provinceRequired": "المحافظة مطلوبة",
+        "senewiyahNumberRequired": "رقم السنوية مطلوب",
+        "relatedPersonsRequired": "الأشخاص المرتبطين مطلوب",
+        "associatedPetroChinaContractNumberRequired": "رقم عقد بتروتشاينا المرتبط مطلوب",
+        "contractHoldingPetroChinaDepartmentRequired": "قسم بتروتشاينا الحامل للعقد مطلوب",
+        "eaLetterNumberRequired": "رقم خطاب EA مطلوب",
+        "numberInEaListRequired": "الرقم في قائمة EA مطلوب",
+        "photoRequired": "صورة المركبة مطلوبة",
+        "senewiyahRequired": "وثيقة السنوية مطلوبة",
+        "maxFileSize": "الحد الأقصى لحجم الملف هو 10 ميجابايت"
+      }
     }
   },
   "renamePhotos": {
@@ -121,71 +160,52 @@
       "excelRequirements": "ستحتاج إلى إعداد ملف Excel يحتوي على الأعمدة التالية: الاسم الأول، اسم العائلة، ورقم HFYC. يرجى الاطلاع على المثال أدناه:",
       "downloadExcel": "حمل ملف Excel الذي يحتوي على الأعمدة المطلوبة",
       "renamePhotosNow": "إعادة تسمية الصور الخاصة بك الآن"
-    },
-    "form": {
-      "selectImages": "اختر الصور",
-      "multipleImagesHint": "يمكنك اختيار صور متعددة",
-      "excelFile": "ملف Excel",
-      "excelFileHint": "قم بتحميل ملف Excel يحتوي على أعمدة رقم HFYC والاسم الأول واسم العائلة. يرجى قراءة التعليمات التالية",
-      "here": "هنا"
-    },
-    "buttons": {
-      "generateZIP": "إنشاء ملف ZIP",
-      "downloadRenamedImages": "تنزيل صور معاد تسميتها كملف ZIP"
     }
   },
-  "buttons": {
-    "submit": "إرسال",
-    "addEmployee": "إضافة موظف",
-    "addVehicle": "إضافة مركبة",
-    "download": "تنزيل",
-    "generateZIP": "إنشاء ملف ZIP",
-    "downloadRenamedImages": "تنزيل صور معاد تسميتها كملف ZIP"
-  },
-  "validation": {
-    "required": "هذا الحقل مطلوب",
-    "minLength": "يجب أن يكون على الأقل {0} حرفًا",
-    "maxFileSize": "الحد الأقصى لحجم الملف هو 10 ميجابايت"
-  },
   "formDescriptions": {
+    "enterPlateNumber": "أدخل رقم اللوحة",
     "selectEmployeeNationality": "اختر جنسية الموظف",
-    "enterSubcontractorName": "أدخل اسم المقاول الفرعي إن وجد",
+    "enterSubcontractorName": "أدخل اسم المقاول من الباطن إن وجد",
     "enterAssociatedPetroChinaContractNumber": "أدخل رقم عقد بتروتشاينا المرتبط",
     "enterContractHoldingPetroChinaDepartment": "أدخل قسم بتروتشاينا الحامل للعقد",
     "enterEaLetterNumber": "أدخل رقم خطاب EA",
     "enterNumberInEaList": "أدخل الرقم في قائمة EA",
     "uploadEmployeePhoto": "قم بتحميل صورة الموظف",
     "uploadEmployeeIdDocument": "قم بتحميل وثيقة هوية الموظف",
-    "uploadEmployeeDrivingLicense": "قم بتحميل رخصة القيادة للموظف إذا كان الموظف سائقًا",
-    "uploadEmployeeMoiCard": "قم بتحميل بطاقة وزارة الداخلية للموظف إذا كان الموظف سائقًا ويعمل مع شركة أمنية",
+    "uploadEmployeeDrivingLicense": "قم بتحميل رخصة القيادة للموظف إذا كان سائقاً",
+    "uploadEmployeeMoiCard": "قم بتحميل بطاقة وزارة الداخلية للموظف إذا كان سائقاً ويعمل مع شركة أمنية",
     "enterHFYCNumber": "أدخل رقم HFYC (4 أرقام)",
-    "uploadSenewiyah": "قم بتحميل السنوية للمركبة",
-    "uploadWekala": "قم بتحميل الوكالة للمركبة إذا لم تكن السنوية باسم المقاول",
-    "uploadArmoredCertificate": "قم بتحميل شهادة المركبة المدرعة إذا كانت المركبة مدرعة",
-    "enterFirstName": "أدخل الاسم الأول",
-    "enterLastName": "أدخل اسم العائلة",
-    "enterBadgeNumber": "أدخل رقم الباج",
-    "enterPlateNumber": "أدخل رقم اللوحة",
-    "selectVehicleType": "اختر نوع المركبة",
-    "enterCompanyName": "أدخل اسم الشركة",
-    "enterPosition": "أدخل المنصب",
-    "enterIdDocumentNumber": "أدخل رقم وثيقة الهوية"
+    "enterFleetNumber": "أدخل رقم أسطول المركبة",
+    "enterMake": "أدخل صنع المركبة",
+    "enterModel": "أدخل طراز المركبة",
+    "enterContractor": "أدخل اسم المقاول",
+    "selectProvince": "اختر المحافظة",
+    "enterSenewiyahNumber": "أدخل رقم السنوية",
+    "enterRelatedPersons": "أدخل الأشخاص المرتبطين (رقم HFYC واضغط على Enter)",
+    "enterSubcontractor": "أدخل اسم المقاول من الباطن إن وجد",
+    "uploadVehiclePhoto": "قم بتحميل صورة المركبة",
+    "uploadSenewiyah": "قم بتحميل وثيقة السنوية",
+    "uploadWakala": "قم بتحميل وثيقة الوكالة إن وجدت",
+    "uploadArmoredVehicleCertificate": "قم بتحميل شهادة المركبة المدرعة إن وجدت",
+    "enterSoftskinArmored": "اختر نوع المركبة",
+    "enterWakalaNumber": "أدخل رقم الوكالة إن وجدت"
+    
   },
   "errors": {
     "fileUploadFailed": "فشل تحميل الملف",
     "invalidFileType": "نوع الملف غير صالح",
-    "excelParsingError": "حدث خطأ أثناء تحليل ملف Excel",
-    "zipGenerationError": "حدث خطأ أثناء إنشاء ملف ZIP"
+    "excelParsingError": "خطأ في تحليل ملف Excel",
+    "zipGenerationError": "خطأ في إنشاء ملف ZIP"
   },
   "success": {
     "formSubmitted": "تم إرسال النموذج بنجاح",
     "zipGenerated": "تم إنشاء ملف ZIP بنجاح",
-    "photosRenamed": "تمت إعادة تسمية الصور بنجاح"
+    "photosRenamed": "تم إعادة تسمية الصور بنجاح"
   },
   "confirmations": {
-    "deleteEmployee": "هل أنت متأكد أنك تريد حذف هذا الموظف؟",
-    "deleteVehicle": "هل أنت متأكد أنك تريد حذف هذه المركبة؟",
-    "generateZip": "هل أنت مستعد لإنشاء ملف ZIP؟ سيتم تضمين جميع البيانات والملفات المحملة."
+    "deleteEmployee": "هل أنت متأكد من أنك تريد حذف هذا الموظف؟",
+    "deleteVehicle": "هل أنت متأكد من أنك تريد حذف هذه المركبة؟",
+    "generateZip": "هل أنت جاهز لإنشاء ملف ZIP؟ سيتم تضمين جميع البيانات المدخلة والملفات المحملة."
   },
   "placeholders": {
     "selectNationality": "اختر الجنسية",
@@ -196,7 +216,7 @@
   "tooltips": {
     "badgeNumber": "رقم الباج الفريد للموظف",
     "eaLetterNumber": "رقم خطاب التصريح الأمني",
-    "fleetNumber": "رقم الأسطول الخاص بالمركبة (إن وجد)",
-    "chassisNumber": "رقم هيكل المركبة الفريد"
+    "fleetNumber": "رقم المركبة للمركبة (إن وجد)",
+    "chassisNumber": "رقم الهيكل الفريد للمركبة"
   }
 }

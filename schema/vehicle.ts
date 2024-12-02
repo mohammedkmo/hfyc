@@ -1,17 +1,17 @@
 import { z } from "zod";
 
 export const vehicleSchema = z.object({
-    fleetNumber: z.string().min(1, "Badge number is required"),
+    plateNumber: z.string().min(1, "Plate number is required"),
     make: z.string().min(2, "First name must be at least 2 characters"),
     model: z.string().min(2, "Last name must be at least 2 characters"),
     contractor: z.string().min(2, "Contractor must be at least 2 characters"),
-    position: z.string().min(2, "Position must be at least 2 characters"),
-    senewiyahNumber: z.string().min(1, "ID Document Number is required"),
+    senewiyahNumber: z.string().min(1, "Senewiyah Number is required"),
+    wakalaNumber: z.string().min(1, "Wakala Number is required"),
+    softskinArmored: z.string().optional(),
     province: z.string().min(2, "Province must be at least 2 characters"),
     isVehicle: z.string().optional(),
-    subcontractor: z
-      .string()
-      .min(2, "Subcontractor must be at least 2 characters").optional(),
+    relatedPersons: z.array(z.string()).optional(),
+    subcontractor: z.string().optional(),
     associatedPetroChinaContractNumber: z
       .string()
       .min(1, "Associated PetroChina Contract Number is required"),
@@ -26,7 +26,7 @@ export const vehicleSchema = z.object({
     senewiyah: z
       .instanceof(File)
       .refine((file) => file.size <= 10000000, `Max file size is 10MB.`),
-    wekala: z.instanceof(File).optional(),
+    wakala: z.instanceof(File).refine((file) => file.size <= 10000000, `Max file size is 10MB.`).optional(),
     armoredVehicleCertificate: z.instanceof(File).refine((file) => file.size <= 10000000, `Max file size is 10MB.`).optional(),
 });
 

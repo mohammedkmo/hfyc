@@ -83,12 +83,12 @@ export const provinces = [
         name_ar: "واسط",
         name_cn: "瓦西特",
     },
-    {
-        id: 15,
-        name: "Diyala",
-        name_ar: "ديالى",
-        name_cn: "迪亚拉",
-    },
+    // {
+    //     id: 15,
+    //     name: "Diyala",
+    //     name_ar: "ديالى",
+    //     name_cn: "迪亚拉",
+    // },
     {
         id: 16,
         name: "Babil",
