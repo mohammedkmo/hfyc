@@ -129,7 +129,7 @@ export default function VehiclesBadgeForm() {
                     "End Time of Effective Period": formatDate(new Date()),
                     "Enrollment Date": formatDate(new Date()),
                     "Type": "Basic Person",
-                    "Is Vehicle": "YES",
+                    "Is Vehicle": "Yes",
                     "Province": vehicle.province,
                     "Company Name": vehicle.contractor,
                     "Subcontractor Name": vehicle.subcontractor,
