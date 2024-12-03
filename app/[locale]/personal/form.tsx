@@ -352,7 +352,7 @@ export default function PersonalBadgeForm() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ message: notificationMessage }),
+          body: JSON.stringify({ requestType: 'Personal Badge', message: notificationMessage }),
         });
 
 

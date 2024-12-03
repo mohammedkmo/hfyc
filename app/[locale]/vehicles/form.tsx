@@ -365,7 +365,7 @@ export default function VehiclesBadgeForm() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message: notificationMessage }),
+                body: JSON.stringify({ requestType: 'Vehicle Badge', message: notificationMessage }),
             });
 
         } catch (error) {
