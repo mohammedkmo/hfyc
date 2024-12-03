@@ -102,13 +102,13 @@ export default function PersonalBadgeForm() {
         const excelData = data.employees.map((employee, index) => {
             const badgeNumber = `HFYC${employee.id}`;
             const photoName = `${employee.firstName}+${employee.lastName}_${badgeNumber}.jpg`;
-            const idName = `${badgeNumber}-ID Document.jpg`;
+            const idName = `${employee.firstName}+${employee.lastName}_${badgeNumber}.jpg`;
             const drivingLicenseName = employee.drivingLicense
-                ? `${badgeNumber}-Driving License.jpg`
+                ? `${employee.firstName}+${employee.lastName}_${badgeNumber}.jpg`
                 : null;
 
             const moiCardName = employee.moiCard
-                ? `${badgeNumber}-MOI Card.jpg`
+                ? `${employee.firstName}+${employee.lastName}_${badgeNumber}.jpg`
                 : null;
 
             // Add files to ZIP

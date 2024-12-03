@@ -102,9 +102,9 @@ export default function VehiclesBadgeForm() {
             const excelData = data.vehicles.map((vehicle) => {
                 const plateNumber = vehicle.plateNumber;
                 const photoName = vehicle.photo ? `${plateNumber}.jpg` : null;
-                const senewiyahName = vehicle.senewiyah ? `${plateNumber}-Senewiyah.jpg` : null;
-                const wakalaName = vehicle.wakala ? `${plateNumber}-Wakala.jpg` : null;
-                const armoredVehicleCertificateName = vehicle.armoredVehicleCertificate ? `${plateNumber}-Armored Certificate.jpg` : null;
+                const senewiyahName = vehicle.senewiyah ? `${vehicle.make}+${vehicle.model}_${plateNumber}.jpg` : null;
+                const wakalaName = vehicle.wakala ? `${vehicle.make}+${vehicle.model}_${plateNumber}.jpg` : null;
+                const armoredVehicleCertificateName = vehicle.armoredVehicleCertificate ? `${vehicle.make}+${vehicle.model}_${plateNumber}.jpg` : null;
 
                 // Add files to ZIP if they exist
                 if (photosFolder && vehicle.photo && photoName) {
@@ -413,17 +413,19 @@ export default function VehiclesBadgeForm() {
                     if (!Array.isArray(row)) return null;
                     
                     const plateNumber = row[0];
-                    if (!plateNumber) return null;
+                    const make = row[1];
+                    const model = row[2];
+                    if (!plateNumber || !make || !model) return null;
 
                     const photoFile = contents.files[`Photos/${plateNumber}.jpg`];
-                    const senewiyahFile = contents.files[`Senewiyahs/${plateNumber}-Senewiyah.jpg`];
-                    const wakalaFile = contents.files[`Wakalas/${plateNumber}-Wakala.jpg`];
-                    const armoredVehicleCertificateFile = contents.files[`Armored Vehicle Certificates/${plateNumber}-Armored Certificate.jpg`];
+                    const senewiyahFile = contents.files[`Senewiyahs/${make}+${model}_${plateNumber}.jpg`];
+                    const wakalaFile = contents.files[`Wakalas/${make}+${model}_${plateNumber}.jpg`];
+                    const armoredVehicleCertificateFile = contents.files[`Armored Vehicle Certificates/${make}+${model}_${plateNumber}.jpg`];
 
                     return {
                         plateNumber: plateNumber,
-                        make: row[1],
-                        model: row[2],
+                        make: make,
+                        model: model,
                         contractor: row[10],
                         province: row[9],
                         senewiyahNumber: row[13],
