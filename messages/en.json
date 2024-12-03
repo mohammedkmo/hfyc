@@ -197,8 +197,8 @@
     "uploadEmployeeMoiCard": "Upload the MOI card of the employee if the employee is a driver and working with a security company",
     "enterHFYCNumber": "Enter the HFYC number (4 digits)",
     "enterFleetNumber": "Enter the fleet number of the vehicle",
-    "enterMake": "Enter the make of the vehicle",
-    "enterModel": "Enter the model of the vehicle",
+    "enterMake": "Enter the make of the vehicle (e.g. Toyota)",
+    "enterModel": "Enter the model of the vehicle (e.g. Land Cruiser)",
     "enterContractor": "Enter the contractor name",
     "selectProvince": "Select the province",
     "enterSenewiyahNumber": "Enter the Senewiyah number",
@@ -211,7 +211,12 @@
     "enterPlateNumber": "Enter the plate number",
     "uploadWakala": "Upload the Wakala document if applicable",
     "enterSoftskinArmored": "Choose the vehicle type",
-    "enterWakalaNumber": "Enter the Wakala number if applicable"
+    "enterWakalaNumber": "Enter the Wakala number if applicable",
+    "enterFirstName": "Enter the first name",
+    "enterLastName": "Enter the last name",
+    "enterCompanyName": "Enter the company name",
+    "enterPosition": "Enter the position",
+    "enterIdDocumentNumber": "Enter the ID document number"
   },
   "errors": {
     "fileUploadFailed": "File upload failed",

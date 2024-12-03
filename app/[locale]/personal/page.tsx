@@ -22,7 +22,7 @@ export default function PersonalBadgePage() {
             <Image 
               src={isRTL ? '/arrow-rtl.svg' : '/arrow.svg'}
               className={`absolute top-7 hidden md:block ${isRTL ? 'left-[-12rem]' : 'right-[-11rem]'}`} 
-              alt="PCH Logo" 
+              alt="arrow" 
               width={180} 
               height={180} 
               draggable="false"

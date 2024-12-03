@@ -104,7 +104,7 @@ export default function VehiclesBadgeForm() {
                 const photoName = vehicle.photo ? `${plateNumber}.jpg` : null;
                 const senewiyahName = vehicle.senewiyah ? `${plateNumber}-Senewiyah.jpg` : null;
                 const wakalaName = vehicle.wakala ? `${plateNumber}-Wakala.jpg` : null;
-                const armoredVehicleCertificateName = vehicle.armoredVehicleCertificate ? `${plateNumber}-Armored Vehicle Certificate.jpg` : null;
+                const armoredVehicleCertificateName = vehicle.armoredVehicleCertificate ? `${plateNumber}-Armored Certificate.jpg` : null;
 
                 // Add files to ZIP if they exist
                 if (photosFolder && vehicle.photo && photoName) {
@@ -419,7 +419,7 @@ export default function VehiclesBadgeForm() {
                     const photoFile = contents.files[`Photos/${plateNumber}.jpg`];
                     const senewiyahFile = contents.files[`Senewiyahs/${plateNumber}-Senewiyah.jpg`];
                     const wakalaFile = contents.files[`Wakalas/${plateNumber}-Wakala.jpg`];
-                    const armoredVehicleCertificateFile = contents.files[`Armored Vehicle Certificates/${plateNumber}-Armored Vehicle Certificate.jpg`];
+                    const armoredVehicleCertificateFile = contents.files[`Armored Vehicle Certificates/${plateNumber}-Armored Certificate.jpg`];
 
                     return {
                         plateNumber: plateNumber,
@@ -434,6 +434,8 @@ export default function VehiclesBadgeForm() {
                         contractHoldingPetroChinaDepartment: row[15],
                         eaLetterNumber: row[17],
                         numberInEaList: row[18],
+                        softskinArmored: row[3],
+                        wakalaNumber: row[16],
                         photo: photoFile ? new File([await photoFile.async('blob')], photoFile.name, { type: 'image/jpeg' }) : undefined,
                         senewiyah: senewiyahFile ? new File([await senewiyahFile.async('blob')], senewiyahFile.name, { type: 'image/jpeg' }) : undefined,
                         wakala: wakalaFile ? new File([await wakalaFile.async('blob')], wakalaFile.name, { type: 'image/jpeg' }) : undefined,

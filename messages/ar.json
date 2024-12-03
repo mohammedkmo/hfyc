@@ -160,6 +160,18 @@
       "excelRequirements": "ستحتاج إلى إعداد ملف Excel يحتوي على الأعمدة التالية: الاسم الأول، اسم العائلة، ورقم HFYC. يرجى الاطلاع على المثال أدناه:",
       "downloadExcel": "حمل ملف Excel الذي يحتوي على الأعمدة المطلوبة",
       "renamePhotosNow": "إعادة تسمية الصور الخاصة بك الآن"
+    },
+    "form": {
+      "noHFYCNumberAddedYet": "لم يتم إضافة رقم HFYC بعد",
+      "enterHFYCNumber": "أدخل رقم HFYC واضغط على Enter (مثال: HFYC0001)",
+      "selectImages": "اختر الصور",
+      "multipleImagesHint": "يمكنك تحميل عدة ملفات صور معاً",
+      "excelFile": "ملف Excel",
+      "excelFileHint": "قم بتحميل ملف Excel يحتوي على أعمدة رقم HFYC والاسم الأول واسم العائلة. يرجى قراءة التعليمات التالية",
+      "here": "هنا"
+    },
+    "buttons":{
+      "generateZIP": "إنشاء ZIP"
     }
   },
   "formDescriptions": {
@@ -176,8 +188,8 @@
     "uploadEmployeeMoiCard": "قم بتحميل بطاقة وزارة الداخلية للموظف إذا كان سائقاً ويعمل مع شركة أمنية",
     "enterHFYCNumber": "أدخل رقم HFYC (4 أرقام)",
     "enterFleetNumber": "أدخل رقم أسطول المركبة",
-    "enterMake": "أدخل صنع المركبة",
-    "enterModel": "أدخل طراز المركبة",
+    "enterMake": "أدخل صنع المركبة (مثال: Toyota)",
+    "enterModel": "أدخل طراز المركبة (مثال: Land Cruiser)",
     "enterContractor": "أدخل اسم المقاول",
     "selectProvince": "اختر المحافظة",
     "enterSenewiyahNumber": "أدخل رقم السنوية",
@@ -188,7 +200,12 @@
     "uploadWakala": "قم بتحميل وثيقة الوكالة إن وجدت",
     "uploadArmoredVehicleCertificate": "قم بتحميل شهادة المركبة المدرعة إن وجدت",
     "enterSoftskinArmored": "اختر نوع المركبة",
-    "enterWakalaNumber": "أدخل رقم الوكالة إن وجدت"
+    "enterWakalaNumber": "أدخل رقم الوكالة إن وجدت",
+    "enterFirstName": "أدخل الاسم الأول",
+    "enterLastName": "أدخل اسم العائلة",
+    "enterCompanyName": "أدخل اسم الشركة",
+    "enterPosition": "أدخل المنصب",
+    "enterIdDocumentNumber": "أدخل رقم وثيقة الهوية"
     
   },
   "errors": {
