@@ -141,7 +141,7 @@ export default function VehiclesBadgeForm() {
                     "EA Letter Number": vehicle.eaLetterNumber,
                     "Number in EA List": vehicle.numberInEaList,
                     "Wakala Number": vehicle.wakalaNumber,
-                    "Armored / Softskin": vehicle.softskinArmored,
+                    "ArmoredSoftskin": vehicle.softskinArmored,
                 };
             });
 
@@ -243,7 +243,7 @@ export default function VehiclesBadgeForm() {
                     "Province": data.Province,
                     "Make": data["First Name"],
                     "Model": data["Last Name"],
-                    "Armored / Softskin": data["Armored / Softskin"],
+                    "Armored / Softskin": data["ArmoredSoftskin"],
                     "Senewiyah No.": data["ID Document Number"],
                     "Wakala No.": data["Wakala Number"],
                     "Issue Date": formatDate(new Date()),
@@ -348,7 +348,6 @@ export default function VehiclesBadgeForm() {
 
             // Add Excel file to ZIP
             zip.file(`${excelData[0]["Company Name"]} - ${excelData.length} vehicles register.xlsx`, registerBuffer);
-
 
 
             // Generate ZIP file and trigger download
@@ -554,7 +553,11 @@ export default function VehiclesBadgeForm() {
                                                             <FormItem>
                                                                 <FormLabel>{formTranslations('plateNumber')}</FormLabel>
                                                                 <FormControl>
-                                                                    <Input {...field} />
+                                                                    <Input {...field} onKeyDown={(e) => {
+                                                                        if (e.key === ' ') {
+                                                                            e.preventDefault();
+                                                                        }
+                                                                    }} />
                                                                 </FormControl>
                                                                 <FormDescription>
                                                                     {formDescriptions('enterPlateNumber')}
