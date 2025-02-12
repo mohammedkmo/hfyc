@@ -40,7 +40,8 @@ export default function PersonalBadgeForm() {
     const locale = useLocale();
     const isRTL = locale === 'ar';
     const formTranslations = useTranslations('personalBadge.form');
-    const formDescriptions = useTranslations('formDescriptions');
+    const formDescriptions = useTranslations('formDescriptions.personal');
+    const companyDescriptions = useTranslations('formDescriptions.company');
 
     const [activeTab, setActiveTab] = useState("employee-0");
     const [tabTitle, setTabTitle] = useState('');
@@ -142,7 +143,6 @@ export default function PersonalBadgeForm() {
                 "Subcontractor Name": employee.subcontractor,
                 "ID Document Number": employee.idDocumentNumber,
                 "Nationality": employee.nationality,
-                "System Credential Number": "",
                 "Associated PCH Contract Number":
                     employee.associatedPetroChinaContractNumber,
                 "Contract Holding PCH Department":
@@ -181,7 +181,6 @@ export default function PersonalBadgeForm() {
             "Subcontractor Name",
             "ID Document Number",
             "Nationality",
-            "System Credential Number",
             "Associated PCH Contract Number",
             "Contract Holding PCH Department",
             "Comments",
@@ -224,7 +223,6 @@ export default function PersonalBadgeForm() {
             "ID Document Number",
             "Nationality",
             "Badge Number",
-            "System Credential Number",
             "POSITION",
             "Contractor (Holding Direct PCH Contract)",
             "Subcontractor (Where Applicable)",
@@ -246,7 +244,6 @@ export default function PersonalBadgeForm() {
                 "ID Document Number": data["ID Document Number"],
                 "Nationality": data["Nationality"],
                 "Badge Number": data.ID.replace(/(\w{4})(\d{4})/, '$1-$2'),
-                "System Credential Number": "",
                 "POSITION": data["Position-"],
                 "Contractor (Holding Direct PCH Contract)": data["Company Name"],
                 "Subcontractor (Where Applicable)": data["Subcontractor Name"],

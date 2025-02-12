@@ -6,11 +6,11 @@ export const vehicleSchema = z.object({
     model: z.string().min(2, "Last name must be at least 2 characters"),
     contractor: z.string().min(2, "Contractor must be at least 2 characters"),
     senewiyahNumber: z.string().min(1, "Senewiyah Number is required"),
-    wakalaNumber: z.string().min(1, "Wakala Number is required"),
+    wakalaNumber: z.string().optional(),
     softskinArmored: z.string().optional(),
     province: z.string().min(2, "Province must be at least 2 characters"),
     isVehicle: z.string().optional(),
-    relatedPersons: z.array(z.string()).optional(),
+    relatedPersons: z.array(z.string()),
     subcontractor: z.string().optional(),
     associatedPetroChinaContractNumber: z
       .string()

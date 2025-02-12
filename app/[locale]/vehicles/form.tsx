@@ -40,7 +40,8 @@ export default function VehiclesBadgeForm() {
     const locale = useLocale();
     const isRTL = locale === 'ar';
     const formTranslations = useTranslations('vehiclesBadge.form');
-    const formDescriptions = useTranslations('formDescriptions');
+    const formDescriptions = useTranslations('formDescriptions.vehicle');
+    const companyDescriptions = useTranslations('formDescriptions.company');
 
     const [activeTab, setActiveTab] = useState("vehicle-0");
     const form = useForm<FormValues>({
