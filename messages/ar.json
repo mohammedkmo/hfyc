@@ -16,7 +16,10 @@
     "comingSoon": "قريباً",
     "comingSoonDescription": "الميزة ستصبح متاحة قريباً",
     "mobileNotSupported": "الهاتف غير مدعوم",
-    "pleaseUseComputer": "يرجى استخدام الكمبيوتر للوصول إلى هذا التطبيق."
+    "pleaseUseComputer": "يرجى استخدام الكمبيوتر للوصول إلى هذا التطبيق.",
+    "personalBadges": "باجات شخصية",
+    "vehicleBadges": "باجات المركبات",
+    "tempBadges": "باجات مؤقتة"
   },
   "header": {
     "home": "الرئيسية"
@@ -78,7 +81,11 @@
         "contractHoldingPetroChinaDepartmentRequired": "قسم بتروتشاينا الحامل للعقد مطلوب",
         "eaLetterNumberRequired": "رقم خطاب EA مطلوب",
         "numberInEaListRequired": "الرقم في قائمة EA مطلوب",
-        "maxFileSize": "الحد الأقصى لحجم الملف هو 10 ميجابايت"
+        "maxFileSize": "الحد الأقصى لحجم الملف هو 10 ميجابايت",
+        "atLeastOneEmployeeRequired": "يجب عليك إضافة على الأقل موظف واحد",
+        "photoRequired": "صورة الموظف مطلوبة",
+        "idDocumentRequired": "وثيقة هوية الموظف مطلوبة",
+        "drivingLicenseRequired": "رخصة القيادة للموظف مطلوبة إذا كان سائقاً"
       }
     }
   },

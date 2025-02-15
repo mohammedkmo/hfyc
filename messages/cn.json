@@ -16,7 +16,10 @@
     "comingSoon": "即将推出",
     "comingSoonDescription": "该功能即将推出",
     "mobileNotSupported": "不支持移动设备",
-    "pleaseUseComputer": "请使用电脑访问此应用程序"
+    "pleaseUseComputer": "请使用电脑访问此应用程序",
+    "personalBadges": "个人证件",
+    "vehicleBadges": "车辆证件", 
+    "tempBadges": "临时证件"
   },
   "header": {
     "home": "首页"
@@ -78,7 +81,12 @@
         "contractHoldingPetroChinaDepartmentRequired": "需要持有合同的中石油部门",
         "eaLetterNumberRequired": "需要 EA 信函编号",
         "numberInEaListRequired": "需要 EA 清单中的编号",
-        "maxFileSize": "文件大小最大为 10MB"
+        "maxFileSize": "文件大小最大为 10MB",
+        "atLeastOneEmployeeRequired": "至少需要一个员工",
+        "photoRequired": "需要照片",
+        "idDocumentRequired": "需要身份证件",
+        "drivingLicenseRequired": "需要驾驶证",
+        "moiCardRequired": "需要内政部卡"
       }
     }
   },

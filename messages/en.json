@@ -16,7 +16,10 @@
     "comingSoon": "Coming Soon",
     "comingSoonDescription": "This feature is coming soon",
     "mobileNotSupported": "Mobile Not Supported",
-    "pleaseUseComputer": "Please use a computer to access this application."
+    "pleaseUseComputer": "Please use a computer to access this application.",
+    "personalBadges": "Personal Badges",
+    "vehicleBadges": "Vehicles Badges",
+    "tempBadges": "Temporary Badges"
   },
   "header": {
     "home": "Home"
@@ -76,7 +79,12 @@
         "contractHoldingPetroChinaDepartmentRequired": "Contract Holding PetroChina Department is required",
         "eaLetterNumberRequired": "EA Letter Number is required",
         "numberInEaListRequired": "Number in EA List is required",
-        "maxFileSize": "Max file size is 10MB"
+        "maxFileSize": "Max file size is 10MB",
+        "atLeastOneEmployeeRequired": "At least one employee is required",
+        "photoRequired": "Photo is required",
+        "idDocumentRequired": "ID Document is required",
+        "drivingLicenseRequired": "Driving License is required",
+        "moiCardRequired": "MOI Card is required"
       }
     }
   },

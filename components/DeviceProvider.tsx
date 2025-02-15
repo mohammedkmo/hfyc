@@ -24,7 +24,9 @@ export const DeviceProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   useEffect(() => {
     const checkDevice = () => {
-      setIsMobile(window.innerWidth < 768); // Adjust this value as needed
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobileDevice = /android|webos|iphone|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+      setIsMobile(isMobileDevice);
     };
 
     checkDevice();
@@ -36,8 +38,8 @@ export const DeviceProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   if (isMobile) {
     return (
       <div className="fixed inset-0 bg-white flex items-center justify-center p-4 z-50">
-        <div className=" rounded-lg p-6 text-center max-w-md flex flex-col items-center">
-           <BanIcon className="w-10 h-10 mb-4" />
+        <div className="rounded-lg p-6 text-center max-w-md flex flex-col items-center">
+          <BanIcon className="w-10 h-10 mb-4" />
           <h2 className="text-xl font-bold mb-4">{t('mobileNotSupported')}</h2>
           <p>{t('pleaseUseComputer')}</p>
         </div>

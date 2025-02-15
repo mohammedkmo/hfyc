@@ -35,6 +35,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { cn } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
+import { motion } from "framer-motion";
 
 export default function PersonalBadgeForm() {
     const locale = useLocale();
@@ -447,8 +448,18 @@ export default function PersonalBadgeForm() {
 
     return (
 
-        <div>
-            <Card className="rounded-xl shadow-none border">
+        <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+          duration: 0.4,
+          mass: 1,
+        }}
+        >
+            <Card className="rounded-xl shadow-none border overflow-hidden">
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
                         <Tabs
@@ -457,7 +468,7 @@ export default function PersonalBadgeForm() {
                             className="w-full"
                             dir={isRTL ? 'rtl' : 'ltr'}
                         >
-                            <TabsList className="flex justify-start gap-x-2 bg-blue-50 items-center p-2 container overflow-x-scroll h-auto scroll-smooth scrollbar flex-row">
+                            <TabsList className="flex rounded-none justify-start gap-x-2 bg-blue-50 items-center p-2 container overflow-x-scroll h-auto scroll-smooth scrollbar flex-row">
                                 {fields.map((field: any, index: any) => (
                                     <TabsTrigger
                                         className={cn(buttonVariants({ variant: "outline" }), "rounded-xl bg-blue-50")}
@@ -909,6 +920,6 @@ export default function PersonalBadgeForm() {
                     </div>
                 </CollapsibleContent>
             </Collapsible>
-        </div>
+        </motion.div>
     )
 }
