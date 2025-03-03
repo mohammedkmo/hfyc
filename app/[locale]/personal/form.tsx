@@ -395,23 +395,23 @@ export default function PersonalBadgeForm() {
                 const employees = await Promise.all(dataRows.map(async (row: any, index: number) => {
                     const badgeNumber = row[0];
                     const photoFile = contents.files[`Photos/${row[1]}+${row[2]}_${badgeNumber}.jpg`];
-                    const idDocFile = contents.files[`ID Documents/${badgeNumber}-ID Document.jpg`];
-                    const drivingLicenseFile = contents.files[`Driving Licences/${badgeNumber}-Driving License.jpg`];
-                    const moiCardFile = contents.files[`MOI Cards/${badgeNumber}-MOI Card.jpg`];
+                    const idDocFile = contents.files[`ID Documents/${row[1]}+${row[2]}_${badgeNumber}.jpg`];
+                    const drivingLicenseFile = contents.files[`Driving Licences/${row[1]}+${row[2]}_${badgeNumber}.jpg`];
+                    const moiCardFile = contents.files[`MOI Cards/${row[1]}+${row[2]}_${badgeNumber}.jpg`];
 
                     return {
                         id: badgeNumber?.replace('HFYC', ''),
                         firstName: row[1],
                         lastName: row[2],
                         contractor: row[8],
-                        position: row[19],
+                        position: row[18],
                         idDocumentNumber: row[10],
                         nationality: row[11],
                         subcontractor: row[9],
-                        associatedPetroChinaContractNumber: row[13],
-                        contractHoldingPetroChinaDepartment: row[14],
-                        eaLetterNumber: row[16],
-                        numberInEaList: row[17],
+                        associatedPetroChinaContractNumber: row[12],
+                        contractHoldingPetroChinaDepartment: row[13],
+                        eaLetterNumber: row[15],
+                        numberInEaList: row[16],
                         photo: photoFile ? new File([await photoFile.async('blob')], photoFile.name, { type: 'image/jpeg' }) : null,
                         idDocument: idDocFile ? new File([await idDocFile.async('blob')], idDocFile.name, { type: 'image/jpeg' }) : null,
                         drivingLicense: drivingLicenseFile ? new File([await drivingLicenseFile.async('blob')], drivingLicenseFile.name, { type: 'image/jpeg' }) : undefined,
@@ -423,7 +423,9 @@ export default function PersonalBadgeForm() {
                     employees: employees.map(employee => ({
                         ...employee,
                         photo: employee.photo || undefined,
-                        idDocument: employee.idDocument || undefined
+                        idDocument: employee.idDocument || undefined,
+                        drivingLicense: employee.drivingLicense || undefined,
+                        moiCard: employee.moiCard || undefined
                     }))
                 });
                 toast({ 
@@ -438,9 +440,6 @@ export default function PersonalBadgeForm() {
                     variant: "destructive" 
                 });
             }
-        } else if (file && (file.name.endsWith('.xlsx') || file.name.endsWith('.xls'))) {
-            // Existing Excel file handling code
-            // ... (keep your current Excel import logic here)
         } else {
             toast({ title: "Error", description: "Please upload a ZIP file", variant: "destructive" });
         }

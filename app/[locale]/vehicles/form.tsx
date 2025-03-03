@@ -508,9 +508,22 @@ export default function VehiclesBadgeForm() {
 
         // Find the Excel file
         const excelFile = Object.values(contents.files).find((f) =>
-          f.name.endsWith(".xlsx")
+          f.name.endsWith("request.xlsx")
         );
         if (!excelFile) {
+          toast({
+            title: "Error",
+            description: "No Excel file found in the ZIP",
+            variant: "destructive",
+          });
+          return;
+        }
+
+         // Find the Excel file
+        const registerFile = Object.values(contents.files).find((f) =>
+          f.name.endsWith("register.xlsx")
+        );
+        if (!registerFile) {
           toast({
             title: "Error",
             description: "No Excel file found in the ZIP",
@@ -526,28 +539,30 @@ export default function VehiclesBadgeForm() {
         const worksheet = workbook.Sheets[firstSheetName];
         const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
+        // Read Register Excel data
+        const registerExcelData = await registerFile.async("arraybuffer");
+        const registerWorkbook = XLSX.read(registerExcelData, { type: "array" });
+        const registerFirstSheetName = registerWorkbook.SheetNames[0];
+        const registerWorksheet = registerWorkbook.Sheets[registerFirstSheetName];
+        const registerJsonData = XLSX.utils.sheet_to_json(registerWorksheet, { header: 1 });
+
         // Skip header rows
         const dataRows = jsonData.slice(10);
+        const registerDataRows = registerJsonData.slice(1);
+
+        const wakalaNumber = registerDataRows.map((row: any) => row[8]);
 
         // Map Excel data to form fields and process images
-        const vehicles = await Promise.all(
-          dataRows.map(async (row: any) => {
-            if (!Array.isArray(row)) return null;
-
+        const vehicles = await Promise.all(dataRows.map(async (row: any, index: number) => {
             const plateNumber = row[0];
             const make = row[1];
             const model = row[2];
-            if (!plateNumber || !make || !model) return null;
 
+            // Use exact paths like in personal form
             const photoFile = contents.files[`Photos/${plateNumber}.jpg`];
-            const senewiyahFile =
-              contents.files[`Senewiyahs/${make}+${model}_${plateNumber}.jpg`];
-            const wakalaFile =
-              contents.files[`Wakalas/${make}+${model}_${plateNumber}.jpg`];
-            const armoredVehicleCertificateFile =
-              contents.files[
-                `Armored Vehicle Certificates/${make}+${model}_${plateNumber}.jpg`
-              ];
+            const senewiyahFile = contents.files[`Senewiyahs/${make}+${model}_${plateNumber}.jpg`];
+            const wakalaFile = contents.files[`Wakalas/${make}+${model}_${plateNumber}.jpg`];
+            const armoredVehicleCertificateFile = contents.files[`Armored Vehicle Certificates/${make}+${model}_${plateNumber}.jpg`];
 
             return {
               plateNumber: plateNumber,
@@ -563,7 +578,7 @@ export default function VehiclesBadgeForm() {
               eaLetterNumber: row[17],
               numberInEaList: row[18],
               softskinArmored: row[3],
-              wakalaNumber: row[16],
+              wakalaNumber: wakalaNumber[index].toString(),
               photo: photoFile
                 ? new File([await photoFile.async("blob")], photoFile.name, {
                     type: "image/jpeg",
@@ -606,7 +621,13 @@ export default function VehiclesBadgeForm() {
           return;
         }
 
-        form.reset({ vehicles: validVehicles });
+        form.reset({ vehicles: validVehicles.map(vehicle => ({
+          ...vehicle,
+          photo: vehicle.photo || undefined,
+          senewiyah: vehicle.senewiyah || undefined,
+          wakala: vehicle.wakala || undefined,
+          armoredVehicleCertificate: vehicle.armoredVehicleCertificate || undefined
+        })) });
 
         toast({
           title: formTranslations("importSuccess"),
